@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /login
+Disallow: /signup
+Disallow: /orders
+Disallow: /cart
+
+Sitemap: https://intellivist.com/sitemap.xml

@@ -1,0 +1,356 @@
+<section class="strategy-roadmap refined-roadmap">
+
+  <svg class="road-svg" viewBox="0 0 1400 520">
+    <path
+      id="roadPath"
+      d="M84 400
+         C170 365 188 338 230 296
+         C270 256 315 200 372 164
+         C432 146 528 188 590 140
+         C626 112 648 82 674 74
+         C752 52 816 54 878 86
+         C938 118 980 184 1028 158
+         C1062 142 1096 140 1128 144"
+    />
+
+    <circle cx="84" cy="400" r="8" class="dot"/>
+    <circle cx="372" cy="164" r="8" class="dot"/>
+    <circle cx="674" cy="74" r="8" class="dot"/>
+    <circle cx="1128" cy="144" r="8" class="dot"/>
+  </svg>
+
+  <div class="node node-1">
+    <div class="icon-wrap blue">
+      <svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-7"/></svg>
+    </div>
+    <div class="content">
+      <span>PHASE 01</span>
+      <h3>Signal Intelligence Foundation</h3>
+      <p>Build early-warning systems across technology, demand, and competitive shifts.</p>
+    </div>
+  </div>
+
+  <div class="node node-2">
+    <div class="icon-wrap green">
+      <svg viewBox="0 0 24 24"><path d="M4 12h4l3-7 4 14 3-7h2"/></svg>
+    </div>
+    <div class="content">
+      <span>PHASE 02</span>
+      <h3>Predictive Decision Layer</h3>
+      <p>Scale scenario simulation for confident strategy choices and risk-aware planning.</p>
+    </div>
+  </div>
+
+  <div class="node node-3">
+    <div class="icon-wrap amber">
+      <svg viewBox="0 0 24 24"><path d="M5 19h14M7 16V8M12 16V5M17 16v-6"/></svg>
+    </div>
+    <div class="content">
+      <span>PHASE 03</span>
+      <h3>Execution Intelligence Loop</h3>
+      <p>Connect strategy tracking with measurable revenue and growth outcomes.</p>
+    </div>
+  </div>
+
+  <div class="enterprise-node">
+    <div class="enterprise-badge">FINAL OUTCOME</div>
+
+    <div class="enterprise-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 20V8l8-4 8 4v12"/>
+        <path d="M8 20v-7h8v7"/>
+        <path d="M9 9h.01M12 8h.01M15 9h.01"/>
+      </svg>
+    </div>
+
+    <h2>Enterprise Growth Intelligence System</h2>
+    <p>
+      A unified intelligence layer that helps leadership evaluate markets,
+      prioritize opportunities, and execute growth decisions with confidence.
+    </p>
+
+    <div class="outcome-pills">
+      <span>Market Clarity</span>
+      <span>Decision Speed</span>
+      <span>Revenue Impact</span>
+    </div>
+  </div>
+
+</section>
+
+<style>
+html, body{
+  margin:0;
+  padding:0;
+  background:transparent;
+}
+
+.refined-roadmap{
+  position:relative;
+  width:100%;
+  min-height:460px;
+  background: transparent;
+  border-radius:0;
+  overflow:hidden;
+  padding:18px 0;
+  font-family:Inter,Arial,sans-serif;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.road-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+#roadPath{
+  fill:none;
+  stroke:#12345f;
+  stroke-width:6;
+  stroke-linecap:round;
+  stroke-dasharray:13 12;
+  animation:roadMove 9s linear infinite;
+  opacity:.85;
+}
+
+@keyframes roadMove{
+  to{stroke-dashoffset:-150;}
+}
+
+.dot{
+  fill:#2563eb;
+  stroke:#fff;
+  stroke-width:4;
+}
+
+.node{
+  position:absolute;
+  display:flex;
+  gap:12px;
+  width:286px;
+  z-index:5;
+  transition:.35s ease;
+}
+
+.node:hover{
+  transform:translateY(-8px);
+}
+
+.node-1{
+  left:52px;
+  bottom:28px;
+  transform: translateX(1cm);
+}
+
+.node-1:hover{
+  transform: translateX(1cm) translateY(-8px);
+}
+
+.node-2{
+  left:340px;
+  top:124px;
+}
+
+.node-3{
+  left:626px;
+  top:30px;
+}
+
+.node .content{
+  transform: translateY(0.8cm);
+}
+
+.icon-wrap{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 18px 40px rgba(15,23,42,.14);
+  flex-shrink:0;
+  transition:.35s ease;
+}
+
+.node:hover .icon-wrap{
+  transform:scale(1.08);
+}
+
+.icon-wrap svg{
+  width:28px;
+  height:28px;
+  fill:none;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.blue{
+  border:5px solid #2563eb;
+}
+.blue svg{stroke:#2563eb;}
+
+.green{
+  border:5px solid #16a34a;
+}
+.green svg{stroke:#16a34a;}
+
+.amber{
+  border:5px solid #f59e0b;
+}
+.amber svg{stroke:#f59e0b;}
+
+.content span{
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  color:#2563eb;
+  margin-bottom:9px;
+}
+
+.content h3{
+  font-size:18px;
+  line-height:1.15;
+  color:#07162f;
+  margin:0 0 10px;
+  font-weight:750;
+  letter-spacing:-.5px;
+}
+
+.content p{
+  font-size:13px;
+  line-height:1.55;
+  color:#475569;
+  margin:0;
+}
+
+/* ENTERPRISE OUTCOME */
+
+.enterprise-node{
+  position:absolute;
+  right:44px;
+  top:112px;
+  width:260px;
+  z-index:6;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  padding:0;
+  box-shadow:none;
+  backdrop-filter:none;
+  transition:.4s ease;
+}
+
+.enterprise-node:hover{
+  transform:translateY(-8px);
+  box-shadow:none;
+}
+
+.enterprise-badge{
+  display:inline-block;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:#2563eb;
+  background:transparent;
+  border:0;
+  padding:0;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+
+.enterprise-icon{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:#fff;
+  border:5px solid #2563eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+  box-shadow:0 12px 24px rgba(15,23,42,.12);
+}
+
+.enterprise-icon svg{
+  width:28px;
+  height:28px;
+  stroke:#2563eb;
+  fill:none;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.enterprise-node h2{
+  font-size:18px;
+  line-height:1.2;
+  margin:0 0 10px;
+  color:#07162f;
+  letter-spacing:-.4px;
+}
+
+.enterprise-node p{
+  font-size:13px;
+  line-height:1.55;
+  color:#475569;
+  margin:0 0 10px;
+}
+
+.outcome-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.outcome-pills span{
+  font-size:11px;
+  font-weight:700;
+  color:#17406f;
+  background:#edf2fb;
+  border:1px solid #d6e1f2;
+  padding:6px 9px;
+  border-radius:999px;
+}
+
+@media(max-width:1100px){
+  .refined-roadmap{
+    min-height:auto;
+    padding:22px;
+  }
+
+  .road-svg{
+    display:none;
+  }
+
+  .roadmap-kicker,
+  .node,
+  .enterprise-node{
+    position:relative;
+    inset:auto;
+    left:auto;
+    right:auto;
+    top:auto;
+    bottom:auto;
+  }
+
+  .roadmap-kicker{
+    margin-bottom:28px;
+  }
+
+  .node{
+    width:100%;
+    margin-bottom:34px;
+  }
+
+  .enterprise-node{
+    width:100%;
+    margin-top:10px;
+  }
+}
+</style>

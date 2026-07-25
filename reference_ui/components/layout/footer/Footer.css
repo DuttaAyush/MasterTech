@@ -1,0 +1,164 @@
+﻿.deloitte-footer {
+  position: relative;
+  z-index: 30;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Open Sans', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.footer-main {
+  padding: 72px 76px 84px;
+}
+
+.footer-brand__link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-brand__logo {
+  width: 88px;
+  height: auto;
+  display: block;
+}
+
+.footer-title {
+  margin: 0 0 52px;
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 300;
+  color: #f2f2f2;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr auto;
+  gap: 56px;
+  align-items: start;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-top-link {
+  color: #d0d0ce;
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.footer-sub-link {
+  color: #bfbfbf;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 2;
+  font-weight: 400;
+  padding-bottom: 12px;
+  transition: color 0.2s ease;
+}
+
+.footer-top-link:hover,
+.footer-sub-link:hover,
+.footer-legal-links a:hover {
+  color: #86bc25;
+}
+
+.footer-social {
+  justify-self: end;
+  align-self: end;
+  text-align: center;
+}
+
+.footer-brand__link--social {
+  margin-bottom: 28px;
+  justify-content: center;
+}
+
+.footer-brand__logo--social {
+  width: 104px;
+}
+
+.footer-social p {
+  margin: 0 0 14px;
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-social-icons a {
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-social-icons a:hover {
+  color: #86bc25;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 42px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  top: -2cm;
+  margin-bottom: -2cm;
+}
+
+.footer-legal-links a {
+  color: #bfbfbf;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+@media (max-width: 1024px) {
+  .footer-main {
+    padding: 48px 20px 56px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .footer-social {
+    justify-self: start;
+    align-self: start;
+    text-align: left;
+  }
+
+  .footer-brand__link--social {
+    justify-content: flex-start;
+  }
+
+  .footer-legal-links {
+    top: -1cm;
+    margin-bottom: -1cm;
+  }
+
+}
+
