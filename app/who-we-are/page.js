@@ -26,7 +26,7 @@ export default function Page() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
         </div>
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 pt-32 pb-24">
+        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 pt-8 lg:pt-10 pb-16 lg:pb-20">
           <p className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
             <span className="h-px w-8 mimag-gradient" />
             Who we are

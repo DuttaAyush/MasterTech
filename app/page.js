@@ -8,6 +8,7 @@ import {
   BookOpen, Download, CheckCircle, Sparkles
 } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
+import InteractiveGlobe from '@/components/site/interactive-globe';
 
 const HERO_IMG =
   'https://images.unsplash.com/photo-1615225164633-69f53b1dfd74?crop=entropy&cs=srgb&fm=jpg&q=85';
@@ -120,7 +121,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#000000]/90 to-[#000000]/70" />
         </div>
 
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12 pt-16 lg:pt-24 pb-16 lg:pb-24">
+        <div className="mx-auto max-w-[1500px] px-6 lg:px-12 pt-16 lg:pt-14 pb-12 lg:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Executive Copy & Actions */}
             <div className="lg:col-span-7">
@@ -128,9 +129,8 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#86bc25]"
-              >
-                <span className="h-2 w-2 rounded-full bg-[#86bc25] animate-pulse" />
+className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]"              >
+                <span className="h-2 w-2 rounded-full bg-[#3b1c32] animate-pulse" />
                 Executive Technology Advisory & Architecture
               </motion.div>
 
@@ -141,7 +141,7 @@ export default function HomePage() {
                 className="mt-6 text-[36px] sm:text-[46px] lg:text-[52px] font-light leading-[1.08] tracking-[-0.02em] text-white text-balance"
               >
                 Intelligence That Shapes <br />
-                <strong className="font-semibold text-[#86bc25]">Better Enterprise Decisions.</strong>
+                <strong className="font-semibold text-[#]">Better Enterprise Decisions.</strong>
               </motion.h1>
 
               <motion.p
@@ -161,7 +161,13 @@ export default function HomePage() {
               >
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-sm bg-[#86bc25] px-6 py-3.5 text-[14px] font-semibold text-black transition-all hover:bg-[#97d031]"
+                  className="inline-flex items-center gap-2 rounded-sm px-6 py-3.5 text-[14px] font-semibold text-[#ffffff] transition-all hover:bg-[#97d031]"
+                  style={{
+                    backgroundImage: "url('/images/metallic_bg.png')",
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                  }}
                 >
                   <span>Talk to senior partners</span>
                   <ArrowUpRight className="h-4 w-4" />
@@ -171,7 +177,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 rounded-sm border border-[#333333] bg-[#141414] px-6 py-3.5 text-[14px] font-medium text-white transition-all hover:border-[#86bc25]"
                 >
                   <span>Explore capabilities</span>
-                  <ArrowRight className="h-4 w-4 text-[#86bc25]" />
+                  <ArrowRight className="h-4 w-4 text-[#A855F7]" />
                 </Link>
               </motion.div>
 
@@ -179,74 +185,85 @@ export default function HomePage() {
               <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-[#262626] pt-7">
                 <div>
                   <span className="block text-[15px] font-semibold text-white tracking-tight">Revenue-Linked</span>
-                  <span className="text-[11px] font-medium uppercase tracking-widest text-[#86bc25]">EVERY ENGAGEMENT</span>
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]">EVERY ENGAGEMENT</span>
                 </div>
                 <div className="sm:border-l sm:border-[#262626] sm:pl-6">
                   <span className="block text-[15px] font-semibold text-white tracking-tight">C-Suite Ready</span>
-                  <span className="text-[11px] font-medium uppercase tracking-widest text-[#86bc25]">DELIVERABLE STANDARD</span>
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]">DELIVERABLE STANDARD</span>
                 </div>
                 <div className="sm:border-l sm:border-[#262626] sm:pl-6">
                   <span className="block text-[15px] font-semibold text-white tracking-tight">Senior-Practitioners</span>
-                  <span className="text-[11px] font-medium uppercase tracking-widest text-[#86bc25]">OUR ONLY MODE</span>
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]">OUR ONLY MODE</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Architectural Glowing Orbital Sphere */}
-            <div className="lg:col-span-5 hidden lg:flex items-center justify-center relative min-h-[380px]">
-              <div className="relative w-80 h-80 flex items-center justify-center">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 24, ease: 'linear' }}
-                  className="absolute inset-0 rounded-full border-2 border-dashed border-[#86bc25]/30 shadow-[0_0_45px_rgba(134,188,37,0.15)]"
-                />
-                <motion.div
-                  animate={{ rotate: -360, scale: [1, 1.05, 1] }}
-                  transition={{ repeat: Infinity, duration: 18, ease: 'linear' }}
-                  className="absolute w-64 h-64 rounded-full border border-zinc-700/80 p-4 flex items-center justify-center"
-                >
-                  <div className="w-full h-full rounded-full border border-dotted border-[#86bc25]/50" />
-                </motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.04, 1], rotate: [0, 90, 0] }}
-                  transition={{ repeat: Infinity, duration: 8, ease: 'easeInOut' }}
-                  className="relative w-44 h-44 rounded-full bg-gradient-to-tr from-[#000000] via-[#141d0b] to-[#86bc25] p-[2px] shadow-2xl shadow-[#86bc25]/40"
-                >
-                  <div className="w-full h-full rounded-full bg-[#05070a] flex flex-col items-center justify-center overflow-hidden relative">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(134,188,37,0.25),transparent_70%)]" />
-                    <div className="grid grid-cols-4 gap-2 opacity-30">
-                      {[...Array(16)].map((_, idx) => (
-                        <div key={idx} className="w-1.5 h-1.5 rounded-full bg-[#86bc25]" />
-                      ))}
-                    </div>
-                    <span className="mt-3 text-[10px] font-mono tracking-[0.2em] text-[#86bc25] font-semibold uppercase relative z-10">MIMAG AI</span>
-                    <span className="text-[9px] font-mono tracking-wider text-zinc-400 relative z-10">CORE v2.6</span>
-                  </div>
-                </motion.div>
-                <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 12, ease: 'linear' }} className="absolute inset-2 z-20 pointer-events-none">
-                  <div className="w-3 h-3 rounded-full bg-[#86bc25] shadow-[0_0_12px_#86bc25] -top-1 left-1/2 -translate-x-1/2 absolute" />
-                </motion.div>
-                <motion.div animate={{ rotate: -360 }} transition={{ repeat: Infinity, duration: 16, ease: 'linear' }} className="absolute inset-10 z-20 pointer-events-none">
-                  <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_white] -bottom-1 left-1/4 absolute" />
-                </motion.div>
-              </div>
+            {/* Right Column: Interactive 3D Purple Network Globe */}
+            <div className="lg:col-span-5 flex items-center justify-center relative min-h-[460px] w-full">
+              <InteractiveGlobe />
             </div>
           </div>
         </div>
       </section>
 
-      {/* SPECIAL TEST: MIMAG LOGO GRADIENT FIRST SEPARATOR LINE */}
-      <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
+      {/* WARM CREAM THEME AUDITED OUTCOMES */}
+      <section className="bg-[#faf7f2] text-[#1c1a18] py-20 border-b border-[#e3cfb3] font-sans">
+        <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-l-4 border-[#86bc25] pl-4">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#784813]">Selected Audited Outcomes</span>
+              <h2 className="text-2xl sm:text-3xl font-light text-[#1c1a18] tracking-tight">
+                Transformation Results We Are <span className="font-semibold">Measured Against</span>
+              </h2>
+            </div>
+            <Link href="/our-work" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#5e8817] hover:underline mt-2 md:mt-0">
+              <span>View Audited Case Studies</span>
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {work.map((w, i) => (
+              <Link
+                key={i}
+                href={w.href}
+                className="hover-mimag-border group block bg-white border border-[#e4d7c5] rounded-lg p-8 shadow-sm hover:border-transparent hover:shadow-lg transition-all duration-200"
+              >
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#8e8477] block mb-3">
+                  {w.kicker}
+                </span>
+                <div className="flex items-baseline justify-between border-b border-[#f0e8dc] pb-4 mb-4">
+                  <span className="text-4xl lg:text-5xl font-black text-[#1c1a18] group-hover:text-[#5e8817] transition-colors">
+                    {w.metric}
+                  </span>
+                  <span className="text-[11px] font-bold uppercase text-right max-w-[140px] text-[#6b6257]">
+                    {w.metricLabel}
+                  </span>
+                </div>
+                <p className="text-[15.5px] font-semibold text-[#2d2924] leading-snug group-hover:text-black">
+                  {w.title}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* 2. SECOND STAGE: REDUCING GREEN GRADIENT SECTION (DOMAIN MARQUEE & FLUENCY) */}
-      <section className="relative bg-gradient-to-b from-[#0e1b07] via-[#162a0a] to-[#0e1a07] text-white py-16 lg:py-20 font-sans overflow-hidden">
+      <section className="relative  text-white py-16 lg:py-20 font-sans overflow-hidden"
+        style={{
+          backgroundImage: "url('/images/metallic_bg.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-[#86bc25]/10 blur-3xl pointer-events-none" />
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-l-4 border-[#86bc25] pl-4">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#86bc25] block mb-1">Domain Fluency & Vertical Reference Models</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#f8f7f5] block mb-1">Domain Fluency & Vertical Reference Models</span>
               <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-white">
-                Get The Full View Of <span className="font-semibold text-[#86bc25]">Industry Intelligence</span>
+                Get The Full View Of <span className="font-semibold italic text-[#86bc25]">Industry Intelligence</span>
               </h2>
             </div>
             <p className="text-[14px] text-zinc-300 max-w-sm mt-2 md:mt-0 font-light">
@@ -264,15 +281,15 @@ export default function HomePage() {
               >
                 <Image src={item.image} alt={item.title} fill sizes="20vw" className="object-cover opacity-60 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-85" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1405] via-[#0a1405]/60 to-transparent" />
-                <div className="absolute top-3 left-3 bg-[#86bc25] text-black px-2.5 py-0.5 rounded text-[9.5px] font-extrabold uppercase tracking-wider shadow">
+                <div className="absolute top-3 left-3 bg-[#faf7f2] text-black px-2.5 py-0.5 rounded text-[9.5px] font-semibold uppercase tracking-wider shadow">
                   {item.label}
                 </div>
                 <div className="absolute bottom-0 inset-x-0 p-5 flex flex-col justify-end">
                   <h3 className="text-[16px] font-medium text-white leading-snug tracking-tight group-hover:text-white transition-colors">
                     {item.title}
                   </h3>
-                  <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#aedc5b] group-hover:text-white transition-colors">
-                    Explore domain <ArrowRight className="h-3 w-3 text-[#86bc25]" />
+                  <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-[#85531b] group-hover:text-white transition-colors">
+                    Explore domain <ArrowRight className="h-3 w-3 text-[#85531b]" />
                   </span>
                 </div>
               </Link>
@@ -335,7 +352,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WARM CREAM THEME AUDITED OUTCOMES */}
+      {/* WARM CREAM THEME AUDITED OUTCOMES
       <section className="bg-[#f3ede3] text-[#1c1a18] py-20 border-b border-[#e3cfb3] font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-l-4 border-[#86bc25] pl-4">
@@ -376,7 +393,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 4. FOURTH STAGE: DEEP SAPPHIRE-BLUE ARCHITECTURE (RESEARCH & FIRM MODEL) */}
       <section className="relative bg-gradient-to-r from-[#0a162b] via-[#0e2140] to-[#0a162b] text-white py-24 border-b border-[#1c3a6b] font-sans overflow-hidden">
@@ -467,13 +484,13 @@ export default function HomePage() {
       </section>
 
       {/* 5. FINAL STAGE: TRANSITION BACK TO BLACK THEME FOR CLOSING CTA */}
-      <section className="relative bg-[#000000] text-white py-20 lg:py-28 font-sans border-t-4 border-[#86bc25]">
+      <section className="relative bg-[#faf7f2] text-white py-20 lg:py-28 font-sans border-t-4 border-[#86bc25]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 text-center max-w-3xl">
           <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-[#86bc25]">
             <span className="h-2 w-2 rounded-full bg-[#86bc25]" />
             Initiate an Advisory Dialogue
           </p>
-          <h2 className="mt-4 text-3xl md:text-5xl font-light tracking-[-0.02em] text-white text-balance">
+          <h2 className="mt-4 text-3xl md:text-5xl font-light tracking-[-0.02em] text-black text-balance">
             Bring us your <strong className="font-semibold">most complex</strong> technology challenge.
           </h2>
           <p className="mt-5 text-[16px] text-[#999999] font-light leading-relaxed max-w-xl mx-auto">

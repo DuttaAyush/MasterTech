@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <PageShell>
       <section className="dark bg-background text-foreground border-b border-border">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 pt-32 pb-24">
+        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 pt-8 lg:pt-10 pb-16 lg:pb-20">
           <p className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
             <span className="h-px w-8 mimag-gradient" />
             Insights

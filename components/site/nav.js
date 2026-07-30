@@ -260,18 +260,20 @@ export default function Nav() {
                   <Link
                     href={item.href}
                     className={`relative inline-flex items-center gap-1.5 px-3.5 py-2.5 text-[14px] font-light tracking-tight transition-colors duration-200 ${
-                      isActive || isOpen ? 'text-[#86bc25]' : 'text-[#d0d0ce] hover:text-white'
+                      isOpen
+                        ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#edd8ff] via-[#cac7ce] to-[#ead3ff]'
+                        : 'text-[#d0d0ce] hover:text-white'
                     }`}
                     aria-expanded={isOpen}
                     aria-haspopup="true"
                   >
                     <span>{item.label}</span>
-                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#86bc25]' : 'text-zinc-500'}`} />
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#efdfff]' : 'text-zinc-500'}`} />
                     
                     {/* IntelVist-style animated bottom bar */}
                     <span
                       className={`absolute left-0 right-0 bottom-0 h-[2px] transition-transform duration-300 ${
-                        isActive || isOpen ? 'bg-[#86bc25] scale-x-100' : 'bg-white scale-x-0 group-hover:scale-x-100'
+                        isOpen ? 'bg-[#A855F7] scale-x-100' : 'bg-[#6D2DBD] scale-x-0 group-hover:scale-x-100'
                       }`}
                     />
                   </Link>
@@ -284,9 +286,9 @@ export default function Nav() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[#1a1a1a] border border-[#262626] text-white text-[13.5px] font-medium tracking-tight rounded-sm transition-all duration-200 hover:bg-[#86bc25] hover:text-black hover:border-[#86bc25]"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[#1a1a1a] border border-[#262626] text-white text-[13.5px] font-medium tracking-tight rounded-sm transition-all duration-200 hover:bg-[#A855F7] hover:text-black hover:border-[#7d02f0]"
             >
-              <span>Talk to our experts</span>
+              <span>Contact Us</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
@@ -322,9 +324,16 @@ export default function Nav() {
                 {/* Left Rail (IntelVist style #1a1a1a background) */}
                 <div className="col-span-3 bg-[#1a1a1a] p-10 flex flex-col justify-between border-r border-[#262626]">
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#86bc25] block mb-2">
+                    <span className={`text-[11px] font-bold uppercase tracking-[0.2em] block mb-2 ${
+                      activeItem.label === 'Who We Are'
+                        ? 'text-white'
+                        : 'text-transparent bg-clip-text bg-gradient-to-r from-[#2A123F] via-[#6D2DBD] to-[#A855F7]'
+                    }`}>
                       {activeItem.panel.lead.title}
                     </span>
+                    {activeItem.label === 'Who We Are' && (
+                      <div className="h-[2px] w-16 rounded-full bg-gradient-to-r from-[#2A123F] via-[#6D2DBD] to-[#A855F7] mb-4" />
+                    )}
                     <h4 className="text-[17px] font-light leading-relaxed text-[#ffffff] text-pretty">
                       {activeItem.panel.lead.description}
                     </h4>
@@ -336,10 +345,10 @@ export default function Nav() {
                         <Link
                           href={c.href}
                           onClick={() => setActive(null)}
-                          className="group flex items-center justify-between py-2.5 px-3 -mx-3 rounded text-[14px] text-[#d0d0ce] font-medium hover:bg-[#262626] hover:text-white transition-all border-l-2 border-transparent hover:border-[#86bc25]"
+                          className="group flex items-center justify-between py-2.5 px-3 -mx-3 rounded text-[14px] text-[#d0d0ce] font-medium hover:bg-[#262626] hover:text-white transition-all border-l-2 border-transparent hover:border-[#bcb425]"
                         >
                           <span className="flex items-center gap-3">
-                            {c.icon && <c.icon className="h-4 w-4 text-[#86bc25]" />}
+                            {c.icon && <c.icon className="h-4 w-4 text-[#A855F7]" />}
                             {c.label}
                           </span>
                           <ChevronRight className="h-4 w-4 text-zinc-500 group-hover:text-white group-hover:translate-x-1 transition-transform" />
@@ -360,12 +369,12 @@ export default function Nav() {
                         <Link key={p.title} href={p.href} onClick={() => setActive(null)} className="group block">
                           <div className="flex items-start gap-3">
                             {p.icon && (
-                              <span className="mt-1 flex h-7 w-7 items-center justify-center rounded bg-[#1a1a1a] border border-[#262626] text-[#86bc25] group-hover:bg-[#86bc25] group-hover:text-black transition-colors">
+                              <span className="mt-1 flex h-7 w-7 items-center justify-center rounded bg-[#1a1a1a] border border-[#262626] text-[#bc5225] group-hover:bg-[#092eff] group-hover:text-black transition-colors">
                                 <p.icon className="h-4 w-4" />
                               </span>
                             )}
                             <div className="min-w-0">
-                              <h5 className="text-[14.5px] font-medium tracking-tight text-[#ffffff] group-hover:text-[#86bc25] transition-colors truncate">
+                              <h5 className="text-[14.5px] font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2A123F] via-[#6D2DBD] to-[#A855F7] transition-colors truncate">
                                 {p.title}
                               </h5>
                               <p className="mt-1 text-[12.5px] leading-relaxed text-[#999999] font-light line-clamp-2">
@@ -381,7 +390,7 @@ export default function Nav() {
                   <Link
                     href={activeItem.href}
                     onClick={() => setActive(null)}
-                    className="mt-8 inline-flex items-center gap-2 border-b border-zinc-700 pb-1 text-[13.5px] font-medium text-[#86bc25] hover:text-white hover:border-white transition-colors w-max"
+                    className="mt-8 inline-flex items-center gap-2 border-b border-zinc-700 pb-1 text-[13.5px] font-medium text-[#A855F7] hover:text-white hover:border-white transition-colors w-max"
                   >
                     <span>View all {activeItem.label.toLowerCase()} overview</span>
                     <ArrowUpRight className="h-4 w-4" />
@@ -391,13 +400,13 @@ export default function Nav() {
                 {/* Right Feature Spotlight (IntelVist Green border-left callout) */}
                 <div className="col-span-4 p-10 bg-[#000000] border-l border-[#1a1a1a] flex flex-col justify-between">
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#86bc25] block mb-4">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#A855F7] block mb-4">
                       {activeItem.panel.featured.tag}
                     </span>
                     <Link
                       href={activeItem.panel.featured.href}
                       onClick={() => setActive(null)}
-                      className="group block border-l-2 border-[#86bc25] pl-6 py-1 transition-all hover:border-white"
+                      className="group block border-l-2 border-[#A855F7] pl-6 py-1 transition-all hover:border-white"
                     >
                       <div className="relative aspect-[16/9] overflow-hidden rounded mb-5 border border-[#262626]">
                         <Image
@@ -408,10 +417,10 @@ export default function Nav() {
                           className="object-cover opacity-85 transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
-                      <h5 className="text-[20px] font-medium leading-snug tracking-tight text-white group-hover:text-[#86bc25] transition-colors text-pretty">
+                      <h5 className="text-[20px] font-medium leading-snug tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2A123F] via-[#6D2DBD] to-[#A855F7] group-hover:text-transparent transition-colors text-pretty">
                         {activeItem.panel.featured.title}
                       </h5>
-                      <span className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-semibold text-[#86bc25] group-hover:translate-x-1 transition-transform">
+                      <span className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-semibold text-[#A855F7] group-hover:translate-x-1 transition-transform">
                         <span>{activeItem.panel.featured.cta}</span>
                         <ArrowUpRight className="h-4 w-4" />
                       </span>
@@ -464,7 +473,7 @@ export default function Nav() {
                         <li key={item.label} className="py-2">
                           <button
                             onClick={() => setMobileSection(open ? null : item.label)}
-                            className="w-full flex items-center justify-between py-3 text-left text-[17px] font-medium tracking-tight text-white hover:text-[#86bc25] transition-colors"
+                            className="w-full flex items-center justify-between py-3 text-left text-[17px] font-medium tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#2A123F] via-[#6D2DBD] to-[#A855F7] transition-colors"
                           >
                             <span>{item.label}</span>
                             <ChevronDown className={`h-4 w-4 text-zinc-400 transition-transform duration-200 ${open ? 'rotate-180 text-[#86bc25]' : ''}`} />
