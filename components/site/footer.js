@@ -39,7 +39,7 @@ export default function Footer() {
     <footer className="relative bg-[#000000] text-white border-t border-[#1a1a1a] font-sans antialiased">
       <div className="mx-auto max-w-[1600px] px-6 lg:px-12 pt-20 pb-14">
         {/* IntelVist-inspired Bold Connector Header */}
-        <div className="border-b border-[#1a1a1a] pb-14 mb-14">
+        {/* <div className="border-b border-[#1a1a1a] pb-14 mb-14">
           <div className="grid gap-8 lg:grid-cols-12 items-end">
             <div className="lg:col-span-8">
               <p className="text-[12px] font-normal uppercase tracking-[0.2em] text-[#86bc25]">
@@ -59,7 +59,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Navigation Grid */}
         <div className="grid gap-12 lg:grid-cols-12">
