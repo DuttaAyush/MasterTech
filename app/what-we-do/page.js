@@ -1,74 +1,182 @@
 'use client';
 
+import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Cloud, Cpu, ShieldCheck, Workflow, Database, Layers } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, CheckCircle } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
-import SectionHeading from '@/components/site/section-heading';
+import { SERVICES } from '@/lib/services-data';
 
-const practices = [
-  { icon: Cloud, title: 'Cloud Modernization', desc: 'Cloud strategy, workload migration, landing zones, platform engineering, and FinOps discipline for AWS, Azure, and GCP.', capabilities: ['Cloud strategy & TCO', 'Migration factories', 'Platform engineering', 'FinOps & governance', 'SRE enablement'] },
-  { icon: Cpu, title: 'AI & Applied Intelligence', desc: 'From executive AI strategy to production LLM systems, retrieval pipelines, evaluation, and governance in regulated environments.', capabilities: ['AI operating model', 'LLM & agent platforms', 'RAG & data pipelines', 'MLOps & evaluation', 'AI governance & safety'] },
-  { icon: ShieldCheck, title: 'Cybersecurity', desc: 'Zero-trust architecture, identity modernization, threat detection engineering, and executive-grade cyber risk programs.', capabilities: ['Zero-trust architecture', 'IAM modernization', 'Threat detection', 'Cloud security', 'Cyber risk & board reporting'] },
-  { icon: Workflow, title: 'Digital Transformation', desc: 'Operating model design, product engineering at scale, and change execution that survives the org chart.', capabilities: ['Operating model', 'Product engineering', 'Agile at scale', 'Change management', 'Portfolio steering'] },
-  { icon: Database, title: 'Data & Analytics', desc: 'Modern data platforms, real-time analytics, semantic layers, and decision intelligence.', capabilities: ['Lakehouse architecture', 'Streaming & real-time', 'Semantic layers', 'Decision intelligence', 'Data governance'] },
-  { icon: Layers, title: 'Enterprise Architecture', desc: 'Reference architectures, API and integration strategy, and technology standards designed to scale across decades.', capabilities: ['Reference architecture', 'API strategy', 'Integration platforms', 'Technology standards', 'Tech radar & governance'] },
-];
+export default function WhatWeDoPage() {
+  const [showAll, setShowAll] = useState(false);
 
-export default function Page() {
+  // Show 4 services initially, or all 7 when expanded
+  const visibleServices = showAll ? SERVICES : SERVICES.slice(0, 4);
+
   return (
     <PageShell>
-      <section className="dark bg-background text-foreground border-b border-border">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 pt-8 lg:pt-10 pb-16 lg:pb-20">
-          <p className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="h-px w-8 mimag-gradient" />
-            What we do
-          </p>
-          <h1 className="mt-6 font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight text-foreground text-balance max-w-5xl">
-            Six practices. One accountable{' '}
-            <em className="italic">enterprise partner.</em>
-          </h1>
-          <p className="mt-10 max-w-2xl text-[17px] leading-relaxed text-muted-foreground">
-            Our capabilities are built around the systems that run modern
-            enterprises. Every practice is led by senior partners with delivery
-            scars, not slide decks.
-          </p>
+      {/* Editorial Top Hero Banner */}
+      <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
+        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=srgb&fm=jpg&q=85"
+            alt="What We Do - Mimang Technologies"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080d1a] via-[#080d1a]/40 to-transparent" />
+          
+          <div className="absolute top-8 left-6 md:left-12 z-10 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
+            <Link href="/" className="hover:underline text-white/70">Home</Link>
+            <span>&gt;</span>
+            <span className="text-[#86bc25]">What We Do</span>
+          </div>
+
+          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
+              Our <span className="font-semibold text-[#86bc25]">Capabilities & Services</span>
+            </h1>
+            <div className="mt-3 border-l-4 border-[#86bc25] pl-4 py-1">
+              <p className="text-lg md:text-2xl font-light italic text-[#cbe395] leading-relaxed">
+                &ldquo;Engineering high-consequence enterprise platforms with zero compromise and senior practitioner delivery.&rdquo;
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section>
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 py-24">
-          <div className="grid gap-px bg-border border border-border">
-            {practices.map((p, i) => (
-              <div key={p.title} className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-background p-8 lg:p-14">
-                <div className="lg:col-span-7">
-                  <div className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground mb-4">Practice 0{i + 1}</div>
-                  <div className="flex items-center gap-4">
-                    <p.icon className="h-8 w-8 text-foreground shrink-0" />
-                    <h3 className="text-4xl md:text-5xl font-medium tracking-tight text-foreground">{p.title}</h3>
-                  </div>
-                </div>
-                <div className="lg:col-span-5">
-                  <p className="text-[16px] leading-relaxed text-muted-foreground">{p.desc}</p>
-                </div>
-                <div className="lg:col-span-3">
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Capabilities</p>
-                  <ul className="mt-4 space-y-2">
-                    {p.capabilities.map((c) => (
-                      <li key={c} className="text-[13.5px] text-foreground/90 flex items-start gap-2">
-                        <span className="mt-1.5 h-1 w-1 rounded-full bg-foreground/60 shrink-0" />
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+      {/* Clean Unified Beige Content Area */}
+      <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-b border-[#e3ded4]">
+        <div className="mx-auto max-w-[1500px] px-6 lg:px-12 space-y-16">
+          
+          {/* Practice Overview Statement */}
+          <div className="bg-white border border-[#e5dccf] rounded-xl p-8 md:p-10 shadow-sm">
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#784813] block mb-2">
+              Capabilities Architecture
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-light text-[#1c1a18] tracking-tight mb-3">
+              Seven Practice Areas. <span className="font-bold">One Accountable Partner.</span>
+            </h2>
+            <p className="text-[15.5px] text-[#5c5449] font-normal leading-relaxed max-w-4xl">
+              Our practice capabilities cover the full enterprise technology stack—from board-level architectural strategy to hands-on SRE deployment, sovereign AI pipelines, and zero-trust perimeter defense.
+            </p>
           </div>
-          <div className="mt-16">
-            <Link href="/contact" className="group inline-flex items-center gap-2 rounded-sm bg-foreground px-5 py-3 text-[14px] font-medium text-background hover:-translate-y-0.5 transition-transform">
-              Discuss your program <ArrowUpRight className="h-4 w-4" />
+
+          {/* Services Grid */}
+          <div>
+            <div className="flex items-center justify-between border-b border-[#e5dccf] pb-4 mb-8">
+              <span className="text-[12px] font-extrabold text-[#784813] uppercase tracking-wider">
+                Showing {visibleServices.length} of {SERVICES.length} Practices
+              </span>
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex items-center gap-2 text-[13px] font-bold text-[#1c1a18] bg-white border border-[#e5dccf] px-4 py-2 rounded-lg hover:border-[#86bc25] hover:text-[#5e8817] transition-all shadow-sm"
+              >
+                <span>{showAll ? 'Show Featured Practices (4)' : 'View All Services (7)'}</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {visibleServices.map((service) => {
+                const IconComponent = service.icon;
+                return (
+                  <div
+                    key={service.slug}
+                    className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#784813] bg-[#f4ece1] px-3 py-1 rounded">
+                          {service.tag}
+                        </span>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25]">
+                          <IconComponent className="h-5 w-5" />
+                        </div>
+                      </div>
+
+                      <h3 className="text-[22px] font-bold text-[#1c1a18] mb-3 tracking-tight">
+                        {service.title}
+                      </h3>
+                      <p className="text-[14px] text-[#5c5449] leading-relaxed font-normal mb-6">
+                        {service.summary}
+                      </p>
+
+                      <div className="border-t border-[#f2ece2] pt-4 mb-6">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#784813] block mb-3">
+                          Core Capabilities
+                        </span>
+                        <ul className="grid sm:grid-cols-2 gap-2">
+                          {service.capabilities.slice(0, 4).map((cap, i) => (
+                            <li key={i} className="text-[12.5px] text-[#4a4338] font-medium flex items-center gap-2">
+                              <CheckCircle className="h-3.5 w-3.5 text-[#86bc25] shrink-0" />
+                              <span>{cap}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-[#f2ece2] flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        {service.metrics.slice(0, 2).map((m, idx) => (
+                          <div key={idx} className="text-left">
+                            <span className="block text-sm font-extrabold text-[#1c1a18]">{m.value}</span>
+                            <span className="text-[10px] text-[#784813] font-bold uppercase">{m.label}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <Link
+                        href={`/what-we-do/${service.slug}`}
+                        className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#1c1a18] hover:text-[#5e8817] transition-colors"
+                      >
+                        <span>Explore practice</span>
+                        <ArrowUpRight className="h-4 w-4 text-[#86bc25]" />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Bottom Expand Toggle Bar */}
+            {!showAll && (
+              <div className="mt-12 text-center">
+                <button
+                  onClick={() => setShowAll(true)}
+                  className="inline-flex items-center gap-2 bg-[#1c1a18] text-white text-[14px] font-bold px-8 py-4 rounded-lg shadow-md hover:bg-[#86bc25] hover:text-black transition-all"
+                >
+                  <span>View All 7 Capabilities</span>
+                  <ChevronDown className="h-4.5 w-4.5" />
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Consultation Intake Card */}
+          <div className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-8 md:p-10 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] block mb-1">
+                Direct Advisory Intake
+              </span>
+              <h3 className="text-2xl font-light text-[#1c1a18] tracking-tight">
+                Evaluate your architectural roadmap with <span className="font-bold">Mimang</span>
+              </h3>
+              <p className="text-[14px] text-[#6b6255] mt-1 font-normal max-w-2xl">
+                Connect directly with a senior practice partner to evaluate your cloud modernization, AI deployment, or architectural challenges under mutual NDA.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#1c1a18] text-white text-[14px] font-bold px-7 py-3.5 rounded shadow hover:bg-[#86bc25] hover:text-black transition-all shrink-0"
+            >
+              <span>Schedule a consultation</span>
+              <ArrowUpRight className="h-4.5 w-4.5" />
             </Link>
           </div>
+
         </div>
       </section>
     </PageShell>

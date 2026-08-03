@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Building2, CheckCircle, Award, ShieldCheck, Users, LineChart, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Building2, CheckCircle, Award, ShieldCheck } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
 
 const leaders = [
@@ -19,7 +19,7 @@ const milestones = [
   { metric: '100%', label: 'Senior Talent', desc: 'Every project pod is directed exclusively by senior practice partners.' },
 ];
 
-export default function OurStoryPage() {
+export default function OurStorySubPage() {
   return (
     <PageShell>
       {/* Editorial Top Hero Banner */}
@@ -71,10 +71,10 @@ export default function OurStoryPage() {
             <div className="grid lg:grid-cols-12 gap-10 items-center bg-white border border-[#e5dccf] rounded-xl p-8 md:p-12 shadow-sm">
               <div className="lg:col-span-7 space-y-5">
                 <p className="text-[16px] text-[#4a4338] font-normal leading-relaxed">
-                  Mimang Technologies was established with a singular objective: to provide Tier-1 enterprise clients with direct access to senior technology leaders who actually write production code and design resilient architectures.
+                  Mimang Technologies was established with a singular objective: to provide Tier-1 enterprise clients with direct access to senior technology leaders who write production code and design resilient architectures.
                 </p>
                 <p className="text-[15px] text-[#6b6255] leading-relaxed font-normal">
-                  We rejected the traditional consulting pyramid model—where senior partners pitch contracts and then pass execution down to inexperienced junior teams. Instead, every Mimang engagement is staffed 100% by battle-tested practitioners with decades of domain experience.
+                  We rejected the traditional consulting pyramid model—where senior partners pitch contracts and then pass execution down to inexperienced junior teams. Every Mimang engagement is staffed 100% by battle-tested practitioners with decades of domain experience.
                 </p>
 
                 <div className="pt-4 grid sm:grid-cols-2 gap-4">

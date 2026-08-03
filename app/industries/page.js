@@ -1,64 +1,184 @@
 'use client';
 
+import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Landmark, ShieldCheck, HeartPulse, Factory, Truck, Zap, ShoppingBag, Building2 } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, CheckCircle } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
-import SectionHeading from '@/components/site/section-heading';
+import { INDUSTRIES } from '@/lib/industries-data';
 
-const list = [
-  { icon: Landmark, name: 'Banking & Capital Markets', copy: 'Core banking modernization, real-time payments, regulatory-grade AI, and trading infrastructure.' },
-  { icon: ShieldCheck, name: 'Insurance', copy: 'Underwriting intelligence, claims automation, policy platforms, and reinsurance operations.' },
-  { icon: HeartPulse, name: 'Healthcare & Life Sciences', copy: 'Clinical data platforms, HIPAA-grade AI, R&D acceleration, and payer-provider integration.' },
-  { icon: Factory, name: 'Manufacturing', copy: 'Industry 4.0, connected operations, quality intelligence, and supply-chain modernization.' },
-  { icon: Truck, name: 'Logistics & Supply Chain', copy: 'Network optimization, visibility platforms, autonomous operations, and last-mile intelligence.' },
-  { icon: Zap, name: 'Energy & Utilities', copy: 'Grid modernization, asset intelligence, sustainability reporting, and trading platforms.' },
-  { icon: ShoppingBag, name: 'Retail & Consumer', copy: 'Unified commerce, personalization at scale, demand intelligence, and store operations.' },
-  { icon: Building2, name: 'Public Sector', copy: 'Citizen platforms, secure cloud, mission-critical AI, and legacy modernization at scale.' },
-];
+export default function IndustriesPage() {
+  const [showAll, setShowAll] = useState(false);
 
-export default function Page() {
+  // Show 4 industries initially, or all 7 when expanded
+  const visibleIndustries = showAll ? INDUSTRIES : INDUSTRIES.slice(0, 4);
+
   return (
     <PageShell>
-      <section className="dark bg-background text-foreground border-b border-border">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 pt-8 lg:pt-10 pb-16 lg:pb-20">
-          <p className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="h-px w-8 mimag-gradient" />
-            Industries
-          </p>
-          <h1 className="mt-6 font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight text-foreground text-balance max-w-5xl">
-            Domain fluency in the most{' '}
-            <em className="italic">regulated, complex</em> environments.
-          </h1>
-          <p className="mt-10 max-w-2xl text-[17px] leading-relaxed text-muted-foreground">
-            We operate where the stakes are highest. Our teams combine vertical
-            depth with cross-industry pattern recognition to move faster,
-            safely.
-          </p>
+      {/* Editorial Top Hero Banner */}
+      <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
+        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?crop=entropy&cs=srgb&fm=jpg&q=85"
+            alt="Industries We Serve - Mimang Technologies"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080d1a] via-[#080d1a]/40 to-transparent" />
+          
+          <div className="absolute top-8 left-6 md:left-12 z-10 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
+            <Link href="/" className="hover:underline text-white/70">Home</Link>
+            <span>&gt;</span>
+            <span className="text-[#86bc25]">Industries We Serve</span>
+          </div>
+
+          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
+              Industries <span className="font-semibold text-[#86bc25]">We Serve</span>
+            </h1>
+            <div className="mt-3 border-l-4 border-[#86bc25] pl-4 py-1">
+              <p className="text-lg md:text-2xl font-light italic text-[#cbe395] leading-relaxed">
+                &ldquo;Deep vertical domain fluency that moves at the speed of global regulators and critical infrastructure.&rdquo;
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section>
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border">
-            {list.map((i) => (
-              <div key={i.name} className="group bg-background p-10 hover:bg-secondary/30 transition-colors">
-                <div className="flex items-center gap-4">
-                  <i.icon className="h-6 w-6 text-foreground shrink-0" />
-                  <h3 className="text-3xl md:text-4xl font-medium tracking-tight text-foreground">{i.name}</h3>
-                </div>
-                <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted-foreground">{i.copy}</p>
-                <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
-                  <Link href="/our-work" className="text-[13px] text-foreground/90 inline-flex items-center gap-1.5">
-                    Selected work <ArrowUpRight className="h-3.5 w-3.5" />
-                  </Link>
-                  <Link href="/contact" className="text-[13px] text-muted-foreground hover:text-foreground">Speak with a partner</Link>
-                </div>
-              </div>
-            ))}
+      {/* Clean Unified Beige Content Area */}
+      <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-b border-[#e3ded4]">
+        <div className="mx-auto max-w-[1500px] px-6 lg:px-12 space-y-16">
+          
+          {/* Practice Overview Statement */}
+          <div className="bg-white border border-[#e5dccf] rounded-xl p-8 md:p-10 shadow-sm">
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#784813] block mb-2">
+              Domain Fluency & Expertise
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-light text-[#1c1a18] tracking-tight mb-3">
+              Sector-Specific Engineering for <span className="font-bold">Regulated & Mission-Critical Verticals</span>
+            </h2>
+            <p className="text-[15.5px] text-[#5c5449] font-normal leading-relaxed max-w-4xl">
+              We bring specialized technical solutions tailored to the strict security, compliance, and latency mandates of Tier-1 financial institutions, healthcare networks, defense contractors, logistics providers, and cloud infrastructure operators.
+            </p>
           </div>
+
+          {/* Industries Grid */}
+          <div>
+            <div className="flex items-center justify-between border-b border-[#e5dccf] pb-4 mb-8">
+              <span className="text-[12px] font-extrabold text-[#784813] uppercase tracking-wider">
+                Showing {visibleIndustries.length} of {INDUSTRIES.length} Industry Verticals
+              </span>
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex items-center gap-2 text-[13px] font-bold text-[#1c1a18] bg-white border border-[#e5dccf] px-4 py-2 rounded-lg hover:border-[#86bc25] hover:text-[#5e8817] transition-all shadow-sm"
+              >
+                <span>{showAll ? 'Show Featured Verticals (4)' : 'View All Industries (7)'}</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {visibleIndustries.map((ind) => {
+                const IconComponent = ind.icon;
+                return (
+                  <div
+                    key={ind.slug}
+                    className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#784813] bg-[#f4ece1] px-3 py-1 rounded">
+                          {ind.tag}
+                        </span>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25]">
+                          <IconComponent className="h-5 w-5" />
+                        </div>
+                      </div>
+
+                      <h3 className="text-[22px] font-bold text-[#1c1a18] mb-3 tracking-tight">
+                        {ind.title}
+                      </h3>
+                      <p className="text-[14px] text-[#5c5449] leading-relaxed font-normal mb-6">
+                        {ind.summary}
+                      </p>
+
+                      <div className="border-t border-[#f2ece2] pt-4 mb-6">
+                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#784813] block mb-3">
+                          Domain Capabilities
+                        </span>
+                        <ul className="grid sm:grid-cols-2 gap-2">
+                          {ind.capabilities.slice(0, 4).map((cap, i) => (
+                            <li key={i} className="text-[12.5px] text-[#4a4338] font-medium flex items-center gap-2">
+                              <CheckCircle className="h-3.5 w-3.5 text-[#86bc25] shrink-0" />
+                              <span>{cap}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-[#f2ece2] flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        {ind.metrics.slice(0, 2).map((m, idx) => (
+                          <div key={idx} className="text-left">
+                            <span className="block text-sm font-extrabold text-[#1c1a18]">{m.value}</span>
+                            <span className="text-[10px] text-[#784813] font-bold uppercase">{m.label}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <Link
+                        href={`/industries/${ind.slug}`}
+                        className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#1c1a18] hover:text-[#5e8817] transition-colors"
+                      >
+                        <span>Explore vertical</span>
+                        <ArrowUpRight className="h-4 w-4 text-[#86bc25]" />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Bottom Expand Toggle Bar */}
+            {!showAll && (
+              <div className="mt-12 text-center">
+                <button
+                  onClick={() => setShowAll(true)}
+                  className="inline-flex items-center gap-2 bg-[#1c1a18] text-white text-[14px] font-bold px-8 py-4 rounded-lg shadow-md hover:bg-[#86bc25] hover:text-black transition-all"
+                >
+                  <span>View All 7 Industry Verticals</span>
+                  <ChevronDown className="h-4.5 w-4.5" />
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Consultation Intake Card */}
+          <div className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-8 md:p-10 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] block mb-1">
+                Industry Practice Intake
+              </span>
+              <h3 className="text-2xl font-light text-[#1c1a18] tracking-tight">
+                Consult with our <span className="font-bold">Domain Practice Leads</span>
+              </h3>
+              <p className="text-[14px] text-[#6b6255] mt-1 font-normal max-w-2xl">
+                Connect directly with senior partners specializing in your regulatory, security, and operational domain under mutual NDA.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#1c1a18] text-white text-[14px] font-bold px-7 py-3.5 rounded shadow hover:bg-[#86bc25] hover:text-black transition-all shrink-0"
+            >
+              <span>Schedule a consultation</span>
+              <ArrowUpRight className="h-4.5 w-4.5" />
+            </Link>
+          </div>
+
         </div>
       </section>
     </PageShell>
   );
 }
-

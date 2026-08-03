@@ -35,8 +35,8 @@ export default function Page() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 py-20">
-          <div className="flex items-baseline justify-between border-b border-border pb-6">
+        <div className="bg-white mx-auto max-w-[1600px] px-6 lg:px-10 py-20">
+          <div className=" bg-white flex items-baseline justify-between border-b border-border pb-6">
             <h2 className="text-3xl font-medium tracking-tight text-foreground">Open positions</h2>
             <span className="text-[12px] uppercase tracking-[0.18em] text-muted-foreground">{roles.length} roles</span>
           </div>
