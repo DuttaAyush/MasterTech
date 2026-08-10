@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ArrowUpRight, ChevronDown, CheckCircle } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
 import { INDUSTRIES } from '@/lib/industries-data';
+import RenderIcon from '@/components/site/icon-map';
 
 export default function IndustriesPage() {
   const [showAll, setShowAll] = useState(false);
@@ -80,7 +81,6 @@ export default function IndustriesPage() {
 
             <div className="grid grid-cols-2 gap-3 sm:gap-8">
               {visibleIndustries.map((ind) => {
-                const IconComponent = ind.icon;
                 return (
                   <div
                     key={ind.slug}
@@ -92,7 +92,7 @@ export default function IndustriesPage() {
                           {ind.tag}
                         </span>
                         <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] shrink-0">
-                          <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" />
+                          <RenderIcon name={ind.icon} className="h-4 w-4 sm:h-5 sm:w-5" />
                         </div>
                       </div>
 

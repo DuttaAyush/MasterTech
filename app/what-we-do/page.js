@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ArrowUpRight, ChevronDown, CheckCircle } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
 import { SERVICES } from '@/lib/services-data';
+import RenderIcon from '@/components/site/icon-map';
 
 export default function WhatWeDoPage() {
   const [showAll, setShowAll] = useState(false);
@@ -80,45 +81,55 @@ export default function WhatWeDoPage() {
 
             <div className="grid grid-cols-2 gap-3 sm:gap-8">
               {visibleServices.map((service) => {
-                const IconComponent = service.icon;
                 return (
                   <div
                     key={service.slug}
-                    className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                    className="hover-mimag-border group flex flex-col justify-between bg-white border border-[#e5dccf] rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-3 sm:mb-4">
-                        <span className="text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#784813] bg-[#f4ece1] px-2 sm:px-3 py-0.5 sm:py-1 rounded truncate max-w-[80%]">
+                      {/* Service Stock Image Header */}
+                      <div className="relative h-[110px] sm:h-[180px] w-full overflow-hidden bg-[#1c1a18]">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          sizes="(max-width: 768px) 50vw, 50vw"
+                          className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/90 via-[#1c1a18]/40 to-transparent" />
+                        <span className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-[#faf7f2] text-black px-2 sm:px-3 py-0.5 sm:py-1 rounded text-[8px] sm:text-[10px] font-extrabold uppercase tracking-wider shadow truncate max-w-[80%]">
                           {service.tag}
                         </span>
-                        <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] shrink-0">
-                          <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" />
+                        <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 flex h-7 w-7 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#1c1a18]/90 border border-white/20 text-[#86bc25] shadow-lg shrink-0">
+                          <RenderIcon name={service.icon} className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                         </div>
                       </div>
 
-                      <h3 className="text-[14px] sm:text-[22px] font-bold text-[#1c1a18] mb-2 sm:mb-3 tracking-tight line-clamp-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-[12px] sm:text-[14px] text-[#5c5449] leading-relaxed font-normal mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">
-                        {service.summary}
-                      </p>
+                      <div className="p-3 sm:p-7">
+                        <h3 className="text-[14px] sm:text-[22px] font-bold text-[#1c1a18] mb-1.5 sm:mb-3 tracking-tight line-clamp-2 group-hover:text-[#5e8817] transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-[12px] sm:text-[14px] text-[#5c5449] leading-relaxed font-normal mb-3 sm:mb-6 line-clamp-3 sm:line-clamp-none">
+                          {service.summary}
+                        </p>
 
-                      <div className="border-t border-[#f2ece2] pt-3 sm:pt-4 mb-4 sm:mb-6 hidden sm:block">
-                        <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#784813] block mb-3">
-                          Core Capabilities
-                        </span>
-                        <ul className="grid sm:grid-cols-2 gap-2">
-                          {service.capabilities.slice(0, 4).map((cap, i) => (
-                            <li key={i} className="text-[12.5px] text-[#4a4338] font-medium flex items-center gap-2">
-                              <CheckCircle className="h-3.5 w-3.5 text-[#86bc25] shrink-0" />
-                              <span>{cap}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <div className="border-t border-[#f2ece2] pt-3 sm:pt-4 mb-3 sm:mb-6 hidden sm:block">
+                          <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#784813] block mb-3">
+                            Core Capabilities
+                          </span>
+                          <ul className="grid sm:grid-cols-2 gap-2">
+                            {service.capabilities.slice(0, 4).map((cap, i) => (
+                              <li key={i} className="text-[12.5px] text-[#4a4338] font-medium flex items-center gap-2">
+                                <CheckCircle className="h-3.5 w-3.5 text-[#86bc25] shrink-0" />
+                                <span>{cap}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
 
-                    <div className="pt-3 sm:pt-4 border-t border-[#f2ece2] flex items-center justify-between">
+                    <div className="px-3 sm:px-7 pb-3 sm:pb-6 pt-2 sm:pt-4 border-t border-[#f2ece2] flex items-center justify-between">
                       <div className="flex items-center gap-2 sm:gap-4">
                         {service.metrics.slice(0, 1).map((m, idx) => (
                           <div key={idx} className="text-left">
@@ -130,7 +141,7 @@ export default function WhatWeDoPage() {
 
                       <Link
                         href={`/what-we-do/${service.slug}`}
-                        className="inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-bold text-[#1c1a18] hover:text-[#5e8817] transition-colors shrink-0"
+                        className="inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-bold text-[#1c1a18] group-hover:text-[#5e8817] transition-colors shrink-0"
                       >
                         <span>Explore</span>
                         <ArrowUpRight className="h-3.5 w-3.5 text-[#86bc25]" />

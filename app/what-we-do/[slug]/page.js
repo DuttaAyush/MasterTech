@@ -1,35 +1,21 @@
+'use client';
+
+import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, CheckCircle } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
-import { getServiceBySlug, SERVICES } from '@/lib/services-data';
+import { getServiceBySlug } from '@/lib/services-data';
+import RenderIcon from '@/components/site/icon-map';
 
-export async function generateStaticParams() {
-  return SERVICES.map((service) => ({
-    slug: service.slug,
-  }));
-}
-
-export async function generateMetadata({ params }) {
-  const resolvedParams = await params;
-  const service = getServiceBySlug(resolvedParams.slug);
-  if (!service) return { title: 'Service Not Found | Mimang Technologies' };
-  return {
-    title: `${service.title} | Mimang Technologies`,
-    description: service.summary,
-  };
-}
-
-export default async function ServiceSubPage({ params }) {
-  const resolvedParams = await params;
+export default function ServiceSubPage({ params }) {
+  const resolvedParams = use(params);
   const service = getServiceBySlug(resolvedParams.slug);
 
   if (!service) {
     return notFound();
   }
-
-  const IconComponent = service.icon;
 
   return (
     <PageShell>
@@ -106,7 +92,7 @@ export default async function ServiceSubPage({ params }) {
               <div className="lg:col-span-5 bg-[#faf7f2] border border-[#e5dccf] rounded-xl p-6 space-y-4">
                 <div className="flex items-center gap-3 pb-4 border-b border-[#e8dfd1]">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-[#1c1a18] text-[#86bc25]">
-                    <IconComponent className="h-5 w-5" />
+                    <RenderIcon name={service.icon} className="h-5 w-5" />
                   </div>
                   <div>
                     <h4 className="text-[16px] font-bold text-[#1c1a18]">{service.shortTitle}</h4>

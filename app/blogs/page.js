@@ -6,80 +6,7 @@ import Image from 'next/image';
 import PageShell from '@/components/site/page-shell';
 import { ArrowUpRight, BookOpen, Clock, Sparkles } from 'lucide-react';
 
-const BLOGS_DATA = [
-  {
-    id: 'ai-stack-2026',
-    title: 'The Next Enterprise AI Stack: What CIOs Must Architect for in 2026',
-    slug: 'next-enterprise-ai-stack-2026',
-    category: 'Artificial Intelligence',
-    readTime: '12 min read',
-    date: 'July 18, 2026',
-    author: 'Dr. Aris Thorne, Senior Partner',
-    summary: 'Moving beyond prototype LLMs into resilient, auditable retrieval architectures and sovereign AI deployments in regulated financial banking.',
-    image: 'https://images.unsplash.com/photo-1561233835-f937539b95b9?crop=entropy&cs=srgb&fm=jpg&q=85',
-    featured: true,
-  },
-  {
-    id: 'zero-trust-regulated',
-    title: 'Zero-Trust Architecture in Regulated European Markets: A Complete Blueprint',
-    slug: 'zero-trust-blueprint-regulated-markets',
-    category: 'Cybersecurity',
-    readTime: '9 min read',
-    date: 'July 10, 2026',
-    author: 'Elena Rostova, SOC Managing Director',
-    summary: 'How to implement identity modernization and cryptographic perimeter defense across institutions managing over 100,000 corporate identities.',
-    image: 'https://images.unsplash.com/photo-1615225164633-69f53b1dfd74?crop=entropy&cs=srgb&fm=jpg&q=85',
-    featured: true,
-  },
-  {
-    id: 'platform-teams-agility',
-    title: 'Why Autonomous Platform Teams Outperform Legacy PMO Models at Scale',
-    slug: 'platform-teams-vs-pmo-at-scale',
-    category: 'Digital Strategy',
-    readTime: '7 min read',
-    date: 'June 28, 2026',
-    author: 'Marcus Vance, Transformation Fellow',
-    summary: 'Replacing layered consulting pyramids and slow waterfall oversight with accountable senior engineering pods that ship production code weekly.',
-    image: 'https://images.unsplash.com/photo-1708651949057-34781b3cbdcd?crop=entropy&cs=srgb&fm=jpg&q=85',
-    featured: true,
-  },
-  {
-    id: 'finops-cloud-discipline',
-    title: 'FinOps as a Core Architectural Discipline in Cloud Migration',
-    slug: 'finops-cloud-architecture-discipline',
-    category: 'Cloud & FinOps',
-    readTime: '10 min read',
-    date: 'June 15, 2026',
-    author: 'Samuel K. Sterling, Cloud Practice Head',
-    summary: 'Containing cloud compute inflation through automated workload elasticity and semantic container provisioning across AWS and Azure.',
-    image: 'https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?crop=entropy&cs=srgb&fm=jpg&q=85',
-    featured: false,
-  },
-  {
-    id: 'data-mesh-banking',
-    title: 'Deconstructing the Data Mesh: Real-Time Governance in Capital Markets',
-    slug: 'data-mesh-governance-capital-markets',
-    category: 'Artificial Intelligence',
-    readTime: '14 min read',
-    date: 'May 30, 2026',
-    author: 'Vatsal N., Senior Data Fabric Advisor',
-    summary: 'Bridging isolated organizational data silos without sacrificing strict GDPR compliance or ultra-low-latency high-frequency trade analytics.',
-    image: 'https://images.unsplash.com/photo-1601785491008-d1153dfadd57?crop=entropy&cs=srgb&fm=jpg&q=85',
-    featured: false,
-  },
-  {
-    id: 'quantum-readiness-encryption',
-    title: 'Post-Quantum Cryptography: Auditing Enterprise TLS and Vault Infrastructures',
-    slug: 'post-quantum-cryptography-enterprise-audit',
-    category: 'Cybersecurity',
-    readTime: '11 min read',
-    date: 'May 12, 2026',
-    author: 'Elena Rostova, SOC Managing Director',
-    summary: 'Preparing sovereign healthcare and banking infrastructures for next-generation algorithmic decoding risks long before hardware thresholds are reached.',
-    image: 'https://images.unsplash.com/photo-1618722983535-6784e0b53ea9?crop=entropy&cs=srgb&fm=jpg&q=85',
-    featured: false,
-  },
-];
+import { BLOGS_DATA } from '@/lib/blogs-data';
 
 const TABS = ['All', 'Artificial Intelligence', 'Cybersecurity', 'Cloud & FinOps', 'Digital Strategy'];
 
@@ -113,10 +40,10 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      {/* SPECIAL TEST: MIMAG LOGO GRADIENT FIRST SEPARATOR LINE */}
+      {/* MIMAG LOGO GRADIENT SEPARATOR LINE */}
       <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
 
-      {/* 2. REDUCING GREEN GRADIENT STAGE (FEATURED EDITORIALS) */}
+      {/* 2. SPOTLIGHT PERSPECTIVES */}
       <section className="bg-gradient-to-b from-[#0e1b07] via-[#15270b] to-[#0e1b07] text-white py-16 font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="border-l-4 border-[#86bc25] pl-3 mb-8 flex items-center justify-between">
@@ -129,7 +56,11 @@ export default function BlogsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredBlogs.map((b) => (
-              <div key={b.id} className="hover-mimag-border group flex flex-col bg-[#0b1506]/90 border border-[#264512] rounded-lg overflow-hidden shadow-lg hover:border-transparent transition-all duration-300">
+              <Link
+                key={b.id}
+                href={`/blogs/${b.slug}`}
+                className="hover-mimag-border group flex flex-col bg-[#0b1506]/90 border border-[#264512] rounded-lg overflow-hidden shadow-lg hover:border-transparent transition-all duration-300"
+              >
                 <div className="relative aspect-[16/9] bg-slate-900 overflow-hidden">
                   <Image src={b.image} alt={b.title} fill sizes="33vw" className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95" />
                   <div className="absolute top-3 left-3 bg-[#86bc25] text-black px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider shadow">
@@ -160,13 +91,13 @@ export default function BlogsPage() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. CURATED WARM CREAM ALABASTER THEME (FILTERABLE REPOSITORY) */}
+      {/* 3. FILTERABLE ARCHIVE */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-t border-[#e8ded1] min-h-[600px]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="mb-8">
@@ -195,10 +126,14 @@ export default function BlogsPage() {
             })}
           </div>
 
-          {/* Articles Grid with Minimalist Mimang Logo Hover Boundary */}
+          {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {filteredBlogs.map((b) => (
-              <div key={b.id} className="hover-mimag-border group flex flex-col justify-between bg-white border border-[#e8decb] rounded-lg p-7 hover:border-transparent hover:shadow-xl hover:shadow-black/5 transition-all duration-300">
+              <Link
+                key={b.id}
+                href={`/blogs/${b.slug}`}
+                className="hover-mimag-border group flex flex-col justify-between bg-white border border-[#e8decb] rounded-lg p-7 hover:border-transparent hover:shadow-xl hover:shadow-black/5 transition-all duration-300"
+              >
                 <div>
                   <div className="flex items-center justify-between mb-3.5 text-[11.5px] font-extrabold">
                     <span className="text-[#65431b] bg-[#fdfaf5] border border-[#f5ecdd] px-2.5 py-0.5 rounded uppercase tracking-wider">{b.category}</span>
@@ -207,7 +142,7 @@ export default function BlogsPage() {
                   <h4 className="text-[18px] font-bold text-[#1c1a18] leading-snug group-hover:text-[#5e8817] transition-colors mb-2.5">
                     {b.title}
                   </h4>
-                  <p className="text-[14px] text-[#5c564e] font-normal leading-relaxed mb-6">
+                  <p className="text-[14px] text-[#5c564e] font-normal leading-relaxed mb-6 line-clamp-3">
                     {b.summary}
                   </p>
                 </div>
@@ -217,7 +152,7 @@ export default function BlogsPage() {
                     Explore essay <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
