@@ -143,18 +143,18 @@ export default async function IndustrySubPage({ params }) {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
               {ind.deliverables.map((item, idx) => (
                 <div
                   key={idx}
-                  className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-7 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-5"
+                  className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-7 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row items-start gap-3 sm:gap-5"
                 >
-                  <span className="text-2xl font-extrabold text-[#784813] bg-[#f4ece1] px-3.5 py-1.5 rounded shrink-0">
+                  <span className="text-sm sm:text-2xl font-extrabold text-[#784813] bg-[#f4ece1] px-2.5 sm:px-3.5 py-0.5 sm:py-1.5 rounded shrink-0">
                     0{idx + 1}
                   </span>
                   <div>
-                    <h3 className="text-[19px] font-bold text-[#1c1a18] mb-2">{item.title}</h3>
-                    <p className="text-[14px] text-[#595248] leading-relaxed font-normal">{item.desc}</p>
+                    <h3 className="text-[14px] sm:text-[19px] font-bold text-[#1c1a18] mb-1 sm:mb-2 line-clamp-2">{item.title}</h3>
+                    <p className="text-[12px] sm:text-[14px] text-[#595248] leading-relaxed font-normal line-clamp-3 sm:line-clamp-none">{item.desc}</p>
                   </div>
                 </div>
               ))}

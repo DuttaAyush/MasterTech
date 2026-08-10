@@ -124,15 +124,15 @@ export default function OurStoryPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {milestones.map((m, idx) => (
                 <div
                   key={idx}
-                  className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  <span className="text-3xl md:text-4xl font-extrabold text-[#1c1a18] block mb-1">{m.metric}</span>
-                  <span className="text-[12px] font-extrabold uppercase tracking-wider text-[#784813] block mb-2">{m.label}</span>
-                  <p className="text-[13px] text-[#6b6255] font-normal leading-relaxed">{m.desc}</p>
+                  <span className="text-2xl sm:text-4xl font-extrabold text-[#1c1a18] block mb-1">{m.metric}</span>
+                  <span className="text-[10px] sm:text-[12px] font-extrabold uppercase tracking-wider text-[#784813] block mb-1.5 sm:mb-2 truncate">{m.label}</span>
+                  <p className="text-[11.5px] sm:text-[13px] text-[#6b6255] font-normal leading-relaxed line-clamp-3 sm:line-clamp-none">{m.desc}</p>
                 </div>
               ))}
             </div>
@@ -140,35 +140,35 @@ export default function OurStoryPage() {
 
           {/* Section C: Senior Leadership */}
           <div>
-            <div className="mb-10 border-l-4 border-[#86bc25] pl-5">
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#784813] block mb-1">
+            <div className="mb-8 sm:mb-10 border-l-4 border-[#86bc25] pl-4 sm:pl-5">
+              <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#784813] block mb-1">
                 Practitioners & Governance
               </span>
-              <h2 className="text-3xl sm:text-4xl font-light text-[#1c1a18] tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-light text-[#1c1a18] tracking-tight">
                 Senior Leadership & <span className="font-bold text-black">Practice Heads</span>
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {leaders.map((l, idx) => (
                 <div
                   key={idx}
-                  className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                  className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-[#1c1a18] text-[#86bc25] font-bold">
-                        <Building2 className="h-5 w-5" />
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                      <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded bg-[#1c1a18] text-[#86bc25] font-bold">
+                        <Building2 className="h-4 w-4 sm:h-5 sm:w-5" />
                       </div>
                       <div>
-                        <h3 className="text-[16px] font-bold text-[#1c1a18] tracking-tight">{l.name}</h3>
-                        <p className="text-[11.5px] uppercase tracking-wider text-[#784813] font-extrabold">{l.role}</p>
+                        <h3 className="text-[13.5px] sm:text-[16px] font-bold text-[#1c1a18] tracking-tight line-clamp-1">{l.name}</h3>
+                        <p className="text-[9.5px] sm:text-[11.5px] uppercase tracking-wider text-[#784813] font-extrabold line-clamp-1">{l.role}</p>
                       </div>
                     </div>
-                    <p className="text-[13.5px] text-[#595248] font-normal leading-relaxed mb-6">{l.bio}</p>
+                    <p className="text-[12px] sm:text-[13.5px] text-[#595248] font-normal leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">{l.bio}</p>
                   </div>
 
-                  <div className="pt-3 border-t border-[#f2ece2] flex items-center justify-between text-[12px] font-bold text-[#5e8817]">
+                  <div className="pt-2 sm:pt-3 border-t border-[#f2ece2] flex items-center justify-between text-[10px] sm:text-[12px] font-bold text-[#5e8817]">
                     <span>Senior Partner</span>
                     <CheckCircle className="h-3.5 w-3.5 text-[#86bc25]" />
                   </div>

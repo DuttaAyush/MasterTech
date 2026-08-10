@@ -73,37 +73,37 @@ export default function WhatWeDoPage() {
                 onClick={() => setShowAll(!showAll)}
                 className="inline-flex items-center gap-2 text-[13px] font-bold text-[#1c1a18] bg-white border border-[#e5dccf] px-4 py-2 rounded-lg hover:border-[#86bc25] hover:text-[#5e8817] transition-all shadow-sm"
               >
-                <span>{showAll ? 'Show Featured Practices (4)' : 'View All Services (7)'}</span>
+                <span>{showAll ? 'Show Featured Practices (4)' : `View All Services (${SERVICES.length})`}</span>
                 <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-8">
               {visibleServices.map((service) => {
                 const IconComponent = service.icon;
                 return (
                   <div
                     key={service.slug}
-                    className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                    className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#784813] bg-[#f4ece1] px-3 py-1 rounded">
+                      <div className="flex items-center justify-between mb-3 sm:mb-4">
+                        <span className="text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#784813] bg-[#f4ece1] px-2 sm:px-3 py-0.5 sm:py-1 rounded truncate max-w-[80%]">
                           {service.tag}
                         </span>
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25]">
-                          <IconComponent className="h-5 w-5" />
+                        <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] shrink-0">
+                          <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" />
                         </div>
                       </div>
 
-                      <h3 className="text-[22px] font-bold text-[#1c1a18] mb-3 tracking-tight">
+                      <h3 className="text-[14px] sm:text-[22px] font-bold text-[#1c1a18] mb-2 sm:mb-3 tracking-tight line-clamp-2">
                         {service.title}
                       </h3>
-                      <p className="text-[14px] text-[#5c5449] leading-relaxed font-normal mb-6">
+                      <p className="text-[12px] sm:text-[14px] text-[#5c5449] leading-relaxed font-normal mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">
                         {service.summary}
                       </p>
 
-                      <div className="border-t border-[#f2ece2] pt-4 mb-6">
+                      <div className="border-t border-[#f2ece2] pt-3 sm:pt-4 mb-4 sm:mb-6 hidden sm:block">
                         <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#784813] block mb-3">
                           Core Capabilities
                         </span>
@@ -118,22 +118,22 @@ export default function WhatWeDoPage() {
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-[#f2ece2] flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        {service.metrics.slice(0, 2).map((m, idx) => (
+                    <div className="pt-3 sm:pt-4 border-t border-[#f2ece2] flex items-center justify-between">
+                      <div className="flex items-center gap-2 sm:gap-4">
+                        {service.metrics.slice(0, 1).map((m, idx) => (
                           <div key={idx} className="text-left">
-                            <span className="block text-sm font-extrabold text-[#1c1a18]">{m.value}</span>
-                            <span className="text-[10px] text-[#784813] font-bold uppercase">{m.label}</span>
+                            <span className="block text-xs sm:text-sm font-extrabold text-[#1c1a18]">{m.value}</span>
+                            <span className="text-[9px] sm:text-[10px] text-[#784813] font-bold uppercase truncate max-w-[65px] sm:max-w-none">{m.label}</span>
                           </div>
                         ))}
                       </div>
 
                       <Link
                         href={`/what-we-do/${service.slug}`}
-                        className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#1c1a18] hover:text-[#5e8817] transition-colors"
+                        className="inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-bold text-[#1c1a18] hover:text-[#5e8817] transition-colors shrink-0"
                       >
-                        <span>Explore practice</span>
-                        <ArrowUpRight className="h-4 w-4 text-[#86bc25]" />
+                        <span>Explore</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-[#86bc25]" />
                       </Link>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ export default function WhatWeDoPage() {
                   onClick={() => setShowAll(true)}
                   className="inline-flex items-center gap-2 bg-[#1c1a18] text-white text-[14px] font-bold px-8 py-4 rounded-lg shadow-md hover:bg-[#86bc25] hover:text-black transition-all"
                 >
-                  <span>View All 7 Capabilities</span>
+                  <span>View All {SERVICES.length} Capabilities</span>
                   <ChevronDown className="h-4.5 w-4.5" />
                 </button>
               </div>
