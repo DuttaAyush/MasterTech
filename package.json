@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0 --port 3001",
-    "dev:no-reload": "next dev --hostname 0.0.0.0 --port 3001",
-    "dev:webpack": "next dev --hostname 0.0.0.0 --port 3001",
+    "dev": "next dev --hostname 0.0.0.0 --port 3010",
+    "dev:no-reload": "next dev --hostname 0.0.0.0 --port 3010",
+    "dev:webpack": "next dev --hostname 0.0.0.0 --port 3010",
     "build": "next build",
-    "start": "next start"
+    "start": "next start --port 3010"
   },
   "dependencies": {
     "@hookform/resolvers": "5.1.1",

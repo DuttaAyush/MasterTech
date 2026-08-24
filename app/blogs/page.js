@@ -4,9 +4,10 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageShell from '@/components/site/page-shell';
-import { ArrowUpRight, BookOpen, Clock, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Clock, FileText, Download, Sparkles, CheckCircle } from 'lucide-react';
 
 import { BLOGS_DATA } from '@/lib/blogs-data';
+import { REPORTS_DATA } from '@/lib/reports-data';
 
 const TABS = ['All', 'Artificial Intelligence', 'Cybersecurity', 'Cloud & FinOps', 'Digital Strategy'];
 
@@ -18,8 +19,6 @@ export default function BlogsPage() {
     return BLOGS_DATA.filter((b) => b.category === activeTab);
   }, [activeTab]);
 
-  const featuredBlogs = useMemo(() => BLOGS_DATA.filter((b) => b.featured), []);
-
   return (
     <PageShell>
       {/* 1. DARK EXECUTIVE HERO */}
@@ -28,13 +27,13 @@ export default function BlogsPage() {
           <div className="max-w-3xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#86bc25] mb-3 flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-[#86bc25]" />
-              Thought Leadership & Perspectives
+              Insights & Research
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-light tracking-[-0.02em] text-white leading-[1.12]">
               Intelligence Built for <span className="font-semibold text-[#86bc25]">Enterprise Decision-Makers.</span>
             </h1>
             <p className="mt-4 text-[16px] leading-relaxed text-[#999999] font-light">
-              Pragmatic field notes, architectural frameworks, and opinionated market briefings written directly by senior consulting directors.
+              Pragmatic field notes, architectural frameworks, whitepapers, and opinionated market briefings written directly by senior consulting directors.
             </p>
           </div>
         </div>
@@ -43,53 +42,81 @@ export default function BlogsPage() {
       {/* MIMAG LOGO GRADIENT SEPARATOR LINE */}
       <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
 
-      {/* 2. SPOTLIGHT PERSPECTIVES */}
-      <section className="bg-gradient-to-b from-[#0e1b07] via-[#15270b] to-[#0e1b07] text-white py-16 font-sans">
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
-          <div className="border-l-4 border-[#86bc25] pl-3 mb-8 flex items-center justify-between">
+      {/* 2. EXECUTIVE BLUE SECTION: MARKET RESEARCH REPORTS & WHITEPAPERS */}
+      <section className="bg-gradient-to-b from-[#07152b] via-[#0c2247] to-[#07152b] text-white py-16 font-sans border-b border-[#1c3969] relative overflow-hidden">
+        {/* Subtle decorative background blur */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#3b82f6]/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="mx-auto max-w-[1500px] px-6 lg:px-12 relative z-10">
+          <div className="border-l-4 border-[#86bc25] pl-4 mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#86bc25] block">Spotlight Perspectives</span>
-              <h2 className="text-2xl font-light tracking-tight text-white">Featured <span className="font-semibold text-[#86bc25]">Editorials</span></h2>
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#63a3ff] flex items-center gap-2 mb-1">
+                <FileText className="h-3.5 w-3.5 text-[#86bc25]" /> MIMAG Institute Research
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-white">
+                Market Research Reports & <span className="font-semibold text-[#86bc25]">Whitepapers</span>
+              </h2>
             </div>
-            <span className="text-[12.5px] text-zinc-300 hidden sm:block font-light">Partner field notes updated weekly</span>
+            <Link
+              href="/reports"
+              className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#86bc25] hover:text-white transition-colors"
+            >
+              <span>Explore Full Research Library</span>
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredBlogs.map((b) => (
+          {/* 3 SAMPLE MARKET RESEARCH REPORTS GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {REPORTS_DATA.slice(0, 3).map((report) => (
               <Link
-                key={b.id}
-                href={`/blogs/${b.slug}`}
-                className="hover-mimag-border group flex flex-col bg-[#0b1506]/90 border border-[#264512] rounded-lg overflow-hidden shadow-lg hover:border-transparent transition-all duration-300"
+                key={report.id}
+                href={`/reports/${report.slug}`}
+                className="hover-mimag-border group flex flex-col justify-between bg-[#0b1b38]/90 border border-[#1e3c70] rounded-xl overflow-hidden shadow-xl hover:border-transparent hover:bg-[#0f244a] transition-all duration-300"
               >
-                <div className="relative aspect-[16/9] bg-slate-900 overflow-hidden">
-                  <Image src={b.image} alt={b.title} fill sizes="33vw" className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95" />
-                  <div className="absolute top-3 left-3 bg-[#86bc25] text-black px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider shadow">
-                    {b.category}
+                <div>
+                  {/* Image header with subsector badge */}
+                  <div className="relative aspect-[16/9] bg-slate-900 overflow-hidden">
+                    <Image
+                      src={report.image}
+                      alt={report.title}
+                      fill
+                      sizes="33vw"
+                      className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-95"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#86bc25] text-black px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider shadow">
+                      {report.subsector}
+                    </div>
+                    <div className="absolute bottom-3 right-3 bg-[#07152b]/90 text-white border border-[#1e3c70] px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider">
+                      {report.pages}
+                    </div>
+                  </div>
+
+                  {/* Report Card Body */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-[11.5px] text-[#90b8f0] font-semibold mb-2.5">
+                      <span>{report.category}</span>
+                      <span>•</span>
+                      <span className="text-[#86bc25]">{report.fileSize}</span>
+                    </div>
+
+                    <h3 className="text-[18px] font-semibold text-white leading-snug group-hover:text-[#86bc25] transition-colors mb-3">
+                      {report.title}
+                    </h3>
+
+                    <p className="text-[13.5px] text-[#b3cbee] font-light leading-relaxed mb-4 line-clamp-3">
+                      {report.summary}
+                    </p>
                   </div>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3 text-[11.5px] text-[#a0c283] font-medium mb-3">
-                      <span className="flex items-center gap-1"><Clock className="h-3 w-3 text-[#86bc25]" /> {b.readTime}</span>
-                      <span>•</span>
-                      <span>{b.date}</span>
-                    </div>
-                    <h3 className="text-[18px] font-semibold text-white leading-snug group-hover:text-[#86bc25] transition-colors mb-3">
-                      {b.title}
-                    </h3>
-                    <p className="text-[13.5px] text-zinc-300 font-light leading-relaxed mb-4 line-clamp-2">
-                      {b.summary}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#233b12] flex items-center justify-between text-[12px]">
-                    <span className="text-zinc-400 font-medium truncate max-w-[180px]">{b.author}</span>
-                    <span className="inline-flex items-center gap-1 font-bold text-white group-hover:text-[#86bc25]">
-                      <span>Read article</span>
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
+                {/* Footer bar */}
+                <div className="p-6 pt-0 border-t border-[#1a3461] mt-auto flex items-center justify-between text-[12px] pt-4">
+                  <span className="text-zinc-400 font-medium truncate max-w-[170px]">{report.author}</span>
+                  <span className="inline-flex items-center gap-1 font-bold text-[#86bc25] group-hover:text-white transition-colors">
+                    <span>Read Report</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </span>
                 </div>
               </Link>
             ))}
@@ -97,7 +124,7 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      {/* 3. FILTERABLE ARCHIVE */}
+      {/* 3. FILTERABLE ARCHIVE (BLOGS GRID - KEPT EXACTLY AS IT IS) */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-t border-[#e8ded1] min-h-[600px]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="mb-8">
@@ -148,33 +175,13 @@ export default function BlogsPage() {
                 </div>
                 <div className="pt-4 border-t border-[#f2ebe0] flex items-center justify-between text-[12px]">
                   <span className="text-[#8c8275] font-semibold">{b.date}</span>
-                  <span className="inline-flex items-center gap-1 font-extrabold text-[#1c1a18] group-hover:text-[#5e8817]">
-                    Explore essay <ArrowUpRight className="h-3.5 w-3.5" />
+                  <span className="inline-flex items-center gap-1 font-bold text-[#1c1a18] group-hover:text-[#5e8817]">
+                    Read article <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 4. SAPPHIRE BLUE ADVISORY DIALOGUE & BLACK FOOTER CTA TRANSITION */}
-      <section className="bg-gradient-to-r from-[#0a162b] via-[#0e2140] to-[#0a162b] text-white py-16 border-t border-[#1e3c70] font-sans">
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#63a3ff] flex items-center gap-1.5 mb-1">
-              <Sparkles className="h-3.5 w-3.5 text-[#86bc25]" /> Bespoke Advisory
-            </span>
-            <h4 className="text-2xl font-light text-white tracking-tight">Looking for customized transformation methodologies?</h4>
-            <p className="text-[14.5px] text-[#c4d7ec] font-light mt-1">Our practice partners publish custom architectural briefs for active engineering pods.</p>
-          </div>
-          <Link
-            href="/contact"
-            className="rounded bg-[#86bc25] px-7 py-4 text-[14px] font-semibold text-black hover:bg-[#97d031] transition-all shrink-0 shadow-lg shadow-[#86bc25]/20 inline-flex items-center gap-1.5"
-          >
-            <span>Request Diagnostic Briefing</span>
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
         </div>
       </section>
     </PageShell>
