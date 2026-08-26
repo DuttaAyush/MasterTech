@@ -11,7 +11,7 @@ const testimonials = [
     name: 'Dr. Marcus Vance',
     role: 'Chief Technology Officer',
     company: 'Apex Capital Markets',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=srgb&fm=jpg&q=85',
+    avatar: '/images/optimized/avatar_1.webp',
     metric: '€1.9B Saved',
     metricDesc: 'annual infrastructure run-cost',
     quote:
@@ -24,7 +24,7 @@ const testimonials = [
     name: 'Elena Rostova',
     role: 'SVP of Infrastructure & Security',
     company: 'Horizon Health Systems',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=srgb&fm=jpg&q=85',
+    avatar: '/images/optimized/avatar_2.webp',
     metric: '11.4M Records',
     metricDesc: 'patient data fabric unified',
     quote:
@@ -37,7 +37,7 @@ const testimonials = [
     name: 'Julian Sterling',
     role: 'Chief Information Officer',
     company: 'Aegis Defense & Aerospace',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=srgb&fm=jpg&q=85',
+    avatar: '/images/optimized/avatar_3.webp',
     metric: '38% Acceleration',
     metricDesc: 'faster claims resolution throughput',
     quote:
@@ -50,7 +50,7 @@ const testimonials = [
     name: 'Sarah Lin',
     role: 'Global VP of Grid Technology',
     company: 'Vanguard Power & Energy',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&q=85',
+    avatar: '/images/optimized/avatar_4.webp',
     metric: '99.999% SLA',
     metricDesc: 'zero-downtime grid migration',
     quote:

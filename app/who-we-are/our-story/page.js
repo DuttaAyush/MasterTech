@@ -26,7 +26,7 @@ export default function OurStorySubPage() {
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
         <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1601785491008-d1153dfadd57?crop=entropy&cs=srgb&fm=jpg&q=85"
+            src="/images/optimized/energy_grid.webp"
             alt="Our Story - Mimang Technologies"
             fill
             priority
@@ -97,7 +97,7 @@ export default function OurStorySubPage() {
 
               <div className="lg:col-span-5 relative h-[300px] md:h-[360px] rounded-xl overflow-hidden bg-[#1c1a18]">
                 <Image
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=srgb&fm=jpg&q=85"
+                  src="/images/optimized/digital_transformation.webp"
                   alt="Mimang Founders"
                   fill
                   className="object-cover opacity-85"

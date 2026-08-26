@@ -35,7 +35,7 @@ export default function MissionAndValuesPage() {
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
         <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=srgb&fm=jpg&q=85"
+            src="/images/optimized/digital_transformation.webp"
             alt="Mission and Values"
             fill
             priority

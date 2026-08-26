@@ -44,7 +44,7 @@ export default function AboutMimangPage() {
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
         <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=srgb&fm=jpg&q=85"
+            src="/images/optimized/digital_transformation.webp"
             alt="About Mimang Technologies"
             fill
             priority

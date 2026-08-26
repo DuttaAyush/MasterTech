@@ -12,11 +12,11 @@ import Logo from './logo';
 import RenderIcon from './icon-map';
 
 const SKY_IMG =
-  'https://images.unsplash.com/photo-1708651949057-34781b3cbdcd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBza3lzY3JhcGVyfGVufDB8fHxibGFja3wxNzgzMTY0MTAyfDA&ixlib=rb-4.1.0&q=85';
+  '/images/optimized/healthcare_interop.webp';
 const DC_IMG =
-  'https://images.unsplash.com/photo-1561233835-f937539b95b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwzfHxkYXRhJTIwY2VudGVyfGVufDB8fHxibGFja3wxNzgzMTY0MTAxfDA&ixlib=rb-4.1.0&q=85';
+  '/images/optimized/bfsi_banking.webp';
 const ARCH_IMG =
-  'https://images.unsplash.com/photo-1601785491008-d1153dfadd57?crop=entropy&cs=srgb&fm=jpg&ixid=M3w8NjA0MTJ8MHwxfHNlYXJjaHwyfHxlbnRlcnByaXNlJTIwYXJjaGl0ZWN0dXJlfGVufDB8fHxibGFja3wxNzgzMTY0MTAyfDA&ixlib=rb-4.1.0&q=85';
+  '/images/optimized/energy_grid.webp';
 
 const NAV = [
   {

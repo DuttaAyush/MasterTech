@@ -20,7 +20,7 @@ export default function IndustriesPage() {
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
         <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?crop=entropy&cs=srgb&fm=jpg&q=85"
+            src="/images/optimized/bfsi_vertical.webp"
             alt="Industries We Serve - Mimang Technologies"
             fill
             priority

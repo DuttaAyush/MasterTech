@@ -30,7 +30,7 @@ export default function OurVisionPage() {
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
         <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=srgb&fm=jpg&q=85"
+            src="/images/optimized/cloud_modernization.webp"
             alt="Our Vision"
             fill
             priority
@@ -92,7 +92,7 @@ export default function OurVisionPage() {
 
             <div className="lg:col-span-5 relative h-[300px] md:h-[360px] rounded-xl overflow-hidden bg-[#1c1a18]">
               <Image
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=srgb&fm=jpg&q=85"
+                src="/images/optimized/cloud_autonomous.webp"
                 alt="Mimang Vision"
                 fill
                 className="object-cover opacity-80"

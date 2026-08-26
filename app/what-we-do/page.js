@@ -20,7 +20,7 @@ export default function WhatWeDoPage() {
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
         <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=srgb&fm=jpg&q=85"
+            src="/images/optimized/cloud_modernization.webp"
             alt="What We Do - Mimang Technologies"
             fill
             priority
