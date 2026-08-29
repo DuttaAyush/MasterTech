@@ -15,7 +15,7 @@ const testimonials = [
     metric: '€1.9B Saved',
     metricDesc: 'annual infrastructure run-cost',
     quote:
-      'Mimang Technologies transformed our legacy core banking architecture across 14 European markets. Their senior partner-only model delivered auditable results where legacy consultancies failed.',
+      'MIMAG Technologies transformed our legacy core banking architecture across 14 European markets. Their senior partner-only model delivered auditable results where legacy consultancies failed.',
     rating: 5,
     sector: 'Banking & Financial Tech',
   },
@@ -28,7 +28,7 @@ const testimonials = [
     metric: '11.4M Records',
     metricDesc: 'patient data fabric unified',
     quote:
-      'The clinical patient data fabric built by Mimang unified millions of hospital records with zero-trust security. Their deep engineering fluency saved us over 18 months of development time.',
+      'The clinical patient data fabric built by MIMAG unified millions of hospital records with zero-trust security. Their deep engineering fluency saved us over 18 months of development time.',
     rating: 5,
     sector: 'Healthcare & Clinical Data',
   },
@@ -41,7 +41,7 @@ const testimonials = [
     metric: '38% Acceleration',
     metricDesc: 'faster claims resolution throughput',
     quote:
-      'Deploying sovereign LLM retrieval architectures in highly regulated perimeters required extreme rigor. Mimang was the only partner capable of delivering zero-latency compliance.',
+      'Deploying sovereign LLM retrieval architectures in highly regulated perimeters required extreme rigor. MIMAG was the only partner capable of delivering zero-latency compliance.',
     rating: 5,
     sector: 'Cybersecurity & Defense',
   },

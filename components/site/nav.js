@@ -24,26 +24,26 @@ const NAV = [
     href: '/who-we-are',
     panel: {
       lead: {
-        title: 'Our Story',
+        title: 'Who We Are',
         description:
           'An independent enterprise technology consultancy built on senior practitioners, outcome accountability, and architectural craft.',
       },
       categories: [
-        { label: 'About Mimang', href: '/who-we-are/about-mimang', icon: 'Building2' },
+        { label: 'About MIMAG', href: '/who-we-are/about-mimag', icon: 'Building2' },
         { label: 'Mission & Values', href: '/who-we-are/mission-and-values', icon: 'ShieldCheck' },
         { label: 'Our Vision', href: '/who-we-are/our-vision', icon: 'Layers' },
-        { label: 'Our Story', href: '/who-we-are', icon: 'Building2' },
+        { label: 'Who We Are', href: '/who-we-are', icon: 'Building2' },
       ],
       pages: [
-        { title: 'About Mimang', desc: 'Global practice hubs and our core operational principles.', href: '/who-we-are/about-mimang', icon: 'Building2' },
+        { title: 'About MIMAG', desc: 'Global practice hubs and our core operational principles.', href: '/who-we-are/about-mimag', icon: 'Building2' },
         { title: 'Mission & Values', desc: 'Mandate, ethos, and single-pod outcome accountability.', href: '/who-we-are/mission-and-values', icon: 'ShieldCheck' },
         { title: 'Our Vision', desc: 'Architecting sovereign, zero-trust enterprise fabrics for 2030.', href: '/who-we-are/our-vision', icon: 'Layers' },
-        { title: 'Our Story', desc: 'Senior leadership, practitioner governance, and founding history.', href: '/who-we-are', icon: 'Building2' },
+        { title: 'Who We Are', desc: 'Practitioner governance, firm overview, and core operational principles.', href: '/who-we-are', icon: 'Building2' },
       ],
       featured: {
         tag: 'About MIMAG',
         title: 'Built for the next decade of demanding enterprise IT.',
-        cta: 'Read our story',
+        cta: 'About MIMAG',
         href: '/who-we-are',
         image: ARCH_IMG,
       },

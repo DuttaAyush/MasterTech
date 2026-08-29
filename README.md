@@ -1,4 +1,4 @@
-# Mimang Technologies
+# MIMAG Technologies
 
 An independent enterprise technology consultancy providing software development, cloud modernization, applied AI solutions, and executive digital transformation.
 

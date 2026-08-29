@@ -2,14 +2,34 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Building2, CheckCircle, Award, ShieldCheck, Users, LineChart, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Building2, CheckCircle, Award, ShieldCheck, Cloud, LineChart } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
 
-const leaders = [
-  { name: 'Elena Marchetti', role: 'Chief Executive Officer', bio: '25+ years leading enterprise transformation across Tier-1 financial institutions and global infrastructure.' },
-  { name: 'Ravi Nair', role: 'Chief Technology Officer', bio: 'Former principal architect for hyperscale cloud platforms, specializing in sovereign AI & distributed data fabrics.' },
-  { name: 'Amara Osei', role: 'Head of Strategic Advisory', bio: 'Advises FTSE 100 boards on digital operating models, zero-trust security compliance, and cloud economics.' },
-  { name: 'Julien Bertrand', role: 'Head of Cybersecurity', bio: 'National-security background leading defense-grade identity modernization and regulatory compliance perimeters.' },
+const practiceDisciplines = [
+  {
+    title: 'Executive Practice Leadership',
+    role: 'Strategic Direction & Oversight',
+    icon: Building2,
+    desc: '25+ years average practice experience leading enterprise transformation across Tier-1 financial institutions and global infrastructure.'
+  },
+  {
+    title: 'Cloud & AI Directorate',
+    role: 'Architecture & Engineering',
+    icon: Cloud,
+    desc: 'Principal architects for hyperscale cloud platforms, specializing in sovereign AI, isolated RAG pipelines, and distributed data fabrics.'
+  },
+  {
+    title: 'Strategic Advisory & FinOps',
+    role: 'Operating Model & Cloud Economics',
+    icon: LineChart,
+    desc: 'Advising board-level executives on digital operating models, cloud run-cost optimization, and organizational change.'
+  },
+  {
+    title: 'Cybersecurity & SecOps',
+    role: 'Zero-Trust & Compliance',
+    icon: ShieldCheck,
+    desc: 'National-security background leading defense-grade identity perimeters, DORA/NIS2 regulatory audits, and SOC automation.'
+  },
 ];
 
 const milestones = [
@@ -19,15 +39,15 @@ const milestones = [
   { metric: '100%', label: 'Senior Talent', desc: 'Every project pod is directed exclusively by senior practice partners.' },
 ];
 
-export default function OurStoryPage() {
+export default function WhoWeArePage() {
   return (
     <PageShell>
-      {/* Editorial Top Hero Banner */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
-        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
           <Image
             src="/images/optimized/energy_grid.webp"
-            alt="Our Story - Mimang Technologies"
+            alt="Who We Are - MIMAG Technologies"
             fill
             priority
             className="object-cover opacity-60"
@@ -35,14 +55,14 @@ export default function OurStoryPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#080d1a] via-[#080d1a]/40 to-transparent" />
           
           <div className="absolute top-8 left-6 md:left-12 z-10 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
-            <Link href="/who-we-are" className="hover:underline text-white/70">Who we are</Link>
+            <Link href="/" className="hover:underline text-white/70">Home</Link>
             <span>&gt;</span>
-            <span className="text-[#86bc25]">Our Story</span>
+            <span className="text-[#86bc25]">Who We Are</span>
           </div>
 
-          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
-              Our <span className="font-semibold text-[#86bc25]">Story</span>
+              Who <span className="font-semibold text-[#86bc25]">We Are</span>
             </h1>
             <div className="mt-3 border-l-4 border-[#86bc25] pl-4 py-1">
               <p className="text-lg md:text-2xl font-light italic text-[#cbe395] leading-relaxed">
@@ -53,7 +73,7 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* Unified Beige Content Area */}
+      {/* 2. MAIN CONTENT AREA */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-b border-[#e3ded4]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 space-y-20">
           
@@ -71,10 +91,10 @@ export default function OurStoryPage() {
             <div className="grid lg:grid-cols-12 gap-10 items-center bg-white border border-[#e5dccf] rounded-xl p-8 md:p-12 shadow-sm">
               <div className="lg:col-span-7 space-y-5">
                 <p className="text-[16px] text-[#4a4338] font-normal leading-relaxed">
-                  Mimang Technologies was established with a singular objective: to provide Tier-1 enterprise clients with direct access to senior technology leaders who actually write production code and design resilient architectures.
+                  MIMAG Technologies was established with a singular objective: to provide Tier-1 enterprise clients with direct access to senior technology leaders who design resilient architectures and execute production deployments.
                 </p>
                 <p className="text-[15px] text-[#6b6255] leading-relaxed font-normal">
-                  We rejected the traditional consulting pyramid model—where senior partners pitch contracts and then pass execution down to inexperienced junior teams. Instead, every Mimang engagement is staffed 100% by battle-tested practitioners with decades of domain experience.
+                  We rejected the traditional consulting pyramid model—where senior partners pitch contracts and then pass execution down to inexperienced junior teams. Instead, every MIMAG engagement is staffed 100% by battle-tested practice pods with decades of domain experience.
                 </p>
 
                 <div className="pt-4 grid sm:grid-cols-2 gap-4">
@@ -98,13 +118,13 @@ export default function OurStoryPage() {
               <div className="lg:col-span-5 relative h-[300px] md:h-[360px] rounded-xl overflow-hidden bg-[#1c1a18]">
                 <Image
                   src="/images/optimized/digital_transformation.webp"
-                  alt="Mimang Founders"
+                  alt="MIMAG Practice Hubs"
                   fill
                   className="object-cover opacity-85"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/90 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="text-[11px] font-bold text-[#86bc25] uppercase tracking-wider block mb-1">Founding Philosophy</span>
+                  <span className="text-[11px] font-bold text-[#86bc25] uppercase tracking-wider block mb-1">Operating Philosophy</span>
                   <p className="text-[13.5px] text-white font-medium italic">
                     &ldquo;Strategy through execution for high-consequence enterprise systems.&rdquo;
                   </p>
@@ -138,42 +158,45 @@ export default function OurStoryPage() {
             </div>
           </div>
 
-          {/* Section C: Senior Leadership */}
+          {/* Section C: Practice Governance & Capability Directorates (NO individual leader names) */}
           <div>
             <div className="mb-8 sm:mb-10 border-l-4 border-[#86bc25] pl-4 sm:pl-5">
               <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#784813] block mb-1">
                 Practitioners & Governance
               </span>
               <h2 className="text-2xl sm:text-4xl font-light text-[#1c1a18] tracking-tight">
-                Senior Leadership & <span className="font-bold text-black">Practice Heads</span>
+                Practice Governance & <span className="font-bold text-black">Directorates</span>
               </h2>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-              {leaders.map((l, idx) => (
-                <div
-                  key={idx}
-                  className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                      <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded bg-[#1c1a18] text-[#86bc25] font-bold">
-                        <Building2 className="h-4 w-4 sm:h-5 sm:w-5" />
+              {practiceDisciplines.map((d, idx) => {
+                const IconComponent = d.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                        <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded bg-[#1c1a18] text-[#86bc25] font-bold">
+                          <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" />
+                        </div>
+                        <div>
+                          <h3 className="text-[13.5px] sm:text-[15.5px] font-bold text-[#1c1a18] tracking-tight line-clamp-1">{d.title}</h3>
+                          <p className="text-[9.5px] sm:text-[11px] uppercase tracking-wider text-[#784813] font-extrabold line-clamp-1">{d.role}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-[13.5px] sm:text-[16px] font-bold text-[#1c1a18] tracking-tight line-clamp-1">{l.name}</h3>
-                        <p className="text-[9.5px] sm:text-[11.5px] uppercase tracking-wider text-[#784813] font-extrabold line-clamp-1">{l.role}</p>
-                      </div>
+                      <p className="text-[12px] sm:text-[13.5px] text-[#595248] font-normal leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">{d.desc}</p>
                     </div>
-                    <p className="text-[12px] sm:text-[13.5px] text-[#595248] font-normal leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">{l.bio}</p>
-                  </div>
 
-                  <div className="pt-2 sm:pt-3 border-t border-[#f2ece2] flex items-center justify-between text-[10px] sm:text-[12px] font-bold text-[#5e8817]">
-                    <span>Senior Partner</span>
-                    <CheckCircle className="h-3.5 w-3.5 text-[#86bc25]" />
+                    <div className="pt-2 sm:pt-3 border-t border-[#f2ece2] flex items-center justify-between text-[10px] sm:text-[12px] font-bold text-[#5e8817]">
+                      <span>Senior Practice Pod</span>
+                      <CheckCircle className="h-3.5 w-3.5 text-[#86bc25]" />
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -184,7 +207,7 @@ export default function OurStoryPage() {
                 Direct Advisory intake
               </span>
               <h3 className="text-2xl font-light text-[#1c1a18] tracking-tight">
-                Initiate a Partner Consultation with <span className="font-bold">Mimang</span>
+                Initiate a Partner Consultation with <span className="font-bold">MIMAG</span>
               </h3>
               <p className="text-[14px] text-[#6b6255] mt-1 font-normal max-w-2xl">
                 Connect directly with a senior practice partner to evaluate your cloud modernization, AI deployment, or architectural challenges under mutual NDA.

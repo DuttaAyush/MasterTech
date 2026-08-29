@@ -37,15 +37,15 @@ const principles = [
   },
 ];
 
-export default function AboutMimangPage() {
+export default function AboutMimagPage() {
   return (
     <PageShell>
-      {/* Editorial Top Hero Banner */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
-        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
           <Image
             src="/images/optimized/digital_transformation.webp"
-            alt="About Mimang Technologies"
+            alt="About MIMAG Technologies"
             fill
             priority
             className="object-cover opacity-60"
@@ -55,12 +55,12 @@ export default function AboutMimangPage() {
           <div className="absolute top-8 left-6 md:left-12 z-10 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
             <Link href="/who-we-are" className="hover:underline text-white/70">Who we are</Link>
             <span>&gt;</span>
-            <span className="text-[#86bc25]">About Mimang</span>
+            <span className="text-[#86bc25]">About MIMAG</span>
           </div>
 
-          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
-              About <span className="font-semibold text-[#86bc25]">Mimang Technologies</span>
+              About <span className="font-semibold text-[#86bc25]">MIMAG Technologies</span>
             </h1>
             <div className="mt-3 border-l-4 border-[#86bc25] pl-4 py-1">
               <p className="text-lg md:text-2xl font-light italic text-[#cbe395] leading-relaxed">
@@ -71,7 +71,7 @@ export default function AboutMimangPage() {
         </div>
       </section>
 
-      {/* Clean Unified Beige Content Area */}
+      {/* 2. MAIN CONTENT AREA */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-b border-[#e3ded4]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 space-y-20">
           
@@ -84,7 +84,7 @@ export default function AboutMimangPage() {
               Independent Technology Advisory for <span className="font-bold">Mission-Critical Enterprise Systems</span>
             </h2>
             <p className="text-[15.5px] text-[#5c5449] font-normal leading-relaxed max-w-4xl">
-              Mimang Technologies is an elite software architecture and executive advisory firm. We bridge boardroom strategy with low-level systems engineering, delivering zero-trust security perimeters, cloud modernization, and sovereign AI retrieval fabrics for financial institutions, defense contractors, healthcare networks, and energy grids worldwide.
+              MIMAG Technologies is an elite software architecture and executive advisory firm. We bridge boardroom strategy with low-level systems engineering, delivering zero-trust security perimeters, cloud modernization, and sovereign AI retrieval fabrics for financial institutions, defense contractors, healthcare networks, and energy grids worldwide.
             </p>
           </div>
 

@@ -122,43 +122,53 @@ export default function CareersPage() {
 
   return (
     <PageShell>
-      {/* 1. TOP CAREER HERO BANNER */}
-      <section className="bg-[#000000] text-white py-16 lg:py-24 border-b border-[#1a1a1a] font-sans relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#86bc25]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12 relative z-10">
-          <div className="max-w-4xl">
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#86bc25] mb-3 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[#86bc25]" />
-              Careers at Mimang Technologies
-            </span>
-            <h1 className="text-3xl sm:text-5xl lg:text-[56px] font-light tracking-tight text-white leading-[1.12]">
-              Do the best engineering work of your life <span className="font-semibold text-[#86bc25]">alongside senior peers.</span>
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
+          <Image
+            src="/images/optimized/cloud_modernization.webp"
+            alt="Careers - MIMAG Technologies"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080d1a] via-[#080d1a]/40 to-transparent" />
+          
+          <div className="absolute top-8 left-6 md:left-12 z-10 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
+            <Link href="/" className="hover:underline text-white/70">Home</Link>
+            <span>&gt;</span>
+            <span className="text-[#86bc25]">Careers</span>
+          </div>
+
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
+              Engineering Work <span className="font-semibold text-[#86bc25]">Alongside Senior Peers</span>
             </h1>
-            <p className="mt-5 text-[16px] sm:text-[18px] leading-relaxed text-zinc-300 font-light max-w-2xl">
-              We replaced bloated consultancy pyramids with agile practitioner pods. Join a culture built on technical mastery, zero bureaucracy, and audited client impact.
-            </p>
+            <div className="mt-3 border-l-4 border-[#86bc25] pl-4 py-1">
+              <p className="text-lg md:text-2xl font-light italic text-[#cbe395] leading-relaxed">
+                &ldquo;We replaced consultancy pyramids with agile practitioner pods. Join a culture built on technical mastery and audited impact.&rdquo;
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* GRADIENT SEPARATOR LINE */}
-      <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
-
-      {/* 2. ABOUT MIMANG & WORK CULTURE SECTION */}
-      <section className="bg-gradient-to-b from-[#080d1a] via-[#0a162b] to-[#080d1a] text-white py-16 lg:py-24 border-b border-[#1c3969] font-sans">
+      {/* 2. ABOUT MIMAG & WORK CULTURE SECTION (Page Color Background with Blue Cards) */}
+      <section className="bg-[#faf7f2] text-[#1c1a18] py-16 lg:py-24 border-b border-[#e3ded4] font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="max-w-3xl mb-12 border-l-4 border-[#86bc25] pl-5">
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#63a3ff] block mb-1">
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] block mb-1">
               Our Operating Philosophy
             </span>
-            <h2 className="text-2xl sm:text-4xl font-light text-white tracking-tight">
-              About <span className="font-semibold text-white">Mimang & Our Culture</span>
+            <h2 className="text-2xl sm:text-4xl font-light text-[#1c1a18] tracking-tight">
+              About <span className="font-bold text-black">MIMAG & Our Culture</span>
             </h2>
-            <p className="mt-3 text-[15px] text-[#c4d7ec] font-light leading-relaxed">
-              Mimang Technologies was founded by enterprise architects who grew tired of traditional consulting firms passing off junior grads onto critical accounts. Here, every engineer is a hands-on practitioner with sole accountability.
+            <p className="mt-3 text-[15px] text-[#5c5449] font-normal leading-relaxed">
+              MIMAG Technologies was founded by enterprise architects who grew tired of traditional consulting firms passing off junior grads onto critical accounts. Here, every engineer is a hands-on practitioner with sole accountability.
             </p>
           </div>
 
+          {/* CULTURE CARDS (KEPT BLUE CARDS AS THEY ARE) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {CULTURE_PILLARS.map((item, idx) => (
               <div

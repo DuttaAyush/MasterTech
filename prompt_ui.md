@@ -94,7 +94,7 @@ You are a World-Class Senior UI/UX Engineer and Lead Next.js Architect specializ
 ---
 
 ### STEP 5: CORPORATE PAGES (`/who-we-are`, `/our-work`, `/careers`, `/contact`)
-- **Who We Are**: 5 subpages (`about-mimang`, `mission-and-values`, `our-vision`, `our-story`, `the-firm`) detailing senior practitioner governance and global hubs.
+- **Who We Are**: 5 subpages (`about-mimag`, `mission-and-values`, `our-vision`, `our-story`, `the-firm`) detailing senior practitioner governance and global hubs.
 - **Our Work**: Quantified case study grid with before/after benchmarks and client ROI.
 - **Careers**: Culture pillars, flexible remote engineering policy, and open practitioner roles.
 - **Contact**: Interactive partner briefing booking scheduler and regional office directory.

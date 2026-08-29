@@ -7,8 +7,8 @@ import { notFound } from 'next/navigation';
 import PageShell from '@/components/site/page-shell';
 import { getReportBySlug, REPORTS_DATA } from '@/lib/reports-data';
 import {
-  ArrowLeft, ArrowUpRight, Download, FileText, Calendar, User,
-  CheckCircle, Sparkles, Share2, ShieldCheck, ChevronRight, BookOpen, BarChart3
+  ArrowLeft, ArrowUpRight, Download, Share2,
+  CheckCircle, ChevronRight, BookOpen, BarChart3
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -35,13 +35,13 @@ export default function ReportDetailPage({ params }) {
 
   return (
     <PageShell>
-      {/* 1. DARK SAPPHIRE EXECUTIVE REPORT HERO */}
-      <section className="bg-gradient-to-b from-[#050c1a] via-[#091730] to-[#050c1a] text-white py-14 lg:py-20 border-b border-[#1c3969] font-sans relative overflow-hidden">
+      {/* 1. DARK SAPPHIRE EXECUTIVE REPORT HERO (No Author Info) */}
+      <section className="relative bg-gradient-to-b from-[#050c1a] via-[#091730] to-[#050c1a] text-white py-12 lg:py-16 border-b border-[#1c3969] font-sans overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#86bc25]/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-12 relative z-10">
+        <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10 relative z-10">
           {/* Navigation & Actions */}
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-6">
             <Link
               href="/blogs"
               className="inline-flex items-center gap-2 text-[13px] font-bold text-[#86bc25] hover:text-white transition-colors"
@@ -64,7 +64,7 @@ export default function ReportDetailPage({ params }) {
 
           <div className="max-w-4xl">
             {/* Badges Bar */}
-            <div className="flex flex-wrap items-center gap-3 mb-5 text-[11px] font-extrabold uppercase tracking-wider">
+            <div className="flex flex-wrap items-center gap-3 mb-4 text-[11px] font-extrabold uppercase tracking-wider">
               <span className="bg-[#86bc25] text-black px-3 py-1 rounded shadow">
                 {report.subsector}
               </span>
@@ -78,85 +78,53 @@ export default function ReportDetailPage({ params }) {
             </div>
 
             {/* Main Report Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-light tracking-[-0.02em] text-white leading-[1.18] mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-light tracking-[-0.02em] text-white leading-[1.18] mb-4">
               {report.title}
             </h1>
 
             {/* Abstract */}
-            <p className="text-[16px] sm:text-[17px] text-[#b3cbee] font-light leading-relaxed mb-8">
+            <p className="text-[16px] sm:text-[17px] text-[#b3cbee] font-light leading-relaxed mb-6">
               {report.abstract}
             </p>
 
-            {/* Author Profile & Download CTA Bar */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-6 border-t border-[#1a3461]">
-              <div className="flex items-center gap-4">
-                <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-[#86bc25] shadow-md shrink-0">
-                  <Image src={report.authorAvatar} alt={report.author} fill className="object-cover" />
-                </div>
-                <div>
-                  <h4 className="text-[15px] font-bold text-white">{report.author}</h4>
-                  <p className="text-[12.5px] text-[#86bc25] font-medium">{report.authorRole}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={handleDownload}
-                  className="inline-flex items-center gap-2 bg-[#86bc25] text-black hover:bg-[#97d031] text-[13.5px] font-extrabold px-6 py-3 rounded shadow-lg shadow-[#86bc25]/20 transition-all"
-                >
-                  <Download className="h-4 w-4" />
-                  <span>Download Full PDF</span>
-                </button>
-              </div>
+            {/* Download CTA Bar */}
+            <div className="pt-4 border-t border-[#1a3461] flex items-center justify-between">
+              <span className="text-[12px] font-extrabold uppercase tracking-widest text-[#86bc25]">
+                Executive Publication • {report.year} Edition
+              </span>
+              <button
+                type="button"
+                onClick={handleDownload}
+                className="inline-flex items-center gap-2 bg-[#86bc25] text-black hover:bg-[#97d031] text-[13.5px] font-extrabold px-6 py-2.5 rounded shadow-lg shadow-[#86bc25]/20 transition-all"
+              >
+                <Download className="h-4 w-4" />
+                <span>Download Full PDF ({report.fileSize})</span>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MIMAG LOGO GRADIENT SEPARATOR LINE */}
-      <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
+      {/* 2. REPORT CONTENT BODY */}
+      <section className="bg-[#faf7f2] text-[#1c1a18] py-12 lg:py-16 font-sans min-h-[700px]">
+        <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
 
-      {/* 2. REPORT CONTENT BODY (WARM ALABASTER EXECUTIVE STAGE) */}
-      <section className="bg-[#faf7f2] text-[#1c1a18] py-16 lg:py-24 font-sans min-h-[700px]">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-
-          {/* Banner Graphic Header */}
-          <div className="relative aspect-[21/9] w-full rounded-xl overflow-hidden shadow-2xl border border-[#e4d7c5] mb-12 bg-[#1c1a18]">
-            <Image
-              src={report.image}
-              alt={report.title}
-              fill
-              priority
-              className="object-cover opacity-85"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/80 via-[#1c1a18]/20 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
-              <span className="text-[12px] font-extrabold uppercase tracking-widest bg-[#86bc25] text-black px-3 py-1 rounded">
-                Executive Publication • {report.year} Edition
-              </span>
-              <span className="text-[12px] text-zinc-300 hidden sm:block font-mono">
-                Ref ID: {report.id}
-              </span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             {/* Left Content Area */}
-            <div className="lg:col-span-8 space-y-10">
+            <div className="lg:col-span-7 xl:col-span-8 space-y-8 pr-0 lg:pr-2">
 
               {/* Executive Summary Callout */}
               <div className="bg-white border-l-4 border-[#86bc25] p-6 sm:p-8 rounded-r-xl border-y border-r border-[#e4d7c5] shadow-sm">
                 <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] block mb-2">
                   Executive Research Briefing
                 </span>
-                <p className="text-[16px] sm:text-[17px] text-[#332e28] font-normal leading-relaxed italic">
+                <p className="text-[16px] sm:text-[17.5px] text-[#332e28] font-normal leading-relaxed italic">
                   &ldquo;{report.summary}&rdquo;
                 </p>
               </div>
 
               {/* Key Analytical Findings */}
-              <div className="bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-9 shadow-sm">
+              <div className="bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-8 shadow-sm">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#1c1a18] tracking-tight mb-6 pb-3 border-b border-[#f2ece2] flex items-center gap-2.5">
                   <BarChart3 className="h-6 w-6 text-[#5e8817]" />
                   <span>Key Analytical & Architectural Findings</span>
@@ -174,18 +142,18 @@ export default function ReportDetailPage({ params }) {
               </div>
 
               {/* Table of Contents */}
-              <div className="bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-9 shadow-sm">
+              <div className="bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-8 shadow-sm">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#1c1a18] tracking-tight mb-6 pb-3 border-b border-[#f2ece2] flex items-center gap-2.5">
                   <BookOpen className="h-6 w-6 text-[#5e8817]" />
                   <span>Report Table of Contents</span>
                 </h2>
                 <div className="divide-y divide-[#f2ece2]">
                   {report.tableOfContents.map((ch) => (
-                    <div key={ch.chapter} className="py-4 flex items-center gap-4 group">
-                      <span className="text-[13px] font-mono font-extrabold text-[#85531b] bg-[#fdfaf5] border border-[#f5ecdd] px-2.5 py-1 rounded">
+                    <div key={ch.chapter} className="py-3.5 flex items-center gap-4 group">
+                      <span className="text-[12.5px] font-mono font-extrabold text-[#85531b] bg-[#fdfaf5] border border-[#f5ecdd] px-2.5 py-1 rounded">
                         CH {ch.chapter}
                       </span>
-                      <span className="text-[16px] font-semibold text-[#1c1a18] group-hover:text-[#5e8817] transition-colors">
+                      <span className="text-[15.5px] font-semibold text-[#1c1a18] group-hover:text-[#5e8817] transition-colors">
                         {ch.title}
                       </span>
                     </div>
@@ -205,48 +173,45 @@ export default function ReportDetailPage({ params }) {
 
             </div>
 
-            {/* Right Sticky Sidebar */}
-            <div className="lg:col-span-4 space-y-8">
-              {/* PDF Action Box */}
-              <div className="bg-white border-2 border-[#86bc25] rounded-xl p-7 shadow-lg">
+            {/* Right Sticky Sidebar (IMAGE FIRST -> FULL REPORT CARD -> ADVISORY CARD, NO AUTHOR CARD) */}
+            <div className="lg:col-span-5 xl:col-span-4 space-y-7 sticky top-24">
+              
+              {/* 1. Featured Image Banner (Top of Right Sidebar) */}
+              <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden shadow-lg border border-[#e4d7c5] bg-[#1c1a18]">
+                <Image
+                  src={report.image}
+                  alt={report.title}
+                  fill
+                  priority
+                  className="object-cover opacity-90 hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/70 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 bg-[#1c1a18]/80 text-[#86bc25] text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded border border-white/10">
+                  {report.subsector}
+                </span>
+              </div>
+
+              {/* 2. Full Technical Report PDF Card */}
+              <div className="bg-white border-2 border-[#86bc25] rounded-xl p-6 sm:p-7 shadow-lg">
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#5e8817] block mb-2">
                   Full Technical Report
                 </span>
-                <h4 className="text-xl font-bold text-[#1c1a18] mb-2">{report.title}</h4>
-                <p className="text-[13px] text-[#635a4f] mb-6 font-normal">
+                <h4 className="text-lg sm:text-xl font-bold text-[#1c1a18] mb-2">{report.title}</h4>
+                <p className="text-[13px] text-[#635a4f] mb-5 font-normal leading-relaxed">
                   Download the complete {report.pages} peer-reviewed whitepaper including full system diagrams and TCO frameworks.
                 </p>
                 <button
                   type="button"
                   onClick={handleDownload}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#86bc25] text-black font-extrabold text-[14px] py-3.5 rounded hover:bg-[#97d031] transition-all shadow"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#86bc25] text-black font-extrabold text-[13.5px] py-3 rounded hover:bg-[#97d031] transition-all shadow"
                 >
                   <Download className="h-4 w-4" />
                   <span>Download PDF ({report.fileSize})</span>
                 </button>
               </div>
 
-              {/* Author Bio Card */}
-              <div className="bg-white border border-[#e4d7c5] rounded-xl p-6 shadow-sm">
-                <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#784813] block mb-4">
-                  Lead Practice Author
-                </span>
-                <div className="flex items-center gap-3.5 mb-4">
-                  <div className="relative h-14 w-14 rounded-full overflow-hidden border-2 border-[#86bc25] shadow shrink-0">
-                    <Image src={report.authorAvatar} alt={report.author} fill className="object-cover" />
-                  </div>
-                  <div>
-                    <h4 className="text-[16px] font-bold text-[#1c1a18]">{report.author}</h4>
-                    <p className="text-[12px] text-[#5e8817] font-semibold">{report.authorRole}</p>
-                  </div>
-                </div>
-                <p className="text-[13px] text-[#5c5449] font-normal leading-relaxed border-t border-[#f2ece2] pt-4">
-                  Senior MIMAG practice lead conducting audited technical benchmarking and target state architecture reviews.
-                </p>
-              </div>
-
-              {/* Advisory CTA Card */}
-              <div className="bg-gradient-to-b from-[#07152b] to-[#050c1a] text-white p-7 rounded-xl border border-[#1e3c70] shadow-xl">
+              {/* 3. Advisory Services CTA Card */}
+              <div className="bg-gradient-to-b from-[#07152b] to-[#050c1a] text-white p-6 sm:p-7 rounded-xl border border-[#1e3c70] shadow-xl">
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#86bc25] block mb-2">
                   Advisory Services
                 </span>
@@ -264,6 +229,7 @@ export default function ReportDetailPage({ params }) {
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
+
             </div>
           </div>
 

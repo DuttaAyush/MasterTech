@@ -39,7 +39,7 @@ export default function Page() {
   return (
     <PageShell>
       {/* 1. TOPMOST SECTION: EXECUTIVE DEEP BLACK HERO */}
-      <section className="bg-[#000000] text-white py-16 lg:py-24 border-b border-[#1a1a1a] font-sans">
+      <section className="relative bg-[#000000] text-white py-16 lg:py-24 border-b border-[#1a1a1a] font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="max-w-4xl">
             <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#86bc25] mb-3">
@@ -64,10 +64,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SPECIAL TRIAL: MIMAG LOGO GRADIENT FIRST SEPARATOR LINE */}
-      <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
-
-      {/* 2. LOWER SECTION: LIGHT CREAM THEME FOR FORM & CONTACT DETAILS */}
+      {/* 2. CONTACT FORM & ADVISORY CONTENT */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 lg:py-28 font-sans min-h-[700px] border-b border-[#e6ded2]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -114,7 +111,7 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Right Side: Elevated White Connect Form with Minimalist Mimang Hover Border */}
+            {/* Right Side: Elevated White Connect Form with Minimalist MIMAG Hover Border */}
             <div className="lg:col-span-8">
               <form
                 onSubmit={onSubmit}
@@ -170,7 +167,7 @@ export default function Page() {
 
                 <div className="mt-10 pt-6 border-t border-[#f0e7db] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                   <p className="text-[12.5px] text-[#736a5d] font-normal max-w-md leading-relaxed">
-                    By submitting this request, you consent to secure outreach from a Mimang Technologies practice partner. Zero commercial data sharing.
+                    By submitting this request, you consent to secure outreach from a MIMAG Technologies practice partner. Zero commercial data sharing.
                   </p>
 
                   <button

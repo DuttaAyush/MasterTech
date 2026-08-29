@@ -21,52 +21,59 @@ export default function BlogsPage() {
 
   return (
     <PageShell>
-      {/* 1. DARK EXECUTIVE HERO */}
-      <section className="bg-[#000000] text-white py-16 lg:py-20 border-b border-[#1a1a1a] font-sans">
-        <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
-          <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#86bc25] mb-3 flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#86bc25]" />
-              Insights & Research
-            </p>
-            <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-light tracking-[-0.02em] text-white leading-[1.12]">
-              Intelligence Built for <span className="font-semibold text-[#86bc25]">Enterprise Decision-Makers.</span>
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
+          <Image
+            src="/images/optimized/data_analytics.webp"
+            alt="Insights & Research - MIMAG Technologies"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080d1a] via-[#080d1a]/40 to-transparent" />
+          
+          <div className="absolute top-8 left-6 md:left-12 z-10 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
+            <Link href="/" className="hover:underline text-white/70">Home</Link>
+            <span>&gt;</span>
+            <span className="text-[#86bc25]">Insights & Research</span>
+          </div>
+
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
+              Intelligence Built For <span className="font-semibold text-[#86bc25]">Enterprise Decision-Makers</span>
             </h1>
-            <p className="mt-4 text-[16px] leading-relaxed text-[#999999] font-light">
-              Pragmatic field notes, architectural frameworks, whitepapers, and opinionated market briefings written directly by senior consulting directors.
-            </p>
+            <div className="mt-3 border-l-4 border-[#86bc25] pl-4 py-1">
+              <p className="text-lg md:text-2xl font-light italic text-[#cbe395] leading-relaxed">
+                &ldquo;Pragmatic field notes, architectural frameworks, whitepapers, and opinionated market briefings written directly by senior consulting directors.&rdquo;
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* MIMAG LOGO GRADIENT SEPARATOR LINE */}
-      <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
-
-      {/* 2. EXECUTIVE BLUE SECTION: MARKET RESEARCH REPORTS & WHITEPAPERS */}
-      <section className="bg-gradient-to-b from-[#07152b] via-[#0c2247] to-[#07152b] text-white py-16 font-sans border-b border-[#1c3969] relative overflow-hidden">
-        {/* Subtle decorative background blur */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#3b82f6]/10 rounded-full blur-3xl pointer-events-none" />
-
+      {/* 2. MARKET RESEARCH REPORTS & WHITEPAPERS SECTION (Page Color Background with Blue Cards) */}
+      <section className="bg-[#faf7f2] text-[#1c1a18] py-16 font-sans border-b border-[#e3ded4] relative overflow-hidden">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 relative z-10">
           <div className="border-l-4 border-[#86bc25] pl-4 mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#63a3ff] flex items-center gap-2 mb-1">
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] flex items-center gap-2 mb-1">
                 <FileText className="h-3.5 w-3.5 text-[#86bc25]" /> MIMAG Institute Research
               </span>
-              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-white">
-                Market Research Reports & <span className="font-semibold text-[#86bc25]">Whitepapers</span>
+              <h2 className="text-2xl sm:text-3xl font-light tracking-tight text-[#1c1a18]">
+                Market Research Reports & <span className="font-bold text-black">Whitepapers</span>
               </h2>
             </div>
             <Link
               href="/reports"
-              className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#86bc25] hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#1c1a18] hover:text-[#5e8817] transition-colors"
             >
               <span>Explore Full Research Library</span>
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 text-[#86bc25]" />
             </Link>
           </div>
 
-          {/* 3 SAMPLE MARKET RESEARCH REPORTS GRID */}
+          {/* 3 SAMPLE MARKET RESEARCH REPORTS GRID (KEPT BLUE CARDS AS THEY ARE) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {REPORTS_DATA.slice(0, 3).map((report) => (
               <Link

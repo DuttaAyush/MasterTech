@@ -18,53 +18,68 @@ const studies = [
 export default function Page() {
   return (
     <PageShell>
-      <section className="dark bg-background text-foreground border-b border-border">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 pt-8 lg:pt-10 pb-16 lg:pb-20">
-          <p className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="h-px w-8 mimag-gradient" />
-            Our work
-          </p>
-          <h1 className="mt-6 font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight text-foreground text-balance max-w-5xl">
-            Programs that <em className="italic">shipped</em> — and moved the numbers.
-          </h1>
-          <p className="mt-10 max-w-2xl text-[17px] leading-relaxed text-muted-foreground">
-            A selection of engagements delivered with global enterprises. Client
-            names are anonymized where confidentiality applies; outcomes are
-            verified.
-          </p>
-        </div>
-      </section>
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
+          <Image
+            src="/images/optimized/hero_defense_tech.webp"
+            alt="Our Work - MIMAG Technologies"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080d1a] via-[#080d1a]/40 to-transparent" />
+          
+          <div className="absolute top-8 left-6 md:left-12 z-10 flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#93c5fd]">
+            <Link href="/" className="hover:underline text-white/70">Home</Link>
+            <span>&gt;</span>
+            <span className="text-[#86bc25]">Our Work</span>
+          </div>
 
-      <section>
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10 py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {studies.map((s, i) => (
-              <Link key={s.title} href="/contact" className="group block">
-                <div className="relative aspect-[16/11] overflow-hidden rounded-sm border border-border">
-                  <Image src={s.image} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover opacity-75 group-hover:opacity-90 group-hover:scale-[1.02] transition-all duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 flex items-end justify-between">
-                    <div>
-                      <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Case Study 0{i + 1}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-4xl md:text-5xl text-foreground tracking-tight font-medium">{s.metric}</div>
-                      <div className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground max-w-[180px]">{s.metricLabel}</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-5 flex items-start justify-between gap-6">
-                  <div>
-                    <p className="text-[12px] uppercase tracking-[0.16em] text-muted-foreground">{s.client} · {s.region}</p>
-                    <h3 className="mt-3 text-[20px] leading-snug tracking-tight text-foreground text-pretty">{s.title}</h3>
-                  </div>
-                  <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground shrink-0 mt-1" />
-                </div>
-              </Link>
-            ))}
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
+              Programs That <span className="font-semibold text-[#86bc25]">Shipped & Moved Numbers</span>
+            </h1>
+            <div className="mt-3 border-l-4 border-[#86bc25] pl-4 py-1">
+              <p className="text-lg md:text-2xl font-light italic text-[#cbe395] leading-relaxed">
+                &ldquo;A selection of engagements delivered with global enterprises. Client outcomes are audited and verified.&rdquo;
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* 2. MAIN CONTENT AREA */}
+      <section className="bg-[#faf7f2] text-[#1c1a18]">
+          <div className="mx-auto max-w-[1600px] px-6 lg:px-10 py-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {studies.map((s, i) => (
+                <Link key={s.title} href="/contact" className="group block">
+                  <div className="relative aspect-[16/11] overflow-hidden rounded-sm border border-border">
+                    <Image src={s.image} alt="" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover opacity-75 group-hover:opacity-90 group-hover:scale-[1.02] transition-all duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-6 flex items-end justify-between">
+                      <div>
+                        <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Case Study 0{i + 1}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-4xl md:text-5xl text-foreground tracking-tight font-medium">{s.metric}</div>
+                        <div className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground max-w-[180px]">{s.metricLabel}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-5 flex items-start justify-between gap-6">
+                    <div>
+                      <p className="text-[12px] uppercase tracking-[0.16em] text-muted-foreground">{s.client} · {s.region}</p>
+                      <h3 className="mt-3 text-[20px] leading-snug tracking-tight text-foreground text-pretty">{s.title}</h3>
+                    </div>
+                    <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground shrink-0 mt-1" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
     </PageShell>
   );
 }

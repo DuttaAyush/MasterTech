@@ -24,7 +24,7 @@ export default function ReportsPage() {
   return (
     <PageShell>
       {/* 1. DARK EXECUTIVE HERO */}
-      <section className="bg-[#000000] text-white py-16 lg:py-20 border-b border-[#1a1a1a] font-sans">
+      <section className="relative bg-[#000000] text-white py-16 lg:py-20 border-b border-[#1a1a1a] font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="max-w-3xl">
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#86bc25] mb-3 flex items-center gap-2">
@@ -40,9 +40,6 @@ export default function ReportsPage() {
           </div>
         </div>
       </section>
-
-      {/* MIMAG LOGO GRADIENT FIRST SEPARATOR LINE */}
-      <div className="w-full h-[4px] bg-gradient-to-r from-[#ef4444] via-[#ec4899] to-[#a855f7] relative z-20 shadow-[0_2px_20px_rgba(236,72,153,0.35)]" />
 
       {/* 2. SEARCH & DOMAIN TOOLBAR */}
       <section className="bg-gradient-to-b from-[#07152b] via-[#0c2247] to-[#07152b] py-10 font-sans border-b border-[#1c3969]">

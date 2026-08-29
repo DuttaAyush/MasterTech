@@ -11,10 +11,9 @@ export default async function sitemap() {
   const staticPages = [
     '',
     '/who-we-are',
-    '/who-we-are/about-mimang',
+    '/who-we-are/about-mimag',
     '/who-we-are/mission-and-values',
     '/who-we-are/our-vision',
-    '/who-we-are/our-story',
     '/who-we-are/the-firm',
     '/what-we-do',
     '/industries',

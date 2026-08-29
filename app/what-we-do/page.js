@@ -16,12 +16,12 @@ export default function WhatWeDoPage() {
 
   return (
     <PageShell>
-      {/* Editorial Top Hero Banner */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
-        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
           <Image
             src="/images/optimized/cloud_modernization.webp"
-            alt="What We Do - Mimang Technologies"
+            alt="What We Do - MIMAG Technologies"
             fill
             priority
             className="object-cover opacity-60"
@@ -34,7 +34,7 @@ export default function WhatWeDoPage() {
             <span className="text-[#86bc25]">What We Do</span>
           </div>
 
-          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               Our <span className="font-semibold text-[#86bc25]">Capabilities & Services</span>
             </h1>
@@ -47,7 +47,7 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* Clean Unified Beige Content Area */}
+      {/* 2. MAIN CONTENT AREA */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-b border-[#e3ded4]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 space-y-16">
           
@@ -79,7 +79,7 @@ export default function WhatWeDoPage() {
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:gap-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
               {visibleServices.map((service) => {
                 return (
                   <div
@@ -88,7 +88,7 @@ export default function WhatWeDoPage() {
                   >
                     <div>
                       {/* Service Stock Image Header */}
-                      <div className="relative h-[110px] sm:h-[180px] w-full overflow-hidden bg-[#1c1a18]">
+                      <div className="relative h-[95px] sm:h-[145px] w-full overflow-hidden bg-[#1c1a18]">
                         <Image
                           src={service.image}
                           alt={service.title}
@@ -97,29 +97,29 @@ export default function WhatWeDoPage() {
                           className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/90 via-[#1c1a18]/40 to-transparent" />
-                        <span className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-[#faf7f2] text-black px-2 sm:px-3 py-0.5 sm:py-1 rounded text-[8px] sm:text-[10px] font-extrabold uppercase tracking-wider shadow truncate max-w-[80%]">
+                        <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#faf7f2] text-black px-2 sm:px-2.5 py-0.5 rounded text-[8px] sm:text-[9.5px] font-extrabold uppercase tracking-wider shadow truncate max-w-[80%]">
                           {service.tag}
                         </span>
-                        <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 flex h-7 w-7 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#1c1a18]/90 border border-white/20 text-[#86bc25] shadow-lg shrink-0">
-                          <RenderIcon name={service.icon} className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
+                        <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-lg bg-[#1c1a18]/90 border border-white/20 text-[#86bc25] shadow-lg shrink-0">
+                          <RenderIcon name={service.icon} className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5" />
                         </div>
                       </div>
 
-                      <div className="p-3 sm:p-7">
-                        <h3 className="text-[14px] sm:text-[22px] font-bold text-[#1c1a18] mb-1.5 sm:mb-3 tracking-tight line-clamp-2 group-hover:text-[#5e8817] transition-colors">
+                      <div className="p-3 sm:p-5">
+                        <h3 className="text-[14px] sm:text-[20px] font-bold text-[#1c1a18] mb-1 sm:mb-2 tracking-tight line-clamp-2 group-hover:text-[#5e8817] transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-[12px] sm:text-[14px] text-[#5c5449] leading-relaxed font-normal mb-3 sm:mb-6 line-clamp-3 sm:line-clamp-none">
+                        <p className="text-[12px] sm:text-[13.5px] text-[#5c5449] leading-relaxed font-normal mb-2 sm:mb-4 line-clamp-3 sm:line-clamp-none">
                           {service.summary}
                         </p>
 
-                        <div className="border-t border-[#f2ece2] pt-3 sm:pt-4 mb-3 sm:mb-6 hidden sm:block">
-                          <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#784813] block mb-3">
+                        <div className="border-t border-[#f2ece2] pt-2.5 sm:pt-3 mb-1 sm:mb-3 hidden sm:block">
+                          <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#784813] block mb-2">
                             Core Capabilities
                           </span>
-                          <ul className="grid sm:grid-cols-2 gap-2">
+                          <ul className="grid sm:grid-cols-2 gap-1.5">
                             {service.capabilities.slice(0, 4).map((cap, i) => (
-                              <li key={i} className="text-[12.5px] text-[#4a4338] font-medium flex items-center gap-2">
+                              <li key={i} className="text-[12px] text-[#4a4338] font-medium flex items-center gap-1.5">
                                 <CheckCircle className="h-3.5 w-3.5 text-[#86bc25] shrink-0" />
                                 <span>{cap}</span>
                               </li>
@@ -129,7 +129,7 @@ export default function WhatWeDoPage() {
                       </div>
                     </div>
 
-                    <div className="px-3 sm:px-7 pb-3 sm:pb-6 pt-2 sm:pt-4 border-t border-[#f2ece2] flex items-center justify-between">
+                    <div className="px-3 sm:px-5 py-2.5 sm:py-3.5 border-t border-[#f2ece2] flex items-center justify-between">
                       <div className="flex items-center gap-2 sm:gap-4">
                         {service.metrics.slice(0, 1).map((m, idx) => (
                           <div key={idx} className="text-left">
@@ -141,10 +141,10 @@ export default function WhatWeDoPage() {
 
                       <Link
                         href={`/what-we-do/${service.slug}`}
-                        className="inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-bold text-[#1c1a18] group-hover:text-[#5e8817] transition-colors shrink-0"
+                        className="group/btn inline-flex items-center gap-1.5 text-[11px] sm:text-[12.5px] font-bold text-black bg-[#86bc25] hover:bg-[#97d031] px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:shadow-lg hover:shadow-[#86bc25]/30 transition-all duration-200 shrink-0"
                       >
                         <span>Explore</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 text-[#86bc25]" />
+                        <ArrowUpRight className="h-3.5 w-3.5 text-black group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-200" />
                       </Link>
                     </div>
                   </div>
@@ -173,7 +173,7 @@ export default function WhatWeDoPage() {
                 Direct Advisory Intake
               </span>
               <h3 className="text-2xl font-light text-[#1c1a18] tracking-tight">
-                Evaluate your architectural roadmap with <span className="font-bold">Mimang</span>
+                Evaluate your architectural roadmap with <span className="font-bold">MIMAG</span>
               </h3>
               <p className="text-[14px] text-[#6b6255] mt-1 font-normal max-w-2xl">
                 Connect directly with a senior practice partner to evaluate your cloud modernization, AI deployment, or architectural challenges under mutual NDA.

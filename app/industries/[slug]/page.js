@@ -19,9 +19,9 @@ export default function IndustrySubPage({ params }) {
 
   return (
     <PageShell>
-      {/* Editorial Top Hero Banner */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
-        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
           <Image
             src={ind.image}
             alt={ind.title}
@@ -37,7 +37,7 @@ export default function IndustrySubPage({ params }) {
             <span className="text-[#86bc25]">{ind.shortTitle}</span>
           </div>
 
-          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#86bc25] bg-[#080d1a]/80 border border-[#86bc25]/40 px-3 py-1 rounded inline-block mb-3">
               {ind.tag}
             </span>
@@ -53,7 +53,7 @@ export default function IndustrySubPage({ params }) {
         </div>
       </section>
 
-      {/* Clean Unified Beige Content Area */}
+      {/* 2. MAIN CONTENT AREA */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-b border-[#e3ded4]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 space-y-20">
           

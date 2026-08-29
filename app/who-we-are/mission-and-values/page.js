@@ -31,9 +31,9 @@ const values = [
 export default function MissionAndValuesPage() {
   return (
     <PageShell>
-      {/* Editorial Top Hero Banner */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
-        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
           <Image
             src="/images/optimized/digital_transformation.webp"
             alt="Mission and Values"
@@ -49,7 +49,7 @@ export default function MissionAndValuesPage() {
             <span className="text-[#86bc25]">Mission & Values</span>
           </div>
 
-          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               Mission & <span className="font-semibold text-[#86bc25]">Values</span>
             </h1>
@@ -62,7 +62,7 @@ export default function MissionAndValuesPage() {
         </div>
       </section>
 
-      {/* Clean Unified Beige Content Area */}
+      {/* 2. MAIN CONTENT AREA */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-b border-[#e3ded4]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 space-y-20">
           

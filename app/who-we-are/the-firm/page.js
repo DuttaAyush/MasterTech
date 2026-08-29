@@ -15,12 +15,12 @@ const leaders = [
 export default function TheFirmPage() {
   return (
     <PageShell>
-      {/* Editorial Hero */}
+      {/* 1. HERO SECTION */}
       <section className="relative bg-[#080d1a] text-white font-sans overflow-hidden border-b border-[#1c3969]">
-        <div className="relative h-[320px] md:h-[400px] w-full overflow-hidden">
+        <div className="relative h-[340px] md:h-[420px] w-full overflow-hidden">
           <Image
             src="/images/optimized/energy_grid.webp"
-            alt="The Firm - Mimang Technologies"
+            alt="The Firm - MIMAG Technologies"
             fill
             priority
             className="object-cover opacity-60"
@@ -33,7 +33,7 @@ export default function TheFirmPage() {
             <span className="text-[#86bc25]">The Firm</span>
           </div>
 
-          <div className="absolute bottom-8 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               The <span className="font-semibold text-[#86bc25]">Firm</span>
             </h1>
@@ -46,7 +46,7 @@ export default function TheFirmPage() {
         </div>
       </section>
 
-      {/* Leadership & Governance Section */}
+      {/* 2. MAIN CONTENT AREA */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 border-b border-[#e5dccf] font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="mb-14 border-l-4 border-[#86bc25] pl-5">
@@ -95,7 +95,7 @@ export default function TheFirmPage() {
                 Direct Advisory Channel
               </span>
               <h3 className="text-2xl sm:text-3xl font-light text-white tracking-tight">
-                Initiate a Partner Consultation with <span className="font-bold">Mimang Technologies</span>
+                Initiate a Partner Consultation with <span className="font-bold">MIMAG Technologies</span>
               </h3>
               <p className="text-[14px] text-[#a9c4e6] mt-1 font-light max-w-2xl">
                 Connect directly with a senior practice partner to evaluate your cloud modernization, AI deployment, or architectural challenges under mutual NDA.
