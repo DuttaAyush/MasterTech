@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import PageShell from '@/components/site/page-shell';
-import { ArrowUpRight, Clock, FileText, Download, Sparkles, CheckCircle } from 'lucide-react';
+import { ArrowUpRight, Clock, FileText, Download, Sparkles, CheckCircle, ChevronDown, ChevronUp, Filter, SlidersHorizontal, Check } from 'lucide-react';
 
 import { BLOGS_DATA } from '@/lib/blogs-data';
 import { REPORTS_DATA } from '@/lib/reports-data';
@@ -13,11 +13,39 @@ const TABS = ['All', 'Artificial Intelligence', 'Cybersecurity', 'Cloud & FinOps
 
 export default function BlogsPage() {
   const [activeTab, setActiveTab] = useState('All');
+  const [sortBy, setSortBy] = useState('latest');
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const filteredBlogs = useMemo(() => {
-    if (activeTab === 'All') return BLOGS_DATA;
-    return BLOGS_DATA.filter((b) => b.category === activeTab);
-  }, [activeTab]);
+  const filterRef = useRef(null);
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setIsCategoryOpen(false);
+        setIsSortOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const filteredAndSortedBlogs = useMemo(() => {
+    let list = activeTab === 'All' ? [...BLOGS_DATA] : BLOGS_DATA.filter((b) => b.category === activeTab);
+    if (sortBy === 'oldest') {
+      list.sort((a, b) => new Date(a.date) - new Date(b.date));
+    } else if (sortBy === 'latest') {
+      list.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else if (sortBy === 'title') {
+      list.sort((a, b) => a.title.localeCompare(b.title));
+    }
+    return list;
+  }, [activeTab, sortBy]);
+
+  // Display 3 by default unless expanded
+  const visibleBlogs = isExpanded ? filteredAndSortedBlogs : filteredAndSortedBlogs.slice(0, 3);
 
   return (
     <PageShell>
@@ -39,7 +67,7 @@ export default function BlogsPage() {
             <span className="text-[#86bc25]">Insights & Research</span>
           </div>
 
-          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-16 md:bottom-20 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               Intelligence Built For <span className="font-semibold text-[#86bc25]">Enterprise Decision-Makers</span>
             </h1>
@@ -73,7 +101,7 @@ export default function BlogsPage() {
             </Link>
           </div>
 
-          {/* 3 SAMPLE MARKET RESEARCH REPORTS GRID (KEPT BLUE CARDS AS THEY ARE) */}
+          {/* 3 SAMPLE MARKET RESEARCH REPORTS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {REPORTS_DATA.slice(0, 3).map((report) => (
               <Link
@@ -131,38 +159,113 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      {/* 3. FILTERABLE ARCHIVE (BLOGS GRID - KEPT EXACTLY AS IT IS) */}
+      {/* 3. FILTERABLE ARCHIVE (SHOWS 3 ARTICLES BY DEFAULT WITH EXPAND DROPDOWN) */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans border-t border-[#e8ded1] min-h-[600px]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
-          <div className="mb-8">
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#85531b]">Knowledge Archive</span>
-            <h3 className="text-2xl sm:text-3xl font-light text-[#1c1a18] tracking-tight mt-1">Browse <span className="font-semibold">All Research Articles</span></h3>
-          </div>
+          
+          {/* Header Bar with Right-Aligned Filter Dropdowns */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-[#e6decb] pb-5 mb-10 gap-4" ref={filterRef}>
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#85531b]">Knowledge Archive</span>
+              <h3 className="text-2xl sm:text-3xl font-light text-[#1c1a18] tracking-tight mt-1">
+                Browse <span className="font-semibold">{activeTab === 'All' ? 'All Research Articles' : `${activeTab} Articles`}</span>
+              </h3>
+            </div>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 border-b border-[#e6decb] pb-5 mb-12">
-            {TABS.map((tab) => {
-              const active = activeTab === tab;
-              return (
+            {/* RIGHT ALIGNED DROPDOWN FILTERS */}
+            <div className="flex items-center gap-3 self-start md:self-auto relative z-30">
+              
+              {/* Category Dropdown Filter */}
+              <div className="relative">
                 <button
-                  key={tab}
                   type="button"
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-4.5 py-2 rounded-sm text-[13px] font-semibold transition-all ${
-                    active
-                      ? 'bg-[#86bc25] text-black shadow-md shadow-[#86bc25]/20'
-                      : 'bg-white text-[#524a3f] border border-[#e4dcce] hover:bg-[#86bc25] hover:text-black hover:border-[#86bc25]'
-                  }`}
+                  onClick={() => {
+                    setIsCategoryOpen(!isCategoryOpen);
+                    setIsSortOpen(false);
+                  }}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-[#d6cbba] hover:border-[#86bc25] rounded-lg text-[13px] font-bold text-[#1c1a18] shadow-sm hover:shadow transition-all"
                 >
-                  {tab}
+                  <Filter className="h-4 w-4 text-[#86bc25]" />
+                  <span>Category: <strong className="text-[#68461c]">{activeTab}</strong></span>
+                  <ChevronDown className={`h-4 w-4 text-zinc-400 transition-transform ${isCategoryOpen ? 'rotate-180' : ''}`} />
                 </button>
-              );
-            })}
+
+                {isCategoryOpen && (
+                  <div className="absolute right-0 mt-2 w-60 bg-white border border-[#d6cbba] rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-zinc-400 border-b border-[#f0e8dc] mb-1">
+                      Filter By Category
+                    </div>
+                    {TABS.map((tab) => (
+                      <button
+                        key={tab}
+                        type="button"
+                        onClick={() => {
+                          setActiveTab(tab);
+                          setIsExpanded(false);
+                          setIsCategoryOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-[13px] font-medium transition-colors flex items-center justify-between ${
+                          activeTab === tab ? 'bg-[#faf5eb] text-[#704918] font-bold' : 'text-[#2e2b26] hover:bg-zinc-50'
+                        }`}
+                      >
+                        <span>{tab}</span>
+                        {activeTab === tab && <Check className="h-4 w-4 text-[#86bc25]" />}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* View / Sort Dropdown Filter */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsSortOpen(!isSortOpen);
+                    setIsCategoryOpen(false);
+                  }}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-white border border-[#d6cbba] hover:border-[#86bc25] rounded-lg text-[13px] font-bold text-[#1c1a18] shadow-sm hover:shadow transition-all"
+                >
+                  <SlidersHorizontal className="h-4 w-4 text-[#86bc25]" />
+                  <span>View: <strong className="text-[#68461c]">{sortBy === 'latest' ? 'Latest First' : sortBy === 'oldest' ? 'Oldest First' : 'Alphabetical'}</strong></span>
+                  <ChevronDown className={`h-4 w-4 text-zinc-400 transition-transform ${isSortOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {isSortOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white border border-[#d6cbba] rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-zinc-400 border-b border-[#f0e8dc] mb-1">
+                      Display Order
+                    </div>
+                    {[
+                      { label: 'Latest First', value: 'latest' },
+                      { label: 'Oldest First', value: 'oldest' },
+                      { label: 'Alphabetical', value: 'title' }
+                    ].map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => {
+                          setSortBy(opt.value);
+                          setIsSortOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-[13px] font-medium transition-colors flex items-center justify-between ${
+                          sortBy === opt.value ? 'bg-[#faf5eb] text-[#704918] font-bold' : 'text-[#2e2b26] hover:bg-zinc-50'
+                        }`}
+                      >
+                        <span>{opt.label}</span>
+                        {sortBy === opt.value && <Check className="h-4 w-4 text-[#86bc25]" />}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+            </div>
           </div>
 
-          {/* Articles Grid */}
+          {/* Articles Grid (Displays 3 by default) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {filteredBlogs.map((b) => (
+            {visibleBlogs.map((b) => (
               <Link
                 key={b.id}
                 href={`/blogs/${b.slug}`}
@@ -189,6 +292,29 @@ export default function BlogsPage() {
               </Link>
             ))}
           </div>
+
+          {/* VIEW ALL ARTICLES DROPDOWN TRIGGER BELOW GRID */}
+          {filteredAndSortedBlogs.length > 3 && (
+            <div className="mt-12 flex flex-col items-center justify-center">
+              <button
+                type="button"
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#0b1b38] hover:bg-[#0f244a] text-white rounded-xl text-[13.5px] font-bold shadow-lg hover:shadow-xl transition-all duration-300 group border border-[#1e3c70]"
+              >
+                <span>
+                  {isExpanded
+                    ? 'Collapse Research Archive'
+                    : `View All Research Articles `}
+                </span>
+                {isExpanded ? (
+                  <ChevronUp className="h-4 w-4 text-[#86bc25] transition-transform group-hover:-translate-y-0.5" />
+                ) : (
+                  <ChevronDown className="h-4 w-4 text-[#86bc25] transition-transform group-hover:translate-y-0.5" />
+                )}
+              </button>
+            </div>
+          )}
+
         </div>
       </section>
     </PageShell>

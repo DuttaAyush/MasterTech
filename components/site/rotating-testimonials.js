@@ -110,38 +110,21 @@ export default function RotatingTestimonials() {
             </h2>
           </div>
 
-          <div className="mt-3 md:mt-0 flex items-center gap-3">
+          <div className="mt-3 md:mt-0 flex items-center gap-2">
             <button
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#666666] bg-white border border-[#d8dce2] px-3 py-1.5 rounded shadow-sm hover:border-[#86bc25] transition-colors"
-              title={isAutoPlaying ? 'Pause rotation' : 'Play rotation'}
+              onClick={handlePrev}
+              className="h-9 w-9 rounded-full bg-white border border-[#d8dce2] flex items-center justify-center text-black hover:border-[#86bc25] hover:bg-[#86bc25] hover:text-black transition-all shadow-sm"
+              aria-label="Previous testimonial"
             >
-              {isAutoPlaying && !isHovered ? (
-                <>
-                  <Pause className="h-3 w-3 text-[#86bc25]" /> Smooth 3D Wheel
-                </>
-              ) : (
-                <>
-                  <Play className="h-3 w-3 text-[#86bc25]" /> {isHovered ? 'Hover Focused' : 'Paused'}
-                </>
-              )}
+              <ChevronLeft className="h-4 w-4" />
             </button>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handlePrev}
-                className="h-9 w-9 rounded-full bg-white border border-[#d8dce2] flex items-center justify-center text-black hover:border-[#86bc25] hover:bg-[#86bc25] hover:text-black transition-all shadow-sm"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="h-9 w-9 rounded-full bg-white border border-[#d8dce2] flex items-center justify-center text-black hover:border-[#86bc25] hover:bg-[#86bc25] hover:text-black transition-all shadow-sm"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
+            <button
+              onClick={handleNext}
+              className="h-9 w-9 rounded-full bg-white border border-[#d8dce2] flex items-center justify-center text-black hover:border-[#86bc25] hover:bg-[#86bc25] hover:text-black transition-all shadow-sm"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
           </div>
         </div>
 

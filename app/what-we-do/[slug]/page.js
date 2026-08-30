@@ -37,7 +37,7 @@ export default function ServiceSubPage({ params }) {
             <span className="text-[#86bc25]">{service.shortTitle}</span>
           </div>
 
-          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-16 md:bottom-20 left-6 md:left-12 z-10 max-w-4xl">
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#86bc25] bg-[#080d1a]/80 border border-[#86bc25]/40 px-3 py-1 rounded inline-block mb-3">
               {service.tag}
             </span>

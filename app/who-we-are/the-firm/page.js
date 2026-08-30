@@ -33,7 +33,7 @@ export default function TheFirmPage() {
             <span className="text-[#86bc25]">The Firm</span>
           </div>
 
-          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-16 md:bottom-20 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               The <span className="font-semibold text-[#86bc25]">Firm</span>
             </h1>

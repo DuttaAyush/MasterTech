@@ -34,7 +34,7 @@ export default function IndustriesPage() {
             <span className="text-[#86bc25]">Industries We Serve</span>
           </div>
 
-          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-16 md:bottom-20 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               Industries <span className="font-semibold text-[#86bc25]">We Serve</span>
             </h1>
@@ -66,19 +66,6 @@ export default function IndustriesPage() {
 
           {/* Industries Grid */}
           <div>
-            <div className="flex items-center justify-between border-b border-[#e5dccf] pb-4 mb-8">
-              <span className="text-[12px] font-extrabold text-[#784813] uppercase tracking-wider">
-                Showing {visibleIndustries.length} of {INDUSTRIES.length} Industry Verticals
-              </span>
-              <button
-                onClick={() => setShowAll(!showAll)}
-                className="inline-flex items-center gap-2 text-[13px] font-bold text-[#1c1a18] bg-white border border-[#e5dccf] px-4 py-2 rounded-lg hover:border-[#86bc25] hover:text-[#5e8817] transition-all shadow-sm"
-              >
-                <span>{showAll ? 'Show Featured Verticals (4)' : `View All Industries (${INDUSTRIES.length})`}</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
-
             <div className="grid grid-cols-2 gap-3 sm:gap-8">
               {visibleIndustries.map((ind) => {
                 return (
@@ -87,18 +74,14 @@ export default function IndustriesPage() {
                     className="hover-mimag-border bg-white border border-[#e5dccf] rounded-xl p-4 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-3 sm:mb-4">
-                        <span className="text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#784813] bg-[#f4ece1] px-2 sm:px-3 py-0.5 sm:py-1 rounded truncate max-w-[80%]">
-                          {ind.tag}
-                        </span>
-                        <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] shrink-0">
-                          <RenderIcon name={ind.icon} className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <div className="flex items-center gap-3 sm:gap-3.5 mb-3 sm:mb-4">
+                        <div className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] shrink-0 shadow-md">
+                          <RenderIcon name={ind.icon} className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                         </div>
+                        <h3 className="text-[14px] sm:text-[20px] font-bold text-[#1c1a18] tracking-tight leading-snug">
+                          {ind.title}
+                        </h3>
                       </div>
-
-                      <h3 className="text-[14px] sm:text-[22px] font-bold text-[#1c1a18] mb-2 sm:mb-3 tracking-tight line-clamp-2">
-                        {ind.title}
-                      </h3>
                       <p className="text-[12px] sm:text-[14px] text-[#5c5449] leading-relaxed font-normal mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">
                         {ind.summary}
                       </p>
@@ -141,18 +124,16 @@ export default function IndustriesPage() {
               })}
             </div>
 
-            {/* Bottom Expand Toggle Bar */}
-            {!showAll && (
-              <div className="mt-12 text-center">
-                <button
-                  onClick={() => setShowAll(true)}
-                  className="inline-flex items-center gap-2 bg-[#1c1a18] text-white text-[14px] font-bold px-8 py-4 rounded-lg shadow-md hover:bg-[#86bc25] hover:text-black transition-all"
-                >
-                  <span>View All {INDUSTRIES.length} Industry Verticals</span>
-                  <ChevronDown className="h-4.5 w-4.5" />
-                </button>
-              </div>
-            )}
+            {/* Simple View All Industries Dropdown Button Below Grid */}
+            <div className="mt-12 text-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex items-center gap-2.5 bg-[#1c1a18] text-white text-[14px] font-bold px-8 py-3.5 rounded-xl shadow-md hover:bg-[#86bc25] hover:text-black transition-all duration-300 border border-[#1c1a18]"
+              >
+                <span>{showAll ? 'Collapse Industry Verticals' : 'View All Industries'}</span>
+                <ChevronDown className={`h-4.5 w-4.5 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
+              </button>
+            </div>
           </div>
 
           {/* Consultation Intake Card */}

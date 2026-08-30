@@ -2,7 +2,8 @@
 
 import {
   Cloud, Cpu, ShieldCheck, Workflow, Database, Layers, Zap,
-  Landmark, Truck, ShoppingBag, HeartPulse, Building2, Lock
+  Landmark, Truck, ShoppingBag, HeartPulse, Building2, Lock,
+  Globe, Smartphone, Code2, TrendingUp, Bot
 } from 'lucide-react';
 
 const ICON_MAP = {
@@ -19,6 +20,11 @@ const ICON_MAP = {
   HeartPulse,
   Building2,
   Lock,
+  Globe,
+  Smartphone,
+  Code2,
+  TrendingUp,
+  Bot,
 };
 
 export default function RenderIcon({ name, className = 'h-5 w-5' }) {

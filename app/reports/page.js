@@ -24,17 +24,17 @@ export default function ReportsPage() {
   return (
     <PageShell>
       {/* 1. DARK EXECUTIVE HERO */}
-      <section className="relative bg-[#000000] text-white py-16 lg:py-20 border-b border-[#1a1a1a] font-sans">
+      <section className="relative bg-[#000000] text-white py-10 lg:py-12 border-b border-[#1a1a1a] font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#86bc25] mb-3 flex items-center gap-2">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#86bc25] mb-2 flex items-center gap-2">
               <FileText className="h-3.5 w-3.5 text-[#86bc25]" />
               MIMAG Research Institute
             </p>
-            <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-light tracking-[-0.02em] text-white leading-[1.12]">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-light tracking-[-0.02em] text-white leading-[1.12]">
               Technical Whitepapers & <span className="font-semibold text-[#86bc25]">Architectural Blueprints.</span>
             </h1>
-            <p className="mt-4 text-[16px] leading-relaxed text-[#999999] font-light">
+            <p className="mt-3 text-[15px] leading-relaxed text-[#999999] font-light">
               Free, peer-reviewed engineering research and reference architectures published directly by our practice partners. Zero commercial gatekeeping.
             </p>
           </div>

@@ -1,19 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, ChevronDown, CheckCircle } from 'lucide-react';
+import { ArrowUpRight, CheckCircle } from 'lucide-react';
 import PageShell from '@/components/site/page-shell';
 import { SERVICES } from '@/lib/services-data';
 import RenderIcon from '@/components/site/icon-map';
 
 export default function WhatWeDoPage() {
-  const [showAll, setShowAll] = useState(false);
-
-  // Show 4 services initially, or all 7 when expanded
-  const visibleServices = showAll ? SERVICES : SERVICES.slice(0, 4);
-
   return (
     <PageShell>
       {/* 1. HERO SECTION */}
@@ -34,7 +28,7 @@ export default function WhatWeDoPage() {
             <span className="text-[#86bc25]">What We Do</span>
           </div>
 
-          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-16 md:bottom-20 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               Our <span className="font-semibold text-[#86bc25]">Capabilities & Services</span>
             </h1>
@@ -57,30 +51,17 @@ export default function WhatWeDoPage() {
               Capabilities Architecture
             </span>
             <h2 className="text-2xl sm:text-3xl font-light text-[#1c1a18] tracking-tight mb-3">
-              Seven Practice Areas. <span className="font-bold">One Accountable Partner.</span>
+              Core Engineering Practices. <span className="font-bold">One Accountable Partner.</span>
             </h2>
             <p className="text-[15.5px] text-[#5c5449] font-normal leading-relaxed max-w-4xl">
-              Our practice capabilities cover the full enterprise technology stack—from board-level architectural strategy to hands-on SRE deployment, sovereign AI pipelines, and zero-trust perimeter defense.
+              Our practice capabilities cover the full enterprise technology stack—from website and mobile application development to custom enterprise software, ERP automation, digital marketing, and autonomous AI agents.
             </p>
           </div>
 
-          {/* Services Grid */}
+          {/* 3-COLUMN SERVICES GRID */}
           <div>
-            <div className="flex items-center justify-between border-b border-[#e5dccf] pb-4 mb-8">
-              <span className="text-[12px] font-extrabold text-[#784813] uppercase tracking-wider">
-                Showing {visibleServices.length} of {SERVICES.length} Practices
-              </span>
-              <button
-                onClick={() => setShowAll(!showAll)}
-                className="inline-flex items-center gap-2 text-[13px] font-bold text-[#1c1a18] bg-white border border-[#e5dccf] px-4 py-2 rounded-lg hover:border-[#86bc25] hover:text-[#5e8817] transition-all shadow-sm"
-              >
-                <span>{showAll ? 'Show Featured Practices (4)' : `View All Services (${SERVICES.length})`}</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
-              </button>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 sm:gap-6">
-              {visibleServices.map((service) => {
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+              {SERVICES.map((service) => {
                 return (
                   <div
                     key={service.slug}
@@ -88,40 +69,40 @@ export default function WhatWeDoPage() {
                   >
                     <div>
                       {/* Service Stock Image Header */}
-                      <div className="relative h-[95px] sm:h-[145px] w-full overflow-hidden bg-[#1c1a18]">
+                      <div className="relative h-[120px] sm:h-[160px] w-full overflow-hidden bg-[#1c1a18]">
                         <Image
                           src={service.image}
                           alt={service.title}
                           fill
-                          sizes="(max-width: 768px) 50vw, 50vw"
+                          sizes="(max-width: 768px) 100vw, 33vw"
                           className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/90 via-[#1c1a18]/40 to-transparent" />
-                        <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#faf7f2] text-black px-2 sm:px-2.5 py-0.5 rounded text-[8px] sm:text-[9.5px] font-extrabold uppercase tracking-wider shadow truncate max-w-[80%]">
+                        <span className="absolute top-3 left-3 bg-[#faf7f2] text-black px-2.5 py-0.5 rounded text-[9.5px] font-extrabold uppercase tracking-wider shadow">
                           {service.tag}
                         </span>
-                        <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-lg bg-[#1c1a18]/90 border border-white/20 text-[#86bc25] shadow-lg shrink-0">
-                          <RenderIcon name={service.icon} className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5" />
+                        <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-lg bg-[#1c1a18]/90 border border-white/20 text-[#86bc25] shadow-lg shrink-0">
+                          <RenderIcon name={service.icon} className="h-4.5 w-4.5" />
                         </div>
                       </div>
 
-                      <div className="p-3 sm:p-5">
-                        <h3 className="text-[14px] sm:text-[20px] font-bold text-[#1c1a18] mb-1 sm:mb-2 tracking-tight line-clamp-2 group-hover:text-[#5e8817] transition-colors">
+                      <div className="p-6">
+                        <h3 className="text-[19px] sm:text-[21px] font-bold text-[#1c1a18] mb-2 tracking-tight group-hover:text-[#5e8817] transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-[12px] sm:text-[13.5px] text-[#5c5449] leading-relaxed font-normal mb-2 sm:mb-4 line-clamp-3 sm:line-clamp-none">
+                        <p className="text-[13.5px] text-[#5c5449] leading-relaxed font-normal mb-5 line-clamp-3">
                           {service.summary}
                         </p>
 
-                        <div className="border-t border-[#f2ece2] pt-2.5 sm:pt-3 mb-1 sm:mb-3 hidden sm:block">
-                          <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#784813] block mb-2">
-                            Core Capabilities
+                        <div className="border-t border-[#f2ece2] pt-3 mb-2">
+                          <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-[#784813] block mb-2.5">
+                            Core Capabilities & Deliverables
                           </span>
-                          <ul className="grid sm:grid-cols-2 gap-1.5">
-                            {service.capabilities.slice(0, 4).map((cap, i) => (
-                              <li key={i} className="text-[12px] text-[#4a4338] font-medium flex items-center gap-1.5">
+                          <ul className="space-y-2">
+                            {service.capabilities.slice(0, 3).map((cap, i) => (
+                              <li key={i} className="text-[12.5px] text-[#4a4338] font-medium flex items-center gap-2">
                                 <CheckCircle className="h-3.5 w-3.5 text-[#86bc25] shrink-0" />
-                                <span>{cap}</span>
+                                <span className="truncate">{cap}</span>
                               </li>
                             ))}
                           </ul>
@@ -129,19 +110,19 @@ export default function WhatWeDoPage() {
                       </div>
                     </div>
 
-                    <div className="px-3 sm:px-5 py-2.5 sm:py-3.5 border-t border-[#f2ece2] flex items-center justify-between">
-                      <div className="flex items-center gap-2 sm:gap-4">
+                    <div className="px-6 py-4 border-t border-[#f2ece2] flex items-center justify-between">
+                      <div className="flex items-center gap-3">
                         {service.metrics.slice(0, 1).map((m, idx) => (
                           <div key={idx} className="text-left">
-                            <span className="block text-xs sm:text-sm font-extrabold text-[#1c1a18]">{m.value}</span>
-                            <span className="text-[9px] sm:text-[10px] text-[#784813] font-bold uppercase truncate max-w-[65px] sm:max-w-none">{m.label}</span>
+                            <span className="block text-sm font-extrabold text-[#1c1a18]">{m.value}</span>
+                            <span className="text-[10px] text-[#784813] font-bold uppercase truncate">{m.label}</span>
                           </div>
                         ))}
                       </div>
 
                       <Link
                         href={`/what-we-do/${service.slug}`}
-                        className="group/btn inline-flex items-center gap-1.5 text-[11px] sm:text-[12.5px] font-bold text-black bg-[#86bc25] hover:bg-[#97d031] px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:shadow-lg hover:shadow-[#86bc25]/30 transition-all duration-200 shrink-0"
+                        className="group/btn inline-flex items-center gap-1.5 text-[12.5px] font-bold text-black bg-[#86bc25] hover:bg-[#97d031] px-4 py-2 rounded-full shadow-sm hover:shadow-lg hover:shadow-[#86bc25]/30 transition-all duration-200 shrink-0"
                       >
                         <span>Explore</span>
                         <ArrowUpRight className="h-3.5 w-3.5 text-black group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-200" />
@@ -151,19 +132,6 @@ export default function WhatWeDoPage() {
                 );
               })}
             </div>
-
-            {/* Bottom Expand Toggle Bar */}
-            {!showAll && (
-              <div className="mt-12 text-center">
-                <button
-                  onClick={() => setShowAll(true)}
-                  className="inline-flex items-center gap-2 bg-[#1c1a18] text-white text-[14px] font-bold px-8 py-4 rounded-lg shadow-md hover:bg-[#86bc25] hover:text-black transition-all"
-                >
-                  <span>View All {SERVICES.length} Capabilities</span>
-                  <ChevronDown className="h-4.5 w-4.5" />
-                </button>
-              </div>
-            )}
           </div>
 
           {/* Consultation Intake Card */}
@@ -176,7 +144,7 @@ export default function WhatWeDoPage() {
                 Evaluate your architectural roadmap with <span className="font-bold">MIMAG</span>
               </h3>
               <p className="text-[14px] text-[#6b6255] mt-1 font-normal max-w-2xl">
-                Connect directly with a senior practice partner to evaluate your cloud modernization, AI deployment, or architectural challenges under mutual NDA.
+                Connect directly with a senior practice partner to evaluate your software architecture, web/mobile development, ERP, or AI deployment under mutual NDA.
               </p>
             </div>
             <Link

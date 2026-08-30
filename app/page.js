@@ -7,67 +7,109 @@ import { motion } from 'framer-motion';
 import {
   ArrowUpRight, ArrowRight, Cloud, Cpu, ShieldCheck, Workflow, Database, Layers,
   BookOpen, Download, CheckCircle, Sparkles, Mail, Phone, MapPin, Clock,
-  Building2, Users, Award, Zap, Lock, Target, TrendingUp, ShieldAlert, FileText, ChevronRight
+  Building2, Users, Award, Zap, Lock, Target, TrendingUp, ShieldAlert, FileText, ChevronRight,
+  Globe, Smartphone, Code2, Bot
 } from 'lucide-react';
 import { toast } from 'sonner';
 import PageShell from '@/components/site/page-shell';
 import InteractiveGlobe from '@/components/site/interactive-globe';
 import RotatingTestimonials from '@/components/site/rotating-testimonials';
+import InteractiveProcess3D from '@/components/site/interactive-process-3d';
 
 const HERO_IMG = '/images/optimized/hero_defense_tech.webp';
 
 const services = [
   {
-    icon: Cloud,
-    title: 'Cloud Modernization',
-    body: 'Migrate mission-critical workloads and re-architect for AWS, Azure, and GCP with audited financial and latency outcomes.',
-    tags: ['Cloud Migration', 'FinOps Governance', 'Platform Engineering'],
+    icon: Globe,
+    title: 'Website Development',
+    body: 'High-performance, modern web applications engineered with lightning response times, SEO optimization, and responsive design systems.',
+    tags: ['Next.js & React', 'Enterprise Design Systems', 'SEO & Performance'],
     tagColor: 'text-[#85531b] bg-[#fef3c7] border-[#fde68a]',
   },
   {
-    icon: Cpu,
-    title: 'AI & Applied Intelligence',
-    body: 'From sovereign foundation model strategy to production LLM retrieval architectures, RAG systems, and compliance in regulated markets.',
-    tags: ['LLMOps & RAG', 'Enterprise ML Platforms', 'Sovereign AI'],
+    icon: Smartphone,
+    title: 'Mobile App Development',
+    body: 'Native and cross-platform mobile applications crafted for seamless iOS and Android user experiences with high security standards.',
+    tags: ['iOS & Android', 'React Native / Flutter', 'Mobile UX/UI'],
     tagColor: 'text-[#047857] bg-[#ecfdf5] border-[#a7f3d0]',
   },
   {
-    icon: ShieldCheck,
-    title: 'Cybersecurity & Zero Trust',
-    body: 'Zero-trust architecture, automated SOC threat detection, and cryptographic identity modernization for high-consequence perimeters.',
-    tags: ['Zero Trust Identity', 'IAM Modernization', 'SOC Automation'],
+    icon: Code2,
+    title: 'Software Development',
+    body: 'Custom enterprise software, API ecosystems, and scalable microservices designed for long-term operational resilience and growth.',
+    tags: ['Custom SaaS', 'Cloud Microservices', 'API Architecture'],
     tagColor: 'text-[#1d4ed8] bg-[#eff6ff] border-[#bfdbfe]',
   },
   {
-    icon: Workflow,
-    title: 'Digital Transformation',
-    body: 'Operating model modernization, agile product engineering, and executive change delivered exclusively by accountable senior partners.',
-    tags: ['Product Engineering', 'Agile Architecture', 'Executive Change'],
+    icon: Building2,
+    title: 'ERP Solutions',
+    body: 'End-to-end Enterprise Resource Planning implementations, streamlining supply chains, inventory, finance, and operational workflows.',
+    tags: ['Enterprise ERP', 'Workflow Automation', 'Operations & Supply'],
     tagColor: 'text-[#85531b] bg-[#fef3c7] border-[#fde68a]',
   },
   {
-    icon: Database,
-    title: 'Data Fabric & Analytics',
-    body: 'Modern enterprise lakehouses, real-time streaming pipelines, and standardized semantic layers that make data immediately decision-ready.',
-    tags: ['Data Lakehouses', 'Real-Time Streaming', 'Semantic BI'],
+    icon: TrendingUp,
+    title: 'Digital Marketing',
+    body: 'Data-driven growth strategies, performance marketing, brand positioning, and conversion rate optimization that fuel business expansion.',
+    tags: ['Growth Strategy', 'Performance Marketing', 'Brand Positioning'],
     tagColor: 'text-[#047857] bg-[#ecfdf5] border-[#a7f3d0]',
   },
   {
-    icon: Layers,
-    title: 'Enterprise Architecture',
-    body: 'Reference API models, microservices governance, and enterprise integration standards designed to remain resilient for decades.',
-    tags: ['EA Governance', 'Microservices APIs', 'Legacy Modernization'],
+    icon: Bot,
+    title: 'AI Agent Development',
+    body: 'Autonomous AI agents, RAG retrieval fabrics, and custom LLM workflows built to automate complex enterprise decisioning and operations.',
+    tags: ['Autonomous Agents', 'Custom LLMs & RAG', 'Enterprise Automation'],
     tagColor: 'text-[#1d4ed8] bg-[#eff6ff] border-[#bfdbfe]',
   },
 ];
 
-const originalIndustries = [
-  { title: 'Banking & Capital Markets', image: '/images/optimized/bfsi_banking.webp', href: '/industries/bfsi', label: 'Financial Infrastructure' },
-  { title: 'Cyber AI & Defense Systems', image: '/images/optimized/hero_defense_tech.webp', href: '/industries/cybersecurity-defense', label: 'National Security' },
-  { title: 'Cloud & Autonomous Ops', image: '/images/optimized/cloud_autonomous.webp', href: '/industries/cloud-infrastructure', label: 'Autonomous Systems' },
-  { title: 'Energy Transition & Grid AI', image: '/images/optimized/energy_grid.webp', href: '/industries/energy-smart-grid', label: 'Grid Resiliency' },
-  { title: 'Healthcare Interoperability', image: '/images/optimized/healthcare_interop.webp', href: '/industries/healthcare-life-sciences', label: 'Clinical Fabrics' },
-  { title: 'Logistics & Supply Chain AI', image: '/images/optimized/logistics_supply.webp', href: '/industries/logistics-supply-chain', label: 'Global Supply Chain' },
+const consultingVerticals = [
+  {
+    title: 'Business Consulting',
+    category: 'Strategic Advisory',
+    image: '/images/optimized/bfsi_banking.webp',
+    href: '/what-we-do',
+    description: 'Enterprise transformation, digital operating models, corporate governance, performance optimization, and audited value realization.',
+    highlights: [
+      'Digital Operating Models & Business Transformation',
+      'Corporate Governance & Board-Level Advisory',
+      'Performance Optimization & Cost Realization',
+    ],
+    metrics: 'Audited Strategy & Operational Excellence',
+    tags: ['Corporate Strategy', 'Operating Models', 'Value Realization'],
+    linkText: 'Explore Business Consulting',
+    cardBg: 'bg-white hover:bg-[#faf7f2] border-[#e4d7c5]',
+    titleColor: 'text-[#1c1a18]',
+    descColor: 'text-[#5c564e]',
+    tagStyle: 'bg-[#f4efe6] text-[#4a4237] border-[#dfd4c2]',
+    metricColor: 'text-[#6e5842]',
+    badgeStyle: 'bg-[#1c1a18] text-white',
+    linkColor: 'text-[#1c1a18] group-hover:text-[#5e8817]',
+    borderColor: 'border-[#f0e6d8]',
+  },
+  {
+    title: 'IT Consulting',
+    category: 'Tech Architecture',
+    image: '/images/optimized/cloud_autonomous.webp',
+    href: '/what-we-do',
+    description: 'Cloud modernization, zero-trust cybersecurity architecture, custom software engineering, ERP implementations, and autonomous AI fabrics.',
+    highlights: [
+      'Cloud Microservices & Hyperscale Infrastructure',
+      'Zero-Trust Security & Cryptographic Perimeters',
+      'Custom Enterprise SaaS & Autonomous AI Agents',
+    ],
+    metrics: 'Hyperscale Resilience & Cloud Optimization',
+    tags: ['Cloud Architecture', 'Zero-Trust Security', 'AI & Data Fabrics'],
+    linkText: 'Explore IT Consulting',
+    cardBg: 'bg-white hover:bg-[#faf7f2] border-[#e4d7c5]',
+    titleColor: 'text-[#1c1a18]',
+    descColor: 'text-[#5c564e]',
+    tagStyle: 'bg-[#f4efe6] text-[#4a4237] border-[#dfd4c2]',
+    metricColor: 'text-[#6e5842]',
+    badgeStyle: 'bg-[#1c1a18] text-white',
+    linkColor: 'text-[#1c1a18] group-hover:text-[#5e8817]',
+    borderColor: 'border-[#f0e6d8]',
+  },
 ];
 
 const work = [
@@ -250,12 +292,12 @@ export default function HomePage() {
   };
 
   const capabilityOptions = [
-    'Cloud Modernization',
-    'AI & Applied Intelligence',
-    'Cybersecurity & Zero Trust',
-    'Digital Transformation',
-    'Data Fabric & Analytics',
-    'Enterprise Architecture',
+    'Website Development',
+    'Mobile App Development',
+    'Software Development',
+    'ERP Solutions',
+    'Digital Marketing',
+    'AI Agent Development',
     'Executive Advisory Inquiry',
   ];
 
@@ -373,7 +415,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/our-work"
-              className="inline-flex items-center gap-1.5 text-[14px] font-bold text-[#5e8817] hover:text-black transition-colors mt-3 md:mt-0"
+              className="inline-flex items-center gap-1.5 text-[14px] text-underline font-bold text-[#5e8817] hover:text-black transition-colors mt-3 md:mt-0"
             >
               <span>Explore All Case Benchmark Studies</span>
               <ArrowUpRight className="h-4 w-4" />
@@ -420,7 +462,7 @@ export default function HomePage() {
 
       {/* 3. SECTION: DOMAIN MARQUEE & VERTICAL REFERENCE MODELS */}
       <section
-        className="relative text-white py-16 lg:py-24 font-sans overflow-hidden border-b border-[#1f3c10]"
+        className="relative text-white py-10 lg:py-14 font-sans overflow-hidden border-b border-[#1f3c10]"
         style={{
           backgroundImage: "url('/images/metallic_bg.png')",
           backgroundSize: 'cover',
@@ -430,7 +472,7 @@ export default function HomePage() {
       >
         <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 rounded-full bg-[#86bc25]/15 blur-3xl pointer-events-none" />
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 border-l-4 border-[#86bc25] pl-4 sm:pl-5">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 border-l-4 border-[#86bc25] pl-4 sm:pl-5">
             <div>
               <span className="text-[10.5px] sm:text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#f8f7f5] block mb-1">
                 Domain Fluency & Reference Frameworks
@@ -444,34 +486,68 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-6 gap-3 sm:gap-5">
-            {originalIndustries.map((item, i) => (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-9">
+            {consultingVerticals.map((item, i) => (
               <Link
                 key={i}
                 href={item.href}
-                className="hover-mimag-border group relative h-[220px] sm:h-[290px] rounded-xl overflow-hidden border border-[#2b4b12] bg-[#0a1405] transition-all duration-300 hover:shadow-2xl hover:border-transparent hover:-translate-y-1"
+                className={`hover-mimag-border group flex flex-col md:flex-row ${item.cardBg} border rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2`}
               >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 20vw"
-                  className="object-cover opacity-55 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-85"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1405] via-[#0a1405]/50 to-transparent" />
-
-                <div className="absolute top-3 left-3 bg-[#faf7f2] text-black px-2.5 py-0.5 rounded text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider shadow">
-                  {item.label}
+                {/* Left Side: Crisp Practice Image (No Black Overlay) */}
+                <div className="relative w-full md:w-2/5 h-[240px] md:h-auto shrink-0 overflow-hidden bg-slate-100">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover opacity-100 transition-transform duration-700 group-hover:scale-108"
+                  />
+                  <span className={`absolute top-4 left-4 ${item.badgeStyle} px-3 py-1 rounded text-[10px] font-extrabold uppercase tracking-wider shadow-md z-10`}>
+                    {item.category}
+                  </span>
                 </div>
 
-                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 flex flex-col justify-end">
-                  <h3 className="text-[14px] sm:text-[17px] font-bold text-white leading-snug tracking-tight group-hover:text-[#86bc25] transition-colors line-clamp-2">
-                    {item.title}
-                  </h3>
-                  <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-[#86bc25] group-hover:text-white transition-colors">
-                    <span>Explore Sector</span>
-                    <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                {/* Right Side: Structured Data, Highlights & Bottom Tags */}
+                <div className="p-7 sm:p-8 flex flex-col justify-between flex-1">
+                  <div>
+                    <h3 className={`text-2xl sm:text-3xl font-bold ${item.titleColor} tracking-tight transition-colors mb-2.5`}>
+                      {item.title}
+                    </h3>
+                    <p className={`text-[14px] sm:text-[14.5px] ${item.descColor} font-light leading-relaxed mb-4`}>
+                      {item.description}
+                    </p>
+
+                    {/* Key Practice Highlights (Fills whitespace) */}
+                    <div className="space-y-2 mb-6">
+                      {item.highlights.map((h, idx) => (
+                        <div key={idx} className="flex items-start gap-2 text-[13px] font-medium text-[#2d2924]">
+                          <CheckCircle className="h-4 w-4 text-[#5e8817] shrink-0 mt-0.5" />
+                          <span>{h}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom Area: Tags placed directly above the border divider line */}
+                  <div>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {item.tags.map((tag) => (
+                        <span key={tag} className={`text-[10.5px] font-bold border px-2.5 py-0.5 rounded ${item.tagStyle}`}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className={`pt-4 ${item.borderColor} border-t flex flex-col sm:flex-row sm:items-center justify-between gap-2.5`}>
+                      <span className={`text-[11px] font-extrabold uppercase tracking-wider ${item.metricColor}`}>
+                        {item.metrics}
+                      </span>
+                      <span className={`inline-flex items-center gap-1.5 text-[13px] font-bold ${item.linkColor} transition-colors shrink-0`}>
+                        <span>{item.linkText}</span>
+                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -507,18 +583,15 @@ export default function HomePage() {
                 className="hover-mimag-border group flex flex-col justify-between rounded-xl border border-[#e8dfcf] bg-white p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-2xl hover:border-transparent hover:-translate-y-1.5"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center gap-3.5 mb-4">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] font-bold group-hover:bg-[#86bc25] group-hover:text-black transition-colors shadow-md">
                       <s.icon className="h-5.5 w-5.5" />
                     </div>
-                    <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#7a736a] bg-[#f7f2e9] border border-[#ebe3d5] px-2.5 py-0.5 rounded">
-                      PRACTICE 0{idx + 1}
-                    </span>
+                    <h3 className="text-[19px] font-bold text-[#1c1a18] tracking-tight group-hover:text-[#5e8817] transition-colors leading-snug">
+                      {s.title}
+                    </h3>
                   </div>
 
-                  <h3 className="text-[20px] font-bold text-[#1c1a18] tracking-tight group-hover:text-[#5e8817] transition-colors mb-3">
-                    {s.title}
-                  </h3>
                   <p className="text-[14.5px] text-[#5c564e] font-normal leading-relaxed mb-6">
                     {s.body}
                   </p>
@@ -778,7 +851,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. CLIENT TESTIMONIALS WITH ROTATING CARDS */}
+      {/* 8. INTERACTIVE 3D METHODOLOGY: FROM IDEA TO IMPACT */}
+      <InteractiveProcess3D />
+
+      {/* 9. CLIENT TESTIMONIALS WITH ROTATING CARDS */}
       <RotatingTestimonials />
 
       {/* 9. EXECUTIVE PARTNER BRIEFING & COMPACT CONTACT FORM */}

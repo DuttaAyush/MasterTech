@@ -140,7 +140,7 @@ export default function CareersPage() {
             <span className="text-[#86bc25]">Careers</span>
           </div>
 
-          <div className="absolute bottom-10 left-6 md:left-12 z-10 max-w-4xl">
+          <div className="absolute bottom-16 md:bottom-20 left-6 md:left-12 z-10 max-w-4xl">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-white tracking-tight leading-tight">
               Engineering Work <span className="font-semibold text-[#86bc25]">Alongside Senior Peers</span>
             </h1>
@@ -205,7 +205,7 @@ export default function CareersPage() {
               </h2>
             </div>
             <span className="mt-2 md:mt-0 text-[13px] font-bold text-[#5e8817] bg-[#f4f7ed] border border-[#d6e8b8] px-4 py-1.5 rounded-full">
-              {ROLES.length} Open Positions Globally
+              {ROLES.length} Open Positions 
             </span>
           </div>
 
