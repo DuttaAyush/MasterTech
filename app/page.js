@@ -68,7 +68,7 @@ const consultingVerticals = [
     title: 'Business Consulting',
     category: 'Strategic Advisory',
     image: '/images/optimized/bfsi_banking.webp',
-    href: '/what-we-do',
+    href: '/what-we-do/business-consulting',
     description: 'Enterprise transformation, digital operating models, corporate governance, performance optimization, and audited value realization.',
     highlights: [
       'Digital Operating Models & Business Transformation',
@@ -91,7 +91,7 @@ const consultingVerticals = [
     title: 'IT Consulting',
     category: 'Tech Architecture',
     image: '/images/optimized/cloud_autonomous.webp',
-    href: '/what-we-do',
+    href: '/what-we-do/it-consulting',
     description: 'Cloud modernization, zero-trust cybersecurity architecture, custom software engineering, ERP implementations, and autonomous AI fabrics.',
     highlights: [
       'Cloud Microservices & Hyperscale Infrastructure',
