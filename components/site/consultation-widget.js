@@ -54,8 +54,8 @@ export default function ConsultationWidget() {
   return (
     <div
       ref={widgetRef}
-      className={`fixed right-4 bottom-6 sm:right-8 sm:bottom-8 z-50 flex flex-col items-stretch rounded-2xl overflow-hidden bg-white dark:bg-[#090b0f] border border-black/10 dark:border-white/10 shadow-2xl transition-all duration-300 ${
-        open ? 'shadow-[#86bc25]/20 ring-1 ring-[#86bc25]/30' : 'hover:border-[#86bc25]/50'
+      className={`fixed right-4 bottom-5 sm:right-8 sm:bottom-8 z-50 flex flex-col items-stretch rounded-full sm:rounded-2xl overflow-hidden bg-black dark:bg-[#090b0f] border border-black/10 dark:border-white/10 shadow-2xl transition-all duration-300 ${
+        open ? 'shadow-[#86bc25]/20 ring-1 ring-[#86bc25]/30 rounded-2xl' : 'hover:border-[#86bc25]/50'
       }`}
     >
       {/* Expandable Shutter Menu */}
@@ -64,7 +64,7 @@ export default function ConsultationWidget() {
           open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
         }`}
       >
-        <div className="overflow-hidden">
+        <div className="overflow-hidden bg-white dark:bg-[#090b0f]">
           <div className="flex flex-col gap-2 p-3 w-full min-w-[240px]">
             <Link
               href="/contact"
@@ -101,10 +101,11 @@ export default function ConsultationWidget() {
         type="button"
         onClick={() => setOpen((val) => !val)}
         aria-expanded={open}
-        className="flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-black dark:bg-[#1a1a1a] text-white text-[14.5px] font-medium tracking-tight transition-colors hover:bg-[#262626] border-t border-white/10"
+        title="Schedule a consultation"
+        className="flex items-center justify-center gap-2 p-3.5 sm:px-6 sm:py-3.5 bg-black dark:bg-[#1a1a1a] text-white text-[14.5px] font-medium tracking-tight transition-colors hover:bg-[#262626]"
       >
-        <MessageSquare className="h-4 w-4 text-[#86bc25]" />
-        <span>{open ? 'Close options' : 'Schedule a consultation'}</span>
+        <MessageSquare className="h-5 w-5 sm:h-4 sm:w-4 text-[#86bc25] shrink-0" />
+        <span className="hidden sm:inline">{open ? 'Close options' : 'Schedule a consultation'}</span>
       </button>
     </div>
   );

@@ -175,7 +175,7 @@ const industriesData = [
     title: 'Banking & Capital Markets',
     image: '/images/optimized/bfsi_banking.webp',
     href: '/industries/bfsi',
-    label: 'Financial Infrastructure',
+    label: 'Financial Infra',
     description: 'Core banking modernization, real-time ledger orchestration, and audited financial latency optimization across global jurisdictions.',
     stats: '€1.9B Infra Savings Delivered',
   },
@@ -602,10 +602,10 @@ export default function HomePage() {
       </section>
 
       {/* 5. SECTION: DEEP SAPPHIRE-BLUE RESEARCH & WHITEPAPERS */}
-      <section className="relative bg-gradient-to-r from-[#07152b] via-[#0c2247] to-[#07152b] text-white py-18 lg:py-24 border-b border-[#1c3a6b] font-sans overflow-hidden">
+      <section className="relative bg-gradient-to-r from-[#07152b] via-[#0c2247] to-[#07152b] text-white py-12 sm:py-20 lg:py-24 border-b border-[#1c3a6b] font-sans overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#3b82f6]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 pb-4 border-b border-[#1c3969]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-4 border-b border-[#1c3969]">
             <div>
               <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#63a3ff] flex items-center gap-2 mb-1">
                 <Sparkles className="h-3.5 w-3.5 text-[#86bc25]" />
@@ -615,20 +615,20 @@ export default function HomePage() {
                 Architectural Whitepapers & <span className="font-semibold text-[#86bc25]">Market Research</span>
               </h2>
             </div>
-            <div className="flex items-center gap-3 mt-4 md:mt-0">
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 sm:gap-3 mt-4 md:mt-0">
               <Link
                 href="/blogs"
-                className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#c7dbff] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-[12px] sm:text-[14px] font-semibold text-[#c7dbff] hover:text-white transition-colors bg-[#0d2247] sm:bg-transparent px-3 py-1.5 sm:p-0 rounded border border-[#1e3c70] sm:border-none"
               >
-                <BookOpen className="h-4 w-4 text-[#86bc25]" />
+                <BookOpen className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#86bc25]" />
                 <span>Executive Articles</span>
               </Link>
               <Link
                 href="/reports"
-                className="inline-flex items-center gap-1.5 text-[13.5px] font-bold bg-[#14305c] border border-[#2b569e] text-white px-5 py-2.5 rounded shadow hover:bg-[#86bc25] hover:text-black hover:border-[#86bc25] transition-all"
+                className="inline-flex items-center gap-1.5 text-[12px] sm:text-[13.5px] font-bold bg-[#14305c] border border-[#2b569e] text-white px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded shadow hover:bg-[#86bc25] hover:text-black hover:border-[#86bc25] transition-all"
               >
-                <Download className="h-4 w-4 text-[#86bc25]" />
-                <span>Full Whitepaper Library</span>
+                <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#86bc25]" />
+                <span>Whitepaper Library</span>
               </Link>
             </div>
           </div>
