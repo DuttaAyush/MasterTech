@@ -328,9 +328,9 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="mt-7 text-[40px] sm:text-[54px] lg:text-[62px] font-light leading-[1.06] tracking-[-0.025em] text-white text-balance"
+                className="mt-4 sm:mt-7 text-[32px] sm:text-[48px] lg:text-[62px] font-light leading-[1.1] sm:leading-[1.06] tracking-[-0.025em] text-white text-balance"
               >
-                Intelligence That Shapes <br />
+                Intelligence That Shapes <br className="hidden sm:inline" />
                 <strong className="font-semibold text-white">Better Enterprise Decisions.</strong>
               </motion.h1>
 
@@ -422,37 +422,37 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* OUTCOMES CARDS GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-7">
+          {/* OUTCOMES CARDS GRID - 2 cards side-by-side on mobile view */}
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-7">
             {work.map((w, i) => (
               <Link
                 key={i}
                 href={w.href}
-                className="hover-mimag-border group flex flex-col justify-between bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-transparent hover:shadow-[0_12px_35px_rgba(134,188,37,0.15)] transition-all duration-300 hover:-translate-y-1.5"
+                className="hover-mimag-border group flex flex-col justify-between bg-white border border-[#e4d7c5] rounded-xl p-3.5 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-transparent hover:shadow-[0_12px_35px_rgba(134,188,37,0.15)] transition-all duration-300 hover:-translate-y-1.5"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4 text-[10.5px] font-extrabold uppercase tracking-wider text-[#8e8477]">
+                  <div className="flex items-center justify-between mb-2 sm:mb-4 text-[9px] sm:text-[10.5px] font-extrabold uppercase tracking-wider text-[#8e8477]">
                     <span className="truncate max-w-[85%]">{w.kicker}</span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#86bc25] group-hover:scale-150 transition-transform" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#86bc25] group-hover:scale-150 transition-transform shrink-0" />
                   </div>
 
-                  <div className="border-b border-[#f0e8dc] pb-4 mb-4">
-                    <span className="block text-4xl lg:text-5xl font-black text-[#1c1a18] group-hover:text-[#5e8817] transition-colors tracking-tight">
+                  <div className="border-b border-[#f0e8dc] pb-2 sm:pb-4 mb-2 sm:mb-4">
+                    <span className="block text-2xl sm:text-4xl lg:text-5xl font-black text-[#1c1a18] group-hover:text-[#5e8817] transition-colors tracking-tight leading-tight">
                       {w.metric}
                     </span>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#6b6257] block mt-1">
+                    <span className="text-[9.5px] sm:text-[11px] font-bold uppercase tracking-wider text-[#6b6257] block mt-0.5">
                       {w.metricLabel}
                     </span>
                   </div>
 
-                  <p className="text-[14.5px] font-medium text-[#2d2924] leading-relaxed group-hover:text-black line-clamp-3">
+                  <p className="text-[12px] sm:text-[14.5px] font-medium text-[#2d2924] leading-relaxed group-hover:text-black line-clamp-2 sm:line-clamp-3">
                     {w.title}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#f7f2ea] mt-6 flex items-center justify-between text-[12px] font-bold text-[#5e8817] group-hover:text-black transition-colors">
-                  <span>View Benchmark Case Study</span>
-                  <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                <div className="pt-2 sm:pt-4 border-t border-[#f7f2ea] mt-3 sm:mt-6 flex items-center justify-between text-[10.5px] sm:text-[12px] font-bold text-[#5e8817] group-hover:text-black transition-colors">
+                  <span className="truncate max-w-[80%]">View Study</span>
+                  <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 group-hover:translate-x-1 transition-transform shrink-0" />
                 </div>
               </Link>
             ))}
@@ -486,65 +486,56 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-9">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-9">
             {consultingVerticals.map((item, i) => (
               <Link
                 key={i}
                 href={item.href}
-                className={`hover-mimag-border group flex flex-col md:flex-row ${item.cardBg} border rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2`}
+                className={`hover-mimag-border group flex flex-col ${item.cardBg} border rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5`}
               >
-                {/* Left Side: Crisp Practice Image (No Black Overlay) */}
-                <div className="relative w-full md:w-2/5 h-[240px] md:h-auto shrink-0 overflow-hidden bg-slate-100">
+                {/* Practice Image */}
+                <div className="relative w-full h-[120px] sm:h-[220px] shrink-0 overflow-hidden bg-slate-100">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover opacity-100 transition-transform duration-700 group-hover:scale-108"
                   />
-                  <span className={`absolute top-4 left-4 ${item.badgeStyle} px-3 py-1 rounded text-[10px] font-extrabold uppercase tracking-wider shadow-md z-10`}>
+                  <span className={`absolute top-2.5 left-2.5 ${item.badgeStyle} px-2 py-0.5 rounded text-[8.5px] sm:text-[10px] font-extrabold uppercase tracking-wider shadow-md z-10`}>
                     {item.category}
                   </span>
                 </div>
 
-                {/* Right Side: Structured Data, Highlights & Bottom Tags */}
-                <div className="p-7 sm:p-8 flex flex-col justify-between flex-1">
+                {/* Card Body */}
+                <div className="p-3 sm:p-8 flex flex-col justify-between flex-1">
                   <div>
-                    <h3 className={`text-2xl sm:text-3xl font-bold ${item.titleColor} tracking-tight transition-colors mb-2.5`}>
+                    <h3 className={`text-[15px] sm:text-3xl font-bold ${item.titleColor} tracking-tight transition-colors mb-1.5 sm:mb-2.5 leading-snug`}>
                       {item.title}
                     </h3>
-                    <p className={`text-[14px] sm:text-[14.5px] ${item.descColor} font-light leading-relaxed mb-4`}>
+                    <p className={`text-[12px] sm:text-[14.5px] ${item.descColor} font-light leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-none`}>
                       {item.description}
                     </p>
 
-                    {/* Key Practice Highlights (Fills whitespace) */}
-                    <div className="space-y-2 mb-6">
-                      {item.highlights.map((h, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-[13px] font-medium text-[#2d2924]">
-                          <CheckCircle className="h-4 w-4 text-[#5e8817] shrink-0 mt-0.5" />
-                          <span>{h}</span>
+                    {/* Key Practice Highlights */}
+                    <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-6 hidden xs:block sm:block">
+                      {item.highlights.slice(0, 2).map((h, idx) => (
+                        <div key={idx} className="flex items-start gap-1.5 text-[11px] sm:text-[13px] font-medium text-[#2d2924]">
+                          <CheckCircle className="h-3.5 w-3.5 text-[#5e8817] shrink-0 mt-0.5" />
+                          <span className="line-clamp-1 sm:line-clamp-none">{h}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Bottom Area: Tags placed directly above the border divider line */}
                   <div>
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {item.tags.map((tag) => (
-                        <span key={tag} className={`text-[10.5px] font-bold border px-2.5 py-0.5 rounded ${item.tagStyle}`}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className={`pt-4 ${item.borderColor} border-t flex flex-col sm:flex-row sm:items-center justify-between gap-2.5`}>
-                      <span className={`text-[11px] font-extrabold uppercase tracking-wider ${item.metricColor}`}>
+                    <div className={`pt-2.5 sm:pt-4 ${item.borderColor} border-t flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2.5`}>
+                      <span className={`text-[9.5px] sm:text-[11px] font-extrabold uppercase tracking-wider ${item.metricColor} truncate`}>
                         {item.metrics}
                       </span>
-                      <span className={`inline-flex items-center gap-1.5 text-[13px] font-bold ${item.linkColor} transition-colors shrink-0`}>
-                        <span>{item.linkText}</span>
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <span className={`inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-bold ${item.linkColor} transition-colors shrink-0`}>
+                        <span>Explore</span>
+                        <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
                   </div>
@@ -576,30 +567,30 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7">
             {services.map((s, idx) => (
               <div
                 key={s.title}
-                className="hover-mimag-border group flex flex-col justify-between rounded-xl border border-[#e8dfcf] bg-white p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-2xl hover:border-transparent hover:-translate-y-1.5"
+                className="hover-mimag-border group flex flex-col justify-between rounded-xl border border-[#e8dfcf] bg-white p-3.5 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-2xl hover:border-transparent hover:-translate-y-1.5"
               >
                 <div>
-                  <div className="flex items-center gap-3.5 mb-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] font-bold group-hover:bg-[#86bc25] group-hover:text-black transition-colors shadow-md">
-                      <s.icon className="h-5.5 w-5.5" />
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5 mb-3 sm:mb-4">
+                    <div className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg bg-[#1c1a18] text-[#86bc25] font-bold group-hover:bg-[#86bc25] group-hover:text-black transition-colors shadow-md">
+                      <s.icon className="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />
                     </div>
-                    <h3 className="text-[19px] font-bold text-[#1c1a18] tracking-tight group-hover:text-[#5e8817] transition-colors leading-snug">
+                    <h3 className="text-[14.5px] sm:text-[19px] font-bold text-[#1c1a18] tracking-tight group-hover:text-[#5e8817] transition-colors leading-snug">
                       {s.title}
                     </h3>
                   </div>
 
-                  <p className="text-[14.5px] text-[#5c564e] font-normal leading-relaxed mb-6">
+                  <p className="text-[12px] sm:text-[14.5px] text-[#5c564e] font-normal leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">
                     {s.body}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#f2ece1]">
-                  {s.tags.map((t) => (
-                    <span key={t} className={`text-[11px] font-bold tracking-wide border rounded px-2.5 py-0.5 ${s.tagColor}`}>
+                <div className="flex flex-wrap gap-1 pt-3 sm:pt-4 border-t border-[#f2ece1]">
+                  {s.tags.slice(0, 2).map((t) => (
+                    <span key={t} className={`text-[9.5px] sm:text-[11px] font-bold tracking-wide border rounded px-1.5 sm:px-2.5 py-0.5 ${s.tagColor} truncate max-w-full`}>
                       {t}
                     </span>
                   ))}
@@ -642,26 +633,26 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 mb-16 lg:mb-24">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-7 mb-12 lg:mb-24">
             {insights.map((p, i) => (
               <Link
                 key={i}
                 href={p.href}
-                className="hover-mimag-border group flex flex-col justify-between bg-[#0b1b38]/90 border border-[#1e3c70] rounded-xl p-6 sm:p-7 hover:bg-[#0f244a] hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
+                className="hover-mimag-border group flex flex-col justify-between bg-[#0b1b38]/90 border border-[#1e3c70] rounded-xl p-3.5 sm:p-7 hover:bg-[#0f244a] hover:border-transparent hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
               >
                 <div>
-                  <span className="inline-block text-[10.5px] font-extrabold uppercase tracking-wider bg-[#183563] text-[#aedc5b] px-3 py-1 rounded border border-[#264c8c] mb-4 truncate max-w-full">
+                  <span className="inline-block text-[9px] sm:text-[10.5px] font-extrabold uppercase tracking-wider bg-[#183563] text-[#aedc5b] px-2 sm:px-3 py-0.5 sm:py-1 rounded border border-[#264c8c] mb-2 sm:mb-4 truncate max-w-full">
                     {p.tag}
                   </span>
-                  <h4 className="text-[18px] font-semibold text-white leading-snug group-hover:text-[#86bc25] transition-colors mb-6">
+                  <h4 className="text-[13.5px] sm:text-[18px] font-semibold text-white leading-snug group-hover:text-[#86bc25] transition-colors mb-3 sm:mb-6 line-clamp-3 sm:line-clamp-none">
                     {p.title}
                   </h4>
                 </div>
-                <div className="pt-4 border-t border-[#1d396b] flex items-center justify-between text-[12.5px] text-[#b3cae3] font-medium">
-                  <span className="truncate max-w-[170px]">{p.read}</span>
+                <div className="pt-2 sm:pt-4 border-t border-[#1d396b] flex items-center justify-between text-[10.5px] sm:text-[12.5px] text-[#b3cae3] font-medium">
+                  <span className="truncate max-w-[120px] sm:max-w-[170px]">{p.read}</span>
                   <span className="inline-flex items-center gap-1 text-white font-bold group-hover:text-[#86bc25] transition-colors shrink-0">
                     <span>{p.href === '/reports' ? 'PDF' : 'Read'}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    <ArrowUpRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                   </span>
                 </div>
               </Link>
@@ -689,22 +680,22 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+            <div className="lg:col-span-8 grid grid-cols-2 gap-3 sm:gap-6">
               {[
-                { t: 'Senior Practitioners Only', d: 'Every program is directed and staffed by partners who personally architect at scale. Zero junior training ground pass-throughs.' },
-                { t: 'Fiercely Independent Counsel', d: 'We remain 100% vendor agnostic. Our structural guidance optimizes solely for corporate resilience and cost efficiency.' },
-                { t: 'Audited Outcome Accountable', d: 'Our delivery milestones and governance cadences are explicitly bound to the audited technical and financial outcomes we agree upon.' },
-                { t: 'From Boardroom to Production', d: 'One cohesive team taking full ownership through architectural advisory, systems engineering, compliance sign-off, and production scale.' }
+                { t: 'Senior Practitioners', d: 'Every program is directed and staffed by partners who personally architect at scale. Zero junior pass-throughs.' },
+                { t: 'Fiercely Independent', d: 'We remain 100% vendor agnostic. Our structural guidance optimizes solely for corporate resilience and cost efficiency.' },
+                { t: 'Audited Outcome SLAs', d: 'Our delivery milestones and governance cadences are explicitly bound to audited technical and financial outcomes.' },
+                { t: 'Boardroom to Code', d: 'One cohesive team taking full ownership through architectural advisory, systems engineering, and production scale.' }
               ].map((p, idx) => (
                 <div
                   key={idx}
-                  className="hover-mimag-border bg-[#0b172e] p-6 border border-[#1e3b6e] rounded-xl shadow-lg hover:border-transparent transition-all"
+                  className="hover-mimag-border bg-[#0b172e] p-3.5 sm:p-6 border border-[#1e3b6e] rounded-xl shadow-lg hover:border-transparent transition-all"
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <CheckCircle className="h-5 w-5 text-[#86bc25] shrink-0" />
-                    <h4 className="text-[17px] font-bold text-white">{p.t}</h4>
+                  <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#86bc25] shrink-0" />
+                    <h4 className="text-[13.5px] sm:text-[17px] font-bold text-white leading-tight">{p.t}</h4>
                   </div>
-                  <p className="text-[14px] text-[#a1bcdc] font-light leading-relaxed">{p.d}</p>
+                  <p className="text-[11.5px] sm:text-[14px] text-[#a1bcdc] font-light leading-relaxed line-clamp-3 sm:line-clamp-none">{p.d}</p>
                 </div>
               ))}
             </div>
@@ -729,7 +720,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7">
             {industriesData.map((item, i) => (
               <Link
                 key={i}
@@ -737,37 +728,37 @@ export default function HomePage() {
                 className="hover-mimag-border group flex flex-col justify-between bg-white border border-[#e4d7c5] rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5"
               >
                 <div>
-                  <div className="relative h-[210px] w-full overflow-hidden bg-[#1c1a18]">
+                  <div className="relative h-[115px] sm:h-[210px] w-full overflow-hidden bg-[#1c1a18]">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 50vw, 33vw"
                       className="object-cover opacity-75 group-hover:scale-108 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1c1a18]/90 via-[#1c1a18]/30 to-transparent" />
-                    <span className="absolute top-4 left-4 bg-[#faf7f2] text-black px-3 py-1 rounded text-[10px] font-extrabold uppercase tracking-wider shadow">
+                    <span className="absolute top-2.5 left-2.5 bg-[#faf7f2] text-black px-2 py-0.5 rounded text-[8.5px] sm:text-[10px] font-extrabold uppercase tracking-wider shadow">
                       {item.label}
                     </span>
                   </div>
 
-                  <div className="p-7">
-                    <h3 className="text-[21px] font-bold text-[#1c1a18] tracking-tight group-hover:text-[#5e8817] transition-colors mb-3">
+                  <div className="p-3.5 sm:p-7">
+                    <h3 className="text-[14px] sm:text-[21px] font-bold text-[#1c1a18] tracking-tight group-hover:text-[#5e8817] transition-colors mb-1.5 sm:mb-3 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-[14.5px] text-[#595248] font-normal leading-relaxed mb-4">
+                    <p className="text-[11.5px] sm:text-[14.5px] text-[#595248] font-normal leading-relaxed mb-2 sm:mb-4 line-clamp-2 sm:line-clamp-none">
                       {item.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="px-7 pb-6 pt-4 border-t border-[#f2ece2] flex items-center justify-between">
-                  <span className="text-[12px] font-extrabold text-[#784813] uppercase tracking-wider">
+                <div className="px-3.5 sm:px-7 pb-3 sm:pb-6 pt-2.5 sm:pt-4 border-t border-[#f2ece2] flex items-center justify-between">
+                  <span className="text-[9.5px] sm:text-[12px] font-extrabold text-[#784813] uppercase tracking-wider truncate max-w-[65%]">
                     {item.stats}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[13px] font-extrabold text-[#1c1a18] group-hover:text-[#5e8817] transition-colors">
-                    <span>Explore Hub</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="inline-flex items-center gap-1 text-[11px] sm:text-[13px] font-extrabold text-[#1c1a18] group-hover:text-[#5e8817] transition-colors shrink-0">
+                    <span>Hub</span>
+                    <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </Link>
@@ -797,40 +788,40 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {whyChooseUsData.map((item, idx) => (
               <div
                 key={idx}
-                className="hover-mimag-border group flex flex-col justify-between bg-[#0b1830]/90 border border-[#1d3969] rounded-xl p-6 sm:p-7 shadow-lg hover:border-transparent hover:bg-[#102447] transition-all duration-300 hover:-translate-y-1.5"
+                className="hover-mimag-border group flex flex-col justify-between bg-[#0b1830]/90 border border-[#1d3969] rounded-xl p-3.5 sm:p-7 shadow-lg hover:border-transparent hover:bg-[#102447] transition-all duration-300 hover:-translate-y-1.5"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#142c54] text-[#86bc25] group-hover:bg-[#86bc25] group-hover:text-black transition-colors shadow-md">
-                      <item.icon className="h-5.5 w-5.5" />
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3 sm:mb-5">
+                    <div className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-[#142c54] text-[#86bc25] group-hover:bg-[#86bc25] group-hover:text-black transition-colors shadow-md shrink-0">
+                      <item.icon className="h-4.5 w-4.5 sm:h-5.5 sm:w-5.5" />
                     </div>
-                    <span className="text-[10.5px] font-extrabold uppercase tracking-widest bg-[#173461] text-[#9bc5ff] px-2.5 py-0.5 rounded border border-[#274c87]">
+                    <span className="text-[9px] sm:text-[10.5px] font-extrabold uppercase tracking-widest bg-[#173461] text-[#9bc5ff] px-2 sm:px-2.5 py-0.5 rounded border border-[#274c87] truncate max-w-full">
                       {item.highlight}
                     </span>
                   </div>
 
-                  <h3 className="text-[19px] font-bold text-white tracking-tight group-hover:text-[#86bc25] transition-colors mb-2.5">
+                  <h3 className="text-[14px] sm:text-[19px] font-bold text-white tracking-tight group-hover:text-[#86bc25] transition-colors mb-1.5 sm:mb-2.5 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-[14px] text-[#b0cae8] font-light leading-relaxed mb-4">
+                  <p className="text-[11.5px] sm:text-[14px] text-[#b0cae8] font-light leading-relaxed mb-3 sm:mb-4 line-clamp-3 sm:line-clamp-none">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#1b3663] flex items-center justify-between text-[12.5px] text-[#84a9d4] font-medium">
-                  <span>Proven Practice Model</span>
-                  <CheckCircle className="h-4 w-4 text-[#86bc25] shrink-0" />
+                <div className="pt-2.5 sm:pt-3 border-t border-[#1b3663] flex items-center justify-between text-[10.5px] sm:text-[12.5px] text-[#84a9d4] font-medium">
+                  <span className="truncate max-w-[80%]">Proven Model</span>
+                  <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#86bc25] shrink-0" />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* KEY STATISTICS TICKER BAR */}
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#0c1c38] border border-[#1e3c70] rounded-xl p-6 text-center shadow-xl">
+          {/* KEY STATISTICS TICKER BAR - Mobile-first grid-cols-2 expanding to md:grid-cols-4 */}
+          <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 bg-[#0c1c38] border border-[#1e3c70] rounded-xl p-5 sm:p-6 text-center shadow-xl">
             <div>
               <span className="block text-3xl lg:text-4xl font-extrabold text-white">€1.9B+</span>
               <span className="text-[11.5px] font-bold text-[#8caed8] uppercase tracking-wider">Infra Savings</span>

@@ -102,7 +102,7 @@ export default function BlogsPage() {
           </div>
 
           {/* 3 SAMPLE MARKET RESEARCH REPORTS GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-7">
             {REPORTS_DATA.slice(0, 3).map((report) => (
               <Link
                 key={report.id}
@@ -264,7 +264,7 @@ export default function BlogsPage() {
           </div>
 
           {/* Articles Grid (Displays 3 by default) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-7">
             {visibleBlogs.map((b) => (
               <Link
                 key={b.id}

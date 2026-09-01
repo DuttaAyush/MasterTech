@@ -110,14 +110,13 @@ export default function InteractiveProcess3D() {
   const currentData = PROCESS_STEPS[activeStep];
   const containerRef = useRef(null);
 
-  // Scroll Progress Tracking across the Pinned Viewport Container
-  // Offset start 20% / end 80% locks the step transition while the header sits under navbar
+  // Scroll Progress Tracking across Desktop Pinned Container
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start 30%', 'end 85%']
   });
 
-  // Synchronize Active Checkpoint State as User Scrolls Through Pinned Section
+  // Synchronize Active Checkpoint State as User Scrolls Through Pinned Desktop Section
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     const calculatedStep = Math.min(6, Math.max(0, Math.floor(latest * 7.1)));
     if (calculatedStep !== activeStep) {
@@ -126,11 +125,11 @@ export default function InteractiveProcess3D() {
   });
 
   return (
-    /* STICKY CONTAINER WRAPPER: Extra top padding (pt-16 sm:pt-24) gives generous breathing space from section above */
-    <div ref={containerRef} className="relative h-[340vh] bg-[#faf7f2] font-sans border-b border-[#e5dccf] pt-14 sm:pt-20">
+    /* STICKY CONTAINER WRAPPER (DESKTOP): h-[340vh] height allows user to scroll & step through all 7 steps while screen remains pinned */
+    <div ref={containerRef} className="relative h-auto sm:h-[340vh] bg-[#faf7f2] font-sans border-b border-[#e5dccf] pt-8 sm:pt-20 pb-12 sm:pb-0">
       
-      {/* Sticky Viewport Container - Locks in view right when 'From Idea to Impact' header aligns under navbar */}
-      <div className="sticky -top-14 sm:-top-18 min-h-[92vh] flex flex-col justify-start pt-4 sm:pt-6 pb-8 px-4 sm:px-6 lg:px-10 overflow-hidden">
+      {/* Viewport Container: Sticky on Desktop, Static on Mobile */}
+      <div className="static sm:sticky -top-7 sm:-top-9 min-h-0 sm:min-h-[92vh] flex flex-col justify-start pt-2 sm:pt-6 pb-4 sm:pb-8 px-4 sm:px-6 lg:px-10 overflow-hidden">
         
         {/* Outer Background Ambient Glows */}
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#86bc25]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -138,8 +137,8 @@ export default function InteractiveProcess3D() {
 
         <div className="mx-auto max-w-[1500px] relative z-10 w-full">
           
-          {/* Outer Section Header with Extra Breathing Room */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 border-b border-[#e6dfd5] pb-4 pt-2">
+          {/* Outer Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 sm:mb-5 border-b border-[#e6dfd5] pb-3 sm:pb-4 pt-2">
             <div>
               <div className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.24em] text-[#784813] mb-1">
                 <Sparkles className="h-3.5 w-3.5 text-[#86bc25]" />
@@ -150,7 +149,7 @@ export default function InteractiveProcess3D() {
               </h2>
             </div>
 
-            <div className="mt-3 md:mt-0 text-[13px] font-medium text-[#6b6255]">
+            <div className="mt-2 sm:mt-3 md:mt-0 text-[12px] sm:text-[13px] font-medium text-[#6b6255]">
               Interactive 7-Phase Strategic Delivery Lifecycle
             </div>
           </div>
@@ -160,16 +159,16 @@ export default function InteractiveProcess3D() {
             <div className="relative w-full rounded-2xl border-2 border-[#1e3e75] bg-[#071329] p-3 sm:p-5 shadow-[0_25px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl text-white">
               
               {/* Active Step Top Info Bar */}
-              <div className="flex items-center justify-between px-4 py-2.5 border border-[#1b3a6b] mb-3.5 bg-[#061329]/90 rounded-xl text-[12px]">
-                <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 border border-[#1b3a6b] mb-3 sm:mb-3.5 bg-[#061329]/90 rounded-xl text-[12px]">
+                <div className="flex items-center gap-2.5 sm:gap-3">
                   <div
-                    className="flex h-8 w-8 items-center justify-center rounded-full font-extrabold text-white text-[13px] shadow-lg"
+                    className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full font-extrabold text-white text-[12px] sm:text-[13px] shadow-lg shrink-0"
                     style={{ backgroundColor: currentData.color }}
                   >
                     {currentData.num}
                   </div>
                   <div>
-                    <span className="font-extrabold text-white text-[15px]">
+                    <span className="font-extrabold text-white text-[13.5px] sm:text-[15px]">
                       {currentData.title}
                     </span>
                     <span className="text-zinc-400 text-[12px] hidden sm:inline ml-2 font-normal">
@@ -178,8 +177,8 @@ export default function InteractiveProcess3D() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-white bg-[#14305c] border border-[#234985] px-3 py-1 rounded-full shadow">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-white bg-[#14305c] border border-[#234985] px-2.5 sm:px-3 py-1 rounded-full shadow">
                     {currentData.duration}
                   </span>
                   <span className="font-extrabold text-[12px] font-mono" style={{ color: currentData.color }}>
@@ -188,8 +187,20 @@ export default function InteractiveProcess3D() {
                 </div>
               </div>
 
-              {/* PROCESS BLUEPRINT STAGE WITH PERFECT 3/4TH CONCENTRIC CIRCLE NODES */}
-              <div className="relative w-full h-[390px] sm:h-[460px] md:h-[510px] rounded-xl overflow-hidden bg-[#050c1a] border border-[#1b3663]">
+              {/* MOBILE VIEW BLUEPRINT DISPLAY (sm:hidden) - Uses PROCESS_MOBILE.png */}
+              <div className="block sm:hidden w-full relative rounded-xl overflow-hidden bg-[#050c1a] border border-[#1b3663] p-2">
+                <Image
+                  src="/images/PROCESS_MOBILE.png"
+                  alt="Execution Methodology Process Flow Blueprint Mobile"
+                  width={900}
+                  height={1400}
+                  priority
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              </div>
+
+              {/* DESKTOP VIEW BLUEPRINT STAGE (hidden sm:block) - Uses PROCESS.png + Interactive Overlays */}
+              <div className="hidden sm:block relative w-full h-[460px] md:h-[510px] rounded-xl overflow-hidden bg-[#050c1a] border border-[#1b3663]">
                 
                 {/* Background Stretched Blueprint Image */}
                 <div className="w-full h-full relative">
