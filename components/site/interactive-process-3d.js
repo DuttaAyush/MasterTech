@@ -130,7 +130,7 @@ export default function InteractiveProcess3D() {
     <div ref={containerRef} className="relative h-[340vh] bg-[#faf7f2] font-sans border-b border-[#e5dccf] pt-14 sm:pt-20">
       
       {/* Sticky Viewport Container - Locks in view right when 'From Idea to Impact' header aligns under navbar */}
-      <div className="sticky -top-7 sm:-top-9 min-h-[92vh] flex flex-col justify-start pt-4 sm:pt-6 pb-8 px-4 sm:px-6 lg:px-10 overflow-hidden">
+      <div className="sticky -top-14 sm:-top-18 min-h-[92vh] flex flex-col justify-start pt-4 sm:pt-6 pb-8 px-4 sm:px-6 lg:px-10 overflow-hidden">
         
         {/* Outer Background Ambient Glows */}
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-[#86bc25]/10 rounded-full blur-[140px] pointer-events-none" />
