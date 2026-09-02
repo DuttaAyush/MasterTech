@@ -22,43 +22,43 @@ const services = [
   {
     icon: Globe,
     title: 'Website Development',
-    body: 'High-performance, modern web applications engineered with lightning response times, SEO optimization, and responsive design systems.',
-    tags: ['Next.js & React', 'Enterprise Design Systems', 'SEO & Performance'],
+    body: 'We design and engineer high-performance digital experiences, from corporate websites and e-commerce platforms to scalable web applications built for performance, security, and growth.',
+    tags: ['Enterprise Software ', 'Cloud-Native Solutions', 'SEO & Performance'],
     tagColor: 'text-[#85531b] bg-[#fef3c7] border-[#fde68a]',
   },
   {
     icon: Smartphone,
     title: 'Mobile App Development',
-    body: 'Native and cross-platform mobile applications crafted for seamless iOS and Android user experiences with high security standards.',
-    tags: ['iOS & Android', 'React Native / Flutter', 'Mobile UX/UI'],
+    body: 'We build intuitive, secure, and scalable mobile applications that deliver seamless digital experiences across iOS and Android platforms.',
+    tags: ['iOS & Android', 'Cross-Platform', 'Mobile UX/UI'],
     tagColor: 'text-[#047857] bg-[#ecfdf5] border-[#a7f3d0]',
   },
   {
     icon: Code2,
     title: 'Software Development',
-    body: 'Custom enterprise software, API ecosystems, and scalable microservices designed for long-term operational resilience and growth.',
-    tags: ['Custom SaaS', 'Cloud Microservices', 'API Architecture'],
+    body: 'We engineer custom software, enterprise platforms, SaaS products, and integrated digital ecosystems designed around complex business requirements.',
+    tags: ['Enterprise Software', 'Cloud-Native Solutions', 'API Architecture'],
     tagColor: 'text-[#1d4ed8] bg-[#eff6ff] border-[#bfdbfe]',
   },
   {
     icon: Building2,
-    title: 'ERP Solutions',
-    body: 'End-to-end Enterprise Resource Planning implementations, streamlining supply chains, inventory, finance, and operational workflows.',
-    tags: ['Enterprise ERP', 'Workflow Automation', 'Operations & Supply'],
+    title: 'ERP Solutions & Automation',
+    body: 'We help organisations integrate and optimise critical business processes through ERP solutions, workflow automation, and connected enterprise systems.',
+    tags: ['Enterprise ERP', 'Process Automation', 'Operations & Supply'],
     tagColor: 'text-[#85531b] bg-[#fef3c7] border-[#fde68a]',
   },
   {
     icon: TrendingUp,
-    title: 'Digital Marketing',
-    body: 'Data-driven growth strategies, performance marketing, brand positioning, and conversion rate optimization that fuel business expansion.',
+    title: 'Digital Marketing & Growth',
+    body: 'We combine data, creativity, and technology to strengthen digital presence, accelerate customer acquisition, and support measurable business growth.',
     tags: ['Growth Strategy', 'Performance Marketing', 'Brand Positioning'],
     tagColor: 'text-[#047857] bg-[#ecfdf5] border-[#a7f3d0]',
   },
   {
     icon: Bot,
-    title: 'AI Agent Development',
-    body: 'Autonomous AI agents, RAG retrieval fabrics, and custom LLM workflows built to automate complex enterprise decisioning and operations.',
-    tags: ['Autonomous Agents', 'Custom LLMs & RAG', 'Enterprise Automation'],
+    title: 'AI & Intelligent Automation',
+    body: 'We develop AI-powered solutions, intelligent assistants, automation workflows, and custom AI applications that help organisations improve efficiency and unlock new capabilities.',
+    tags: ['AI Agents', 'Custom AI Solutions', 'Enterprise Automation'],
     tagColor: 'text-[#1d4ed8] bg-[#eff6ff] border-[#bfdbfe]',
   },
 ];
@@ -66,16 +66,15 @@ const services = [
 const consultingVerticals = [
   {
     title: 'Business Consulting',
-    category: 'Strategic Advisory',
+    category: 'Strategy And Transformation',
     image: '/images/optimized/bfsi_banking.webp',
     href: '/what-we-do/business-consulting',
-    description: 'Enterprise transformation, digital operating models, corporate governance, performance optimization, and audited value realization.',
+    description: 'We partner with organisations to address complex business challenges, redefine operating models, and unlock new opportunities for growth. Our consulting approach connects strategy, operations, digital transformation, and execution to deliver measurable business outcomes.',
     highlights: [
-      'Digital Operating Models & Business Transformation',
-      'Corporate Governance & Board-Level Advisory',
-      'Performance Optimization & Cost Realization',
+      'Enterprise Strategy, Growth & Transformation',
+      'Operating Model, Process & Performance Optimisation',
     ],
-    metrics: 'Audited Strategy & Operational Excellence',
+    metrics: '• STRATEGY • TRANSFORMATION • VALUE CREATION',
     tags: ['Corporate Strategy', 'Operating Models', 'Value Realization'],
     linkText: 'Explore Business Consulting',
     cardBg: 'bg-white hover:bg-[#faf7f2] border-[#e4d7c5]',
@@ -84,21 +83,20 @@ const consultingVerticals = [
     tagStyle: 'bg-[#f4efe6] text-[#4a4237] border-[#dfd4c2]',
     metricColor: 'text-[#6e5842]',
     badgeStyle: 'bg-[#1c1a18] text-white',
-    linkColor: 'text-[#1c1a18] group-hover:text-[#5e8817]',
+    linkColor: 'text-[#5e8817] group-hover:text-[#1c1a18]',
     borderColor: 'border-[#f0e6d8]',
   },
   {
     title: 'IT Consulting',
-    category: 'Tech Architecture',
+    category: 'Technology and Innovation',
     image: '/images/optimized/cloud_autonomous.webp',
     href: '/what-we-do/it-consulting',
-    description: 'Cloud modernization, zero-trust cybersecurity architecture, custom software engineering, ERP implementations, and autonomous AI fabrics.',
+    description: 'We help organisations modernise their technology landscape and build the digital capabilities required for an increasingly connected world. From technology strategy and enterprise architecture to cloud, AI, software engineering, and automation, we turn technology investments into scalable business advantage.',
     highlights: [
-      'Cloud Microservices & Hyperscale Infrastructure',
-      'Zero-Trust Security & Cryptographic Perimeters',
-      'Custom Enterprise SaaS & Autonomous AI Agents',
+      'Technology Strategy, Architecture & Digital Transformation',
+      'Cloud, AI, Software Engineering & Intelligent Automation',
     ],
-    metrics: 'Hyperscale Resilience & Cloud Optimization',
+    metrics: '• TECHNOLOGY • INNOVATION • ENTERPRISE SCALE',
     tags: ['Cloud Architecture', 'Zero-Trust Security', 'AI & Data Fabrics'],
     linkText: 'Explore IT Consulting',
     cardBg: 'bg-white hover:bg-[#faf7f2] border-[#e4d7c5]',
@@ -107,7 +105,7 @@ const consultingVerticals = [
     tagStyle: 'bg-[#f4efe6] text-[#4a4237] border-[#dfd4c2]',
     metricColor: 'text-[#6e5842]',
     badgeStyle: 'bg-[#1c1a18] text-white',
-    linkColor: 'text-[#1c1a18] group-hover:text-[#5e8817]',
+    linkColor: 'text-[#5e8817] group-hover:text-[#1c1a18]',
     borderColor: 'border-[#f0e6d8]',
   },
 ];
@@ -328,10 +326,12 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.05 }}
-                className="mt-4 sm:mt-7 text-[32px] sm:text-[48px] lg:text-[62px] font-light leading-[1.1] sm:leading-[1.06] tracking-[-0.025em] text-white text-balance"
+                className="mt-4 sm:mt-7 text-[32px] sm:text-[48px] lg:text-[48] font-light leading-[1.1] sm:leading-[1.06] tracking-[-0.025em] text-white text-balance"
               >
-                Intelligence That Shapes <br className="hidden sm:inline" />
-                <strong className="font-semibold text-white">Better Enterprise Decisions.</strong>
+                Technology Solutions for Businesses.
+ <br className="hidden sm:inline" />
+                <strong className="font-semibold text-white">Strategic Services for Growth.
+</strong>
               </motion.h1>
 
               <motion.p
@@ -340,7 +340,7 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="mt-6 text-[16px] md:text-[18.5px] font-light leading-[1.7] text-[#a3a3a3] max-w-2xl"
               >
-                We connect cloud modernization, applied AI, and zero-trust cybersecurity directly to audited revenue and latency outcomes. Built for demanding C-suite leaders where the cost of a wrong architectural move is too high to guess.
+                We help businesses transform ideas into scalable digital solutions through IT consulting, custom software, AI, automation, and digital transformation. Our strategic approach connects technology with real business objectives to drive innovation, efficiency, and sustainable growth.
               </motion.p>
 
               <motion.div
@@ -359,7 +359,7 @@ export default function HomePage() {
                     backgroundRepeat: 'no-repeat',
                   }}
                 >
-                  <span>Talk to senior partners</span>
+                  <span>Talk to our experts</span>
                   <ArrowUpRight className="h-4.5 w-4.5" />
                 </a>
                 <Link
@@ -374,22 +374,22 @@ export default function HomePage() {
               {/* EXECUTIVE TRUST BAR */}
               <div className="hidden md:grid mt-12 grid-cols-1 sm:grid-cols-3 gap-8 border-t border-[#262626] pt-7">
                 <div>
-                  <span className="block text-[15.5px] font-semibold text-white tracking-tight">Revenue-Linked</span>
-                  <span className="text-[11px] font-medium uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]">EVERY ENGAGEMENT</span>
+                  <span className="block text-[15.5px] font-semibold text-white tracking-tight">Business-Focused</span>
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]">which creates value</span>
                 </div>
                 <div className="sm:border-l sm:border-[#262626] sm:pl-7">
                   <span className="block text-[15.5px] font-semibold text-white tracking-tight">C-Suite Ready</span>
                   <span className="text-[11px] font-medium uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]">DELIVERABLE STANDARD</span>
                 </div>
                 <div className="sm:border-l sm:border-[#262626] sm:pl-7">
-                  <span className="block text-[15.5px] font-semibold text-white tracking-tight">Senior-Practitioners</span>
+                  <span className="block text-[15.5px] font-semibold text-white tracking-tight">Senior-Professionals</span>
                   <span className="text-[11px] font-medium uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#8B5A00] via-[#D4AF37] to-[#FFF5C2]">OUR ONLY MODE</span>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Interactive 3D Globe */}
-            <div className="hidden lg:flex lg:col-span-5 items-center justify-center relative min-h-[500px] w-full">
+            <div className="hidden lg:flex lg:col-span-5 items-center justify-center relative min-h-[500px] w-full -mt-10 lg:-mt-14">
               <InteractiveGlobe />
             </div>
           </div>
@@ -407,17 +407,17 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-l-4 border-[#86bc25] pl-4 sm:pl-5">
             <div>
               <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#784813] block mb-1">
-                Audited Enterprise Performance
+                Our Expertise in Action
               </span>
               <h2 className="text-2xl sm:text-4xl font-light text-[#1c1a18] tracking-tight">
-                Transformation Impact <span className="font-semibold text-black">Delivered & Verified</span>
+                Delivering Technology. <span className="font-semibold text-black">Creating Impact.</span>
               </h2>
             </div>
             <Link
               href="/our-work"
               className="inline-flex items-center gap-1.5 text-[14px] text-underline font-bold text-[#5e8817] hover:text-black transition-colors mt-3 md:mt-0"
             >
-              <span>Explore All Case Benchmark Studies</span>
+              <span>Explore Our Work</span>
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
@@ -475,14 +475,14 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 border-l-4 border-[#86bc25] pl-4 sm:pl-5">
             <div>
               <span className="text-[10.5px] sm:text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#f8f7f5] block mb-1">
-                Domain Fluency & Reference Frameworks
+                ENTERPRISE CAPABILITIES & EXPERTISE
               </span>
               <h2 className="text-2xl sm:text-4xl font-light tracking-tight text-white">
-                Vertical Intelligence Across <span className="font-semibold text-[#86bc25]">Critical Sectors</span>
+                Transforming Organisations <span className="font-semibold text-[#86bc25]">Through Strategy</span>
               </h2>
             </div>
             <p className="text-[13.5px] sm:text-[14.5px] text-zinc-300 max-w-md mt-2 md:mt-0 font-light leading-relaxed hidden sm:block">
-              Architectural reference models tailored to stringent financial, healthcare, defense, and smart-grid regulatory demands.
+              We bring together business insight, technology expertise, and innovation to help organizations navigate complexities.
             </p>
           </div>
 
@@ -516,7 +516,9 @@ export default function HomePage() {
                     <p className={`text-[12px] sm:text-[14.5px] ${item.descColor} font-light leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-none`}>
                       {item.description}
                     </p>
-
+                    <h3 className={`text-[13px] sm:text-medium font-bold ${item.titleColor} tracking-tight transition-colors mb-1.5 sm:mb-2.5 leading-snug`}>
+                      Key Capabilities
+                    </h3>
                     {/* Key Practice Highlights */}
                     <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-6 hidden xs:block sm:block">
                       {item.highlights.slice(0, 2).map((h, idx) => (
@@ -555,7 +557,7 @@ export default function HomePage() {
                 Engineering Capabilities
               </span>
               <h2 className="mt-1 text-3xl sm:text-4xl font-light tracking-tight text-[#1c1a18]">
-                Senior-Led Practices. <span className="font-semibold">Accountable Delivery.</span>
+                Building The  <span className="font-semibold">Future Together</span>
               </h2>
             </div>
             <Link
@@ -600,12 +602,55 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* 5. SECTION: DEEP SAPPHIRE-BLUE RESEARCH & WHITEPAPERS */}
-      <section className="relative bg-gradient-to-r from-[#07152b] via-[#0c2247] to-[#07152b] text-white py-12 sm:py-20 lg:py-24 border-b border-[#1c3a6b] font-sans overflow-hidden">
+      <section className="relative bg-gradient-to-r from-[#07152b] via-[#0c2247] to-[#07152b] text-white py-14 sm:py-20 lg:py-24 border-b border-[#1c3a6b] font-sans overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#3b82f6]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-4 border-b border-[#1c3969]">
+          
+          {/* CONSULTING GOVERNANCE MODEL */}
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 lg:mb-16">
+            <div className="lg:col-span-4">
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#86bc25] block mb-1">
+                Consulting Governance Model
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-light text-white tracking-tight mb-3 sm:mb-4">
+                A Consultancy Model <span className="font-semibold text-white">Engineered for Results</span>
+              </h2>
+              <p className="text-[13.5px] sm:text-[15.5px] text-[#c0d4ec] font-light leading-relaxed mb-4 sm:mb-6">
+                Independent. Senior by design. Totally outcome accountable. We replace bloated legacy consultancy pyramids with small, high-density practitioner pods that ship production cloud architectures.
+              </p>
+              <Link
+                href="/who-we-are"
+                className="inline-flex items-center gap-2 font-bold text-[#86bc25] text-[13.5px] sm:text-[15px] hover:underline"
+              >
+                <span>Meet Our Senior Practice Leads</span>
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="lg:col-span-8 grid grid-cols-2 gap-3 sm:gap-6">
+              {[
+                { t: 'Senior Practitioners', d: 'Every program is directed and staffed by partners who personally architect at scale. Zero junior pass-throughs.' },
+                { t: 'Fiercely Independent', d: 'We remain 100% vendor agnostic. Our structural guidance optimizes solely for corporate resilience and cost efficiency.' },
+                { t: 'Audited Outcome SLAs', d: 'Our delivery milestones and governance cadences are explicitly bound to audited technical and financial outcomes.' },
+                { t: 'Boardroom to Code', d: 'One cohesive team taking full ownership through architectural advisory, systems engineering, and production scale.' }
+              ].map((p, idx) => (
+                <div
+                  key={idx}
+                  className="hover-mimag-border bg-[#0b172e] p-3.5 sm:p-6 border border-[#1e3b6e] rounded-xl shadow-lg hover:border-transparent transition-all"
+                >
+                  <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#86bc25] shrink-0" />
+                    <h4 className="text-[13.5px] sm:text-[17px] font-bold text-white leading-tight">{p.t}</h4>
+                  </div>
+                  <p className="text-[11.5px] sm:text-[14px] text-[#a1bcdc] font-light leading-relaxed line-clamp-3 sm:line-clamp-none">{p.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* MIMAG Institute Publications Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 pb-4 border-b border-[#1c3969] pt-10 lg:pt-14 border-t border-[#1a3869]/80">
             <div>
               <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#63a3ff] flex items-center gap-2 mb-1">
                 <Sparkles className="h-3.5 w-3.5 text-[#86bc25]" />
@@ -633,7 +678,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-7 mb-12 lg:mb-24">
+          {/* Whitepapers Cards Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-7">
             {insights.map((p, i) => (
               <Link
                 key={i}
@@ -658,48 +704,7 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-
-          {/* WHY MIMAG FIRM MODEL */}
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center pt-10 border-t border-[#1a3869]/80">
-            <div className="lg:col-span-4">
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#86bc25] block mb-1">
-                Consulting Governance Model
-              </span>
-              <h2 className="text-3xl font-light text-white tracking-tight mb-4">
-                A Consultancy Model <span className="font-semibold text-white">Engineered for Results</span>
-              </h2>
-              <p className="text-[15.5px] text-[#c0d4ec] font-light leading-relaxed mb-6">
-                Independent. Senior by design. Totally outcome accountable. We replace bloated legacy consultancy pyramids with small, high-density practitioner pods that ship production cloud architectures.
-              </p>
-              <Link
-                href="/who-we-are"
-                className="inline-flex items-center gap-2 font-bold text-[#86bc25] text-[15px] hover:underline"
-              >
-                <span>Meet Our Senior Practice Leads</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="lg:col-span-8 grid grid-cols-2 gap-3 sm:gap-6">
-              {[
-                { t: 'Senior Practitioners', d: 'Every program is directed and staffed by partners who personally architect at scale. Zero junior pass-throughs.' },
-                { t: 'Fiercely Independent', d: 'We remain 100% vendor agnostic. Our structural guidance optimizes solely for corporate resilience and cost efficiency.' },
-                { t: 'Audited Outcome SLAs', d: 'Our delivery milestones and governance cadences are explicitly bound to audited technical and financial outcomes.' },
-                { t: 'Boardroom to Code', d: 'One cohesive team taking full ownership through architectural advisory, systems engineering, and production scale.' }
-              ].map((p, idx) => (
-                <div
-                  key={idx}
-                  className="hover-mimag-border bg-[#0b172e] p-3.5 sm:p-6 border border-[#1e3b6e] rounded-xl shadow-lg hover:border-transparent transition-all"
-                >
-                  <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#86bc25] shrink-0" />
-                    <h4 className="text-[13.5px] sm:text-[17px] font-bold text-white leading-tight">{p.t}</h4>
-                  </div>
-                  <p className="text-[11.5px] sm:text-[14px] text-[#a1bcdc] font-light leading-relaxed line-clamp-3 sm:line-clamp-none">{p.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          
         </div>
       </section>
 
@@ -823,7 +828,7 @@ export default function HomePage() {
           {/* KEY STATISTICS TICKER BAR - Mobile-first grid-cols-2 expanding to md:grid-cols-4 */}
           <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 bg-[#0c1c38] border border-[#1e3c70] rounded-xl p-5 sm:p-6 text-center shadow-xl">
             <div>
-              <span className="block text-3xl lg:text-4xl font-extrabold text-white">€1.9B+</span>
+              <span className="block text-3xl lg:text-4xl font-extrabold text-white">100+</span>
               <span className="text-[11.5px] font-bold text-[#8caed8] uppercase tracking-wider">Infra Savings</span>
             </div>
             <div>
