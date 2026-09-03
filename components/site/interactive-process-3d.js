@@ -19,6 +19,7 @@ const PROCESS_STEPS = [
     glowColor: 'rgba(0, 102, 255, 0.95)',
     duration: '2 - 3 Weeks',
     pos: { top: '15.5%', left: '10%' },
+    textPos: { top: '28%', left: '8%' },
     point: { x: 100, y: 62 }
   },
   {
@@ -31,6 +32,7 @@ const PROCESS_STEPS = [
     glowColor: 'rgba(30, 86, 216, 0.95)',
     duration: '3 - 4 Weeks',
     pos: { top: '45.5%', left: '28.5%' },
+    textPos: { top: '55%', left: '26.5%' },
     point: { x: 285, y: 182 }
   },
   {
@@ -43,6 +45,7 @@ const PROCESS_STEPS = [
     glowColor: 'rgba(0, 180, 216, 0.95)',
     duration: '3 - 5 Weeks',
     pos: { top: '36.8%', left: '54.2%' },
+    textPos: { top: '34%', left: '58.5%' },
     point: { x: 542, y: 147 }
   },
   {
@@ -55,6 +58,7 @@ const PROCESS_STEPS = [
     glowColor: 'rgba(16, 185, 129, 0.95)',
     duration: '6 - 12 Weeks',
     pos: { top: '53.2%', left: '76%' },
+    textPos: { top: '52%', left: '80%' },
     point: { x: 760, y: 213 }
   },
   {
@@ -67,6 +71,7 @@ const PROCESS_STEPS = [
     glowColor: 'rgba(245, 158, 11, 0.95)',
     duration: '2 - 4 Weeks',
     pos: { top: '75.2%', left: '19.5%' },
+    textPos: { top: '75%', left: '24%' },
     point: { x: 195, y: 301 }
   },
   {
@@ -79,6 +84,7 @@ const PROCESS_STEPS = [
     glowColor: 'rgba(249, 115, 22, 0.95)',
     duration: '1 - 2 Weeks',
     pos: { top: '75.6%', left: '47.4%' },
+    textPos: { top: '75%', left: '52%' },
     point: { x: 474, y: 302 }
   },
   {
@@ -91,6 +97,7 @@ const PROCESS_STEPS = [
     glowColor: 'rgba(147, 51, 234, 0.95)',
     duration: 'Ongoing SLA',
     pos: { top: '80.2%', left: '78.8%' },
+    textPos: { top: '79%', left: '82.5%' },
     point: { x: 788, y: 321 }
   }
 ];
@@ -107,6 +114,7 @@ const SEGMENT_PATHS = [
 
 export default function InteractiveProcess3D() {
   const [activeStep, setActiveStep] = useState(0);
+  const [hoveredStep, setHoveredStep] = useState(null);
 
   // Continuous Zero-Delay Sequential Path Drawing Animation Loop: 01 -> 02 -> 03 -> 04 -> 05 -> 06 -> 07 -> Reset Loop
   useEffect(() => {
@@ -169,7 +177,7 @@ export default function InteractiveProcess3D() {
             </div>
 
             {/* DESKTOP VIEW BLUEPRINT STAGE (hidden sm:block) - Uses PROCESS.png + Interactive Overlays */}
-            <div className="hidden sm:block relative w-full h-[460px] md:h-[510px] rounded-xl overflow-hidden bg-[#050c1a] border border-[#1b3663]">
+            <div className="hidden sm:block relative w-full h-[480px] md:h-[530px] rounded-xl overflow-hidden bg-[#050c1a] border border-[#1b3663]">
               
               {/* Background Stretched Blueprint Image */}
               <div className="w-full h-full relative">
@@ -178,7 +186,7 @@ export default function InteractiveProcess3D() {
                   alt="From Idea to Impact Process Flow Blueprint"
                   fill
                   priority
-                  className="object-fill w-full h-full"
+                  className="object-fill w-full h-full opacity-60"
                 />
               </div>
 
@@ -234,8 +242,6 @@ export default function InteractiveProcess3D() {
                   ))}
                 </defs>
 
-
-
                 {/* 6 SEQUENTIAL DOTTED PATHS (TRUE ROUND DOTTED BEAD LINES PROGRESSIVELY REVEALED) */}
                 {SEGMENT_PATHS.map((seg) => {
                   const isPastSegment = activeStep > seg.fromStep;
@@ -246,7 +252,7 @@ export default function InteractiveProcess3D() {
 
                   return (
                     <g key={`group-${seg.id}`}>
-                      {/* Crisp Round Dotted Line (strokeDasharray 2 12, strokeLinecap round, NO BLUR SHADOW) */}
+                      {/* Crisp Round Dotted Line (strokeDasharray 2 12, strokeLinecap round) */}
                       <path
                         d={seg.d}
                         fill="none"
@@ -261,20 +267,23 @@ export default function InteractiveProcess3D() {
                 })}
               </svg>
 
-              {/* OVERLAY LAYER: DOT NODES APPEARING / ACTIVATING 1-BY-1 AS LINE REACHES THEM */}
+              {/* OVERLAY LAYER: DOT NODES & CRISP LEFT-ALIGNED TEXT DESCRIPTIONS APPEARING 1-BY-1 */}
               <div className="absolute inset-0 pointer-events-none z-20">
                 {PROCESS_STEPS.map((s, idx) => {
                   const Icon = s.icon;
-                  const isReached = idx <= activeStep;
-                  const isCurrentTarget = idx === activeStep;
+                  const isHovered = hoveredStep === idx;
+                  const isReached = idx <= activeStep || isHovered;
+                  const isCurrentTarget = idx === activeStep || isHovered;
 
                   return (
                     <div
                       key={s.id}
                       style={{ top: s.pos.top, left: s.pos.left }}
                       className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto flex flex-col items-center"
+                      onMouseEnter={() => setHoveredStep(idx)}
+                      onMouseLeave={() => setHoveredStep(null)}
                     >
-                      {/* Step Title Badge Above Circle (Appears when Dot is Reached) */}
+                      {/* Step Title Badge Above Circle */}
                       <motion.div
                         initial={false}
                         animate={{
@@ -332,7 +341,7 @@ export default function InteractiveProcess3D() {
                           </button>
                         </div>
 
-                        {/* Radar Glow Ring on Current Target Circle */}
+                        {/* Radar Glow Ring on Current Target or Hovered Circle */}
                         {isCurrentTarget && (
                           <motion.div
                             animate={{ scale: [1, 1.45, 1], opacity: [0.85, 0.15, 0.85] }}
@@ -344,6 +353,40 @@ export default function InteractiveProcess3D() {
                       </div>
 
                     </div>
+                  );
+                })}
+
+                {/* INDEPENDENTLY POSITIONED CRISP VECTOR TEXT BLOCKS AT USER'S EXACT OFFSET COORDINATES */}
+                {PROCESS_STEPS.map((s, idx) => {
+                  const isHovered = hoveredStep === idx;
+                  const isReached = idx <= activeStep || isHovered;
+                  const isCurrentTarget = idx === activeStep || isHovered;
+
+                  return (
+                    <motion.div
+                      key={`text-${s.id}`}
+                      style={{ top: s.textPos.top, left: s.textPos.left }}
+                      initial={false}
+                      animate={{
+                        opacity: isReached ? 1 : 0.65,
+                        scale: isCurrentTarget ? 1.05 : 1
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute -translate-y-1/2 max-w-[190px] sm:max-w-[220px] text-left flex flex-col items-start pointer-events-auto z-20 cursor-pointer"
+                      onMouseEnter={() => setHoveredStep(idx)}
+                      onMouseLeave={() => setHoveredStep(null)}
+                      onClick={() => setActiveStep(idx)}
+                    >
+                      <h4
+                        className="text-[14px] sm:text-[15px] font-extrabold tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,1)] mb-0.5 transition-colors duration-300"
+                        style={{ color: isReached ? '#ffffff' : '#94a3b8' }}
+                      >
+                        {s.title}
+                      </h4>
+                      <p className="text-[11.5px] sm:text-[12.5px] leading-snug font-medium text-zinc-200 drop-shadow-[0_1px_8px_rgba(0,0,0,1)]">
+                        {s.shortDesc}
+                      </p>
+                    </motion.div>
                   );
                 })}
               </div>
