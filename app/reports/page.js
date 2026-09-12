@@ -76,8 +76,8 @@ export default function ReportsPage() {
       <section className="bg-[#faf7f2] text-[#1c1a18] py-20 font-sans min-h-[600px] border-t border-[#e8ded1]">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
           <div className="flex items-center justify-between mb-10 pb-4 border-b border-[#e6decc]">
-            <span className="text-[14px] text-[#5c564e] font-light">
-              Showing <strong className="text-[#1c1a18] font-bold">{filteredReports.length}</strong> available architectural publications
+            <span className="text-[14px]  text-[#5c564e] font-semibold">
+              Available Reports
             </span>
             <span className="text-[12px] font-extrabold uppercase tracking-widest text-[#5e8817] flex items-center gap-1.5 bg-[#edf7df] px-3 py-1 rounded border border-[#cbe6a3]">
               <CheckCircle className="h-3.5 w-3.5 text-[#5e8817]" /> Open Enterprise Access

@@ -8,7 +8,7 @@ import PageShell from '@/components/site/page-shell';
 import { getReportBySlug, REPORTS_DATA } from '@/lib/reports-data';
 import {
   ArrowLeft, ArrowUpRight, Download, Share2,
-  CheckCircle, ChevronRight, BookOpen, BarChart3
+  CheckCircle, ChevronRight, BookOpen, BarChart3, Lock, ShieldCheck
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -105,15 +105,17 @@ export default function ReportDetailPage({ params }) {
         </div>
       </section>
 
-      {/* 2. REPORT CONTENT BODY */}
+      {/* 2. REPORT CONTENT BODY WITH FULL-WIDTH PROGRESSIVE BLUR & GATED ACCESS */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-12 lg:py-16 font-sans min-h-[700px]">
         <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
 
+          {/* MAIN 2-COLUMN REPORT LAYOUT (LEFT CONTENT + RIGHT SIDEBAR) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
             {/* Left Content Area */}
             <div className="lg:col-span-7 xl:col-span-8 space-y-8 pr-0 lg:pr-2">
 
-              {/* Executive Summary Callout */}
+              {/* 1. Executive Summary Callout (FULLY VISIBLE) */}
               <div className="bg-white border-l-4 border-[#86bc25] p-6 sm:p-8 rounded-r-xl border-y border-r border-[#e4d7c5] shadow-sm">
                 <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] block mb-2">
                   Executive Research Briefing
@@ -123,25 +125,7 @@ export default function ReportDetailPage({ params }) {
                 </p>
               </div>
 
-              {/* Key Analytical Findings */}
-              <div className="bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-8 shadow-sm">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#1c1a18] tracking-tight mb-6 pb-3 border-b border-[#f2ece2] flex items-center gap-2.5">
-                  <BarChart3 className="h-6 w-6 text-[#5e8817]" />
-                  <span>Key Analytical & Architectural Findings</span>
-                </h2>
-                <div className="space-y-4">
-                  {report.keyFindings.map((finding, idx) => (
-                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-lg bg-[#fcfaf7] border border-[#f2ebe0]">
-                      <CheckCircle className="h-5 w-5 text-[#5e8817] shrink-0 mt-0.5" />
-                      <p className="text-[15px] text-[#3d372e] font-medium leading-relaxed">
-                        {finding}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Table of Contents */}
+              {/* 2. Report Table of Contents (FULLY VISIBLE) */}
               <div className="bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-8 shadow-sm">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#1c1a18] tracking-tight mb-6 pb-3 border-b border-[#f2ece2] flex items-center gap-2.5">
                   <BookOpen className="h-6 w-6 text-[#5e8817]" />
@@ -161,22 +145,81 @@ export default function ReportDetailPage({ params }) {
                 </div>
               </div>
 
-              {/* Research Methodology */}
-              <div className="bg-[#f4efe4]/70 border border-[#e4d7c5] rounded-xl p-6 sm:p-8">
-                <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] block mb-2">
-                  Research Methodology & Benchmark Sample
-                </span>
-                <p className="text-[15px] text-[#423b32] leading-relaxed font-normal">
-                  {report.methodology}
-                </p>
+              {/* 3. KEY ANALYTICAL FINDINGS WITH OVERLAY BLUR CURTAIN */}
+              <div className="relative bg-white border border-[#e4d7c5] rounded-xl p-6 sm:p-8 shadow-sm overflow-hidden min-h-[480px]">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#1c1a18] tracking-tight mb-6 pb-3 border-b border-[#f2ece2] flex items-center gap-2.5">
+                  <BarChart3 className="h-6 w-6 text-[#5e8817]" />
+                  <span>Key Analytical & Architectural Findings</span>
+                </h2>
+
+                {/* All Key Findings Rendered Naturally */}
+                <div className="space-y-4">
+                  {report.keyFindings.map((finding, idx) => (
+                    <div key={idx} className="flex items-start gap-3.5 p-4 rounded-lg bg-[#fcfaf7] border border-[#f2ebe0]">
+                      <CheckCircle className="h-5 w-5 text-[#5e8817] shrink-0 mt-0.5" />
+                      <p className="text-[15px] text-[#3d372e] font-medium leading-relaxed">
+                        {finding}
+                      </p>
+                    </div>
+                  ))}
+
+                  <div className="pt-4 space-y-3 opacity-60">
+                    <h3 className="text-lg font-bold text-[#1c1a18]">
+                      Chapter 1: Enterprise System Topology & Microservices Benchmark
+                    </h3>
+                    <p className="text-[14px] text-[#555] leading-relaxed">
+                      Our empirical load tests across 45 enterprise Kubernetes clusters revealed significant latency overhead in default service mesh configurations. By migrating ingress routing to eBPF-native kernel filters, throughput increased by 42%.
+                    </p>
+                  </div>
+                </div>
+
+                {/* SOFT GRADIENT BLUR OVERLAY (STARTS WITH VERY LIGHT BLUR, FADING TO CREAM WITH CENTERED CTA) */}
+                <div className="absolute inset-x-0 bottom-0 top-[170px] bg-gradient-to-b from-transparent via-[#faf7f2]/80 to-[#faf7f2] backdrop-blur-[2px] hover:backdrop-blur-sm transition-all flex items-center justify-center p-6 text-center z-20">
+                  
+                  {/* FLOATING DARK SAPPHIRE UNLOCK CTA CARD */}
+                  <div className="max-w-md w-full bg-[#07152b] border-2 border-[#1e3c70] text-white rounded-2xl p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl relative z-30 flex flex-col items-center">
+                    
+                    <div className="w-13 h-13 rounded-full bg-[#86bc25]/15 border border-[#86bc25]/40 flex items-center justify-center mb-3 text-[#86bc25] shadow-[0_0_20px_rgba(134,188,37,0.3)]">
+                      <Lock className="h-6 w-6 text-[#86bc25]" />
+                    </div>
+
+                    <span className="text-[10px] font-extrabold uppercase tracking-[0.24em] text-[#86bc25] mb-1">
+                      Restricted Enterprise Content
+                    </span>
+
+                    <h3 className="text-2xl font-bold text-white tracking-tight mb-2">
+                      Contact Us to Unlock
+                    </h3>
+
+                    <p className="text-[13px] text-[#b3cbee] font-light leading-relaxed mb-6">
+                      Get full unrestricted access to this complete {report.pages} technical research whitepaper, architectural blueprints, and benchmark matrices.
+                    </p>
+
+                    <Link
+                      href="/contact"
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#86bc25] text-black font-extrabold text-[13.5px] py-3.5 px-6 rounded-lg hover:bg-[#97d031] transition-all shadow-lg shadow-[#86bc25]/25 group"
+                    >
+                      <ShieldCheck className="h-4.5 w-4.5 text-black" />
+                      <span>Contact Us to Unlock</span>
+                      <ArrowUpRight className="h-4 w-4 text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+
+                    <p className="text-[11px] text-zinc-400 mt-3 font-medium">
+                      Immediate access • Direct partner response
+                    </p>
+
+                  </div>
+
+                </div>
+
               </div>
 
             </div>
 
-            {/* Right Sticky Sidebar (IMAGE FIRST -> FULL REPORT CARD -> ADVISORY CARD, NO AUTHOR CARD) */}
+            {/* Right Sticky Sidebar */}
             <div className="lg:col-span-5 xl:col-span-4 space-y-7 sticky top-24">
               
-              {/* 1. Featured Image Banner (Top of Right Sidebar) */}
+              {/* 1. Featured Image Banner */}
               <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden shadow-lg border border-[#e4d7c5] bg-[#1c1a18]">
                 <Image
                   src={report.image}
@@ -231,6 +274,7 @@ export default function ReportDetailPage({ params }) {
               </div>
 
             </div>
+
           </div>
 
           {/* Related Reports Footer Grid */}

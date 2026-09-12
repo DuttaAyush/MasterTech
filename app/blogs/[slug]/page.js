@@ -25,13 +25,13 @@ export default function BlogDetailPage({ params }) {
   const handleShare = () => {
     if (typeof window !== 'undefined') {
       navigator.clipboard.writeText(window.location.href);
-      toast.success('Article link copied to clipboard.');
+      toast.success('Blog link copied to clipboard.');
     }
   };
 
   return (
     <PageShell>
-      {/* 1. DARK EXECUTIVE ARTICLE HERO (Clean & No Author Profile) */}
+      {/* 1. DARK EXECUTIVE BLOG HERO (Clean & No Author Profile) */}
       <section className="relative bg-[#000000] text-white py-12 lg:py-16 border-b border-[#1a1a1a] font-sans">
         <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           {/* Breadcrumb & Navigation */}
@@ -51,7 +51,7 @@ export default function BlogDetailPage({ params }) {
                 className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-zinc-400 bg-[#1a1a1a] border border-[#262626] px-3 py-1.5 rounded hover:text-white hover:border-[#86bc25] transition-all"
               >
                 <Share2 className="h-3.5 w-3.5" />
-                <span>Share Article</span>
+                <span>Share Blog</span>
               </button>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function BlogDetailPage({ params }) {
               </span>
             </div>
 
-            {/* Article Title */}
+            {/* Blog Title */}
             <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-light tracking-[-0.02em] text-white leading-[1.15]">
               {blog.title}
             </h1>
@@ -79,7 +79,7 @@ export default function BlogDetailPage({ params }) {
         </div>
       </section>
 
-      {/* 2. ARTICLE CONTENT BODY (Natural Unenclosed Blog Text & Right Sidebar) */}
+      {/* 2. BLOG CONTENT BODY (Natural Unenclosed Blog Text & Right Sidebar) */}
       <section className="bg-[#faf7f2] text-[#1c1a18] py-12 lg:py-16 font-sans min-h-[700px]">
         <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
@@ -187,7 +187,7 @@ export default function BlogDetailPage({ params }) {
                 <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#784813] block mb-1">
                   Related Insights
                 </span>
-                <h3 className="text-2xl font-bold text-[#1c1a18]">Explore Related Research & Articles</h3>
+                <h3 className="text-2xl font-bold text-[#1c1a18]">Explore Related Blogs</h3>
               </div>
               <Link href="/blogs" className="text-[13px] font-bold text-[#5e8817] hover:underline flex items-center gap-1">
                 <span>View All Insights</span>
@@ -216,7 +216,7 @@ export default function BlogDetailPage({ params }) {
                   <div className="pt-4 border-t border-[#f2ece2] flex items-center justify-between text-[12px]">
                     <span className="text-[#784813] font-bold">{b.readTime}</span>
                     <span className="inline-flex items-center gap-1 font-bold text-[#1c1a18] group-hover:text-[#5e8817]">
-                      Read Article <ArrowUpRight className="h-3.5 w-3.5" />
+                      Read Blog <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
                 </Link>

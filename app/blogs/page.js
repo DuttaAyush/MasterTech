@@ -168,7 +168,7 @@ export default function BlogsPage() {
             <div>
               <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#85531b]">Knowledge Archive</span>
               <h3 className="text-2xl sm:text-3xl font-light text-[#1c1a18] tracking-tight mt-1">
-                Browse <span className="font-semibold">{activeTab === 'All' ? 'All Research Articles' : `${activeTab} Articles`}</span>
+                Browse <span className="font-semibold">{activeTab === 'All' ? 'All Blogs' : `${activeTab} Blogs`}</span>
               </h3>
             </div>
 
@@ -263,7 +263,7 @@ export default function BlogsPage() {
             </div>
           </div>
 
-          {/* Articles Grid (Displays 3 by default) */}
+          {/* Blogs Grid (Displays 3 by default) */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-7">
             {visibleBlogs.map((b) => (
               <Link
@@ -286,14 +286,14 @@ export default function BlogsPage() {
                 <div className="pt-4 border-t border-[#f2ebe0] flex items-center justify-between text-[12px]">
                   <span className="text-[#8c8275] font-semibold">{b.date}</span>
                   <span className="inline-flex items-center gap-1 font-bold text-[#1c1a18] group-hover:text-[#5e8817]">
-                    Read article <ArrowUpRight className="h-3.5 w-3.5" />
+                    Read blog <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* VIEW ALL ARTICLES DROPDOWN TRIGGER BELOW GRID */}
+          {/* VIEW ALL BLOGS DROPDOWN TRIGGER BELOW GRID */}
           {filteredAndSortedBlogs.length > 3 && (
             <div className="mt-12 flex flex-col items-center justify-center">
               <button
@@ -304,7 +304,7 @@ export default function BlogsPage() {
                 <span>
                   {isExpanded
                     ? 'Collapse Research Archive'
-                    : `View All Research Articles `}
+                    : `View All Blogs `}
                 </span>
                 {isExpanded ? (
                   <ChevronUp className="h-4 w-4 text-[#86bc25] transition-transform group-hover:-translate-y-0.5" />
